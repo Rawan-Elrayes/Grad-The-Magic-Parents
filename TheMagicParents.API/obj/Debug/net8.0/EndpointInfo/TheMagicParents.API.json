@@ -1,0 +1,142 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "TheMagicParents.API",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/Account/governments": {
+      "get": {
+        "tags": [
+          "Account"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Account/cities/{governmentId}": {
+      "get": {
+        "tags": [
+          "Account"
+        ],
+        "parameters": [
+          {
+            "name": "governmentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Account/register/client": {
+      "post": {
+        "tags": [
+          "Account"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "required": [
+                  "CityId",
+                  "Email",
+                  "IdCardBackPhoto",
+                  "IdCardFrontPhoto",
+                  "Location",
+                  "Password",
+                  "PersonalPhoto",
+                  "PhoneNumber",
+                  "UserName"
+                ],
+                "type": "object",
+                "properties": {
+                  "Location": {
+                    "type": "string"
+                  },
+                  "UserName": {
+                    "type": "string"
+                  },
+                  "PhoneNumber": {
+                    "maxLength": 11,
+                    "minLength": 11,
+                    "type": "string"
+                  },
+                  "Email": {
+                    "type": "string",
+                    "format": "email"
+                  },
+                  "Password": {
+                    "type": "string"
+                  },
+                  "PersonalPhoto": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "IdCardFrontPhoto": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "IdCardBackPhoto": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "CityId": {
+                    "type": "integer",
+                    "format": "int32"
+                  }
+                }
+              },
+              "encoding": {
+                "Location": {
+                  "style": "form"
+                },
+                "UserName": {
+                  "style": "form"
+                },
+                "PhoneNumber": {
+                  "style": "form"
+                },
+                "Email": {
+                  "style": "form"
+                },
+                "Password": {
+                  "style": "form"
+                },
+                "PersonalPhoto": {
+                  "style": "form"
+                },
+                "IdCardFrontPhoto": {
+                  "style": "form"
+                },
+                "IdCardBackPhoto": {
+                  "style": "form"
+                },
+                "CityId": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": { }
+}
