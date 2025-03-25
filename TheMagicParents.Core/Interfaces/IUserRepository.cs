@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TheMagicParents.Models;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace TheMagicParents.Core.Interfaces
 {
@@ -15,6 +16,6 @@ namespace TheMagicParents.Core.Interfaces
         Task<IEnumerable<City>> GetCitiesByGovernmentAsync(int governmentId);
         Task<string> GenerateUserNameIdFromEmailAsync(string email);
         Task<string> SaveImage(IFormFile image);
-
+        Task<(JwtSecurityToken Token, DateTime Expires)> GenerateJwtToken<TUser>(TUser user) where TUser : User;
     }
 }

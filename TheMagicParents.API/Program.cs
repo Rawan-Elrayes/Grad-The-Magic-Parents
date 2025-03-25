@@ -1,9 +1,16 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 using TheMagicParents.Core.Interfaces;
 using TheMagicParents.Infrastructure.Data;
 using TheMagicParents.Infrastructure.Repositories;
 using TheMagicParents.Models;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using TheMagicParents.Core.EmailService;
+using EcommerceMola.EmailModels;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,10 +25,6 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddIdentity<User, IdentityRole>()
     .AddEntityFrameworkStores<AppDbContext>()
     .AddDefaultTokenProviders();
-
-//  ”ÃÌ· «·‹ Repositories
-builder.Services.AddScoped<IClientRepository, ClientRepository>();
-builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 //  ”ÃÌ· «·‹ DbContext
 builder.Services.AddDbContext<AppDbContext>(options =>
@@ -42,24 +45,54 @@ builder.Services.AddSession(options =>
 });
 builder.Services.AddHttpContextAccessor();
 
+//JWT
+var jwtSettings = builder.Configuration.GetSection("Jwt");
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = jwtSettings["Issuer"],
+        ValidAudience = jwtSettings["Audience"],
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings["Key"])),
+        ClockSkew = TimeSpan.Zero // ⁄œ„ «·”„«Õ »√Ì  √ŒÌ—
+    };
+});
+
+//Email configuration
+var emailConfig = builder.Configuration.GetSection("EmailConfiguration").Get<EmailConfiguration>();
+builder.Services.AddSingleton(emailConfig);
+builder.Services.AddScoped<IEmailSender, EmailSender>();
+builder.Services.AddHostedService<UserCleanupService>();
+
+//  ”ÃÌ· «·‹ Repositories
+builder.Services.AddScoped<IClientRepository, ClientRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-	app.UseSwagger();
-	app.UseSwaggerUI();
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
 
 app.UseHttpsRedirection();
 
-app.UseAuthorization();
-
-app.MapControllers();
-
-app.UseAuthentication();
+app.UseAuthentication(); 
 app.UseAuthorization();
 
 app.UseSession();
+
+app.MapControllers();
 
 app.Run();

@@ -7,6 +7,14 @@ using TheMagicParents.Infrastructure.Data;
 using TheMagicParents.Models;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.Processing;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
+using Microsoft.AspNetCore.Identity.UI.Services;
+using System;
 
 namespace TheMagicParents.Infrastructure.Repositories
 {
@@ -14,11 +22,15 @@ namespace TheMagicParents.Infrastructure.Repositories
     {
         private readonly AppDbContext _context;
         private readonly UserManager<User> _userManager;
-
-        public UserRepository(AppDbContext context, UserManager<User> userManager)
+        private readonly IConfiguration _configuration;
+        private readonly ILogger<UserRepository> _logger;
+        
+        public UserRepository(AppDbContext context, UserManager<User> userManager, ILogger<UserRepository> logger, IConfiguration configuration)
         {
             _context = context;
             _userManager = userManager;
+            _configuration = configuration;
+            _logger = logger;
         }
 
         public async Task<IEnumerable<Governorate>> GetGovernmentsAsync()
@@ -79,6 +91,38 @@ namespace TheMagicParents.Infrastructure.Repositories
             }
 
             return $"/images/{newFileName}";
+        }
+
+        public async Task<(JwtSecurityToken Token, DateTime Expires)> GenerateJwtToken<TUser>(TUser user) where TUser : User
+        {
+            var claims = new List<Claim>
+            {
+                new Claim(JwtRegisteredClaimNames.Sub, user.Id),
+                new Claim(JwtRegisteredClaimNames.Email, user.Email),
+                new Claim(JwtRegisteredClaimNames.UniqueName, user.UserName),
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+            };
+
+            // إضافة الأدوار
+            var roles = await _userManager.GetRolesAsync(user);
+            foreach (var role in roles)
+            {
+                claims.Add(new Claim(ClaimTypes.Role, role));
+            }
+
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
+            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+            var expires = DateTime.Now.AddDays(Convert.ToDouble(_configuration["Jwt:ExpireDays"]));
+
+            var token = new JwtSecurityToken(
+                issuer: _configuration["Jwt:Issuer"],
+                audience: _configuration["Jwt:Audience"],
+                claims: claims,
+                expires: expires,
+                signingCredentials: creds
+            );
+
+            return (token, expires);
         }
     }
 }

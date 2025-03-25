@@ -166,7 +166,7 @@ namespace TheMagicParents.Infrastructure.Data.Migrations
 
                     b.HasKey("Email");
 
-                    b.ToTable("Admins", (string)null);
+                    b.ToTable("Admins");
                 });
 
             modelBuilder.Entity("TheMagicParents.Models.Availability", b =>
@@ -191,7 +191,7 @@ namespace TheMagicParents.Infrastructure.Data.Migrations
 
                     b.HasIndex("ServiceProciderID");
 
-                    b.ToTable("Availabilities", (string)null);
+                    b.ToTable("Availabilities");
                 });
 
             modelBuilder.Entity("TheMagicParents.Models.Booking", b =>
@@ -239,7 +239,7 @@ namespace TheMagicParents.Infrastructure.Data.Migrations
 
                     b.HasIndex("ServiceProviderID");
 
-                    b.ToTable("Bookings", (string)null);
+                    b.ToTable("Bookings");
                 });
 
             modelBuilder.Entity("TheMagicParents.Models.City", b =>
@@ -261,7 +261,7 @@ namespace TheMagicParents.Infrastructure.Data.Migrations
 
                     b.HasIndex("GovernorateId");
 
-                    b.ToTable("Cities", (string)null);
+                    b.ToTable("Cities");
                 });
 
             modelBuilder.Entity("TheMagicParents.Models.Governorate", b =>
@@ -278,7 +278,7 @@ namespace TheMagicParents.Infrastructure.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Governorates", (string)null);
+                    b.ToTable("Governorates");
                 });
 
             modelBuilder.Entity("TheMagicParents.Models.Payment", b =>
@@ -309,7 +309,7 @@ namespace TheMagicParents.Infrastructure.Data.Migrations
                     b.HasIndex("BookingID")
                         .IsUnique();
 
-                    b.ToTable("Payments", (string)null);
+                    b.ToTable("Payments");
                 });
 
             modelBuilder.Entity("TheMagicParents.Models.PaymentTransactions", b =>
@@ -345,7 +345,7 @@ namespace TheMagicParents.Infrastructure.Data.Migrations
 
                     b.HasIndex("ServiceProviderID");
 
-                    b.ToTable("PaymentTransactions", (string)null);
+                    b.ToTable("PaymentTransactions");
                 });
 
             modelBuilder.Entity("TheMagicParents.Models.Review", b =>
@@ -370,7 +370,7 @@ namespace TheMagicParents.Infrastructure.Data.Migrations
                     b.HasIndex("BookingID")
                         .IsUnique();
 
-                    b.ToTable("Reviews", (string)null);
+                    b.ToTable("Reviews");
                 });
 
             modelBuilder.Entity("TheMagicParents.Models.Support", b =>
@@ -394,7 +394,7 @@ namespace TheMagicParents.Infrastructure.Data.Migrations
 
                     b.HasKey("SupportID");
 
-                    b.ToTable("Supports", (string)null);
+                    b.ToTable("Supports");
                 });
 
             modelBuilder.Entity("TheMagicParents.Models.User", b =>
@@ -414,6 +414,9 @@ namespace TheMagicParents.Infrastructure.Data.Migrations
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
                         .HasMaxLength(256)
@@ -520,7 +523,7 @@ namespace TheMagicParents.Infrastructure.Data.Migrations
 
                     b.HasIndex("SupportID");
 
-                    b.ToTable("AspNetUsers", null, t =>
+                    b.ToTable("AspNetUsers", t =>
                         {
                             t.Property("SupportID")
                                 .HasColumnName("Client_SupportID");

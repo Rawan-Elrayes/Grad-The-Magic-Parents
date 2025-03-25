@@ -9,6 +9,9 @@ using Microsoft.EntityFrameworkCore;
 using TheMagicParents.Enums;
 using TheMagicParents.Models;
 using TheMagicParents.Infrastructure.Repositories;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.WebUtilities;
+using System.Text;
 
 namespace TheMagicParents.API.Controllers
 {
@@ -44,36 +47,44 @@ namespace TheMagicParents.API.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                return BadRequest(new Response<ClientRegisterResponse>
+                {
+                    Message = "Invalid model state",
+                    Status = false,
+                    Errors = ModelState.Values.SelectMany(v => v.Errors)
+                                        .Select(e => e.ErrorMessage).ToList()
+                });
             }
 
             try
             {
-                var client=await clientRepository.RegisterClientAsync(model);
+                var client = await clientRepository.RegisterClientAsync(model);
 
-                return Ok(new
+                return Ok(new Response<ClientRegisterResponse>
                 {
                     Message = "Client registered successfully",
-                    UserNameId = client.UserNameId,
-                    PersonalPhotoUrl = client.PersonalPhoto,
-                    IdCardFrontPhotoUrl = client.IdCardFrontPhoto,
-                    IdCardBackPhotoUrl = client.IdCardBackPhoto
+                    Data = client,
+                    Status = true
                 });
             }
             catch (InvalidOperationException ex)
             {
-                return BadRequest(new { Message = ex.Message });
+                return BadRequest(new Response<ClientRegisterResponse>
+                {
+                    Message = ex.Message,
+                    Status = false,
+                    Errors = new List<string> { ex.Message }
+                });
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new
+                return StatusCode(500, new Response<ClientRegisterResponse>
                 {
                     Message = "An error occurred while registering the client.",
-                    Error = ex.Message
+                    Status = false,
+                    Errors = new List<string> { ex.Message }
                 });
             }
         }
-
-        
     }
 }

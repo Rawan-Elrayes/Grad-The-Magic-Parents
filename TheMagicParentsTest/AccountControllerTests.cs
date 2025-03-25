@@ -1,182 +1,191 @@
-﻿//using Microsoft.AspNetCore.Http;
-//using Microsoft.AspNetCore.Mvc;
-//using Moq;
-//using SixLabors.ImageSharp.PixelFormats;
-//using SixLabors.ImageSharp;
-//using System;
-//using System.IO;
-//using System.Threading.Tasks;
-//using TheMagicParents.API.Controllers;
-//using TheMagicParents.Core.DTOs;
-//using TheMagicParents.Core.Interfaces;
-//using TheMagicParents.Enums;
-//using TheMagicParents.Models;
-//using Xunit;
+﻿using Xunit;
+using Moq;
+using TheMagicParents.API.Controllers;
+using TheMagicParents.Core.Interfaces;
+using TheMagicParents.Core.DTOs;
+using TheMagicParents.Models;
+using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Http;
+using System.IO;
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using System;
 
-//namespace TheMagicParents.Tests
-//{
-//    public class AccountControllerTests
-//    {
-//        private readonly Mock<IClientRepository> _mockClientRepo;
-//        private readonly Mock<IUserRepository> _mockUserRepo;
-//        private readonly AccountController _controller;
+namespace TheMagicParents.Tests.Controllers
+{
+    public class AccountControllerTests
+    {
+        private readonly Mock<IClientRepository> _mockClientRepo;
+        private readonly Mock<IUserRepository> _mockUserRepo;
+        private readonly AccountController _controller;
 
-//        public AccountControllerTests()
-//        {
-//            _mockClientRepo = new Mock<IClientRepository>();
-//            _mockUserRepo = new Mock<IUserRepository>();
-//            _controller = new AccountController(_mockClientRepo.Object, _mockUserRepo.Object);
-//        }
+        public AccountControllerTests()
+        {
+            _mockClientRepo = new Mock<IClientRepository>();
+            _mockUserRepo = new Mock<IUserRepository>();
+            _controller = new AccountController(_mockClientRepo.Object, _mockUserRepo.Object);
+        }
 
-//        [Fact]
-//        public async Task RegisterClient_ValidModel_ReturnsOkResult()
-//        {
-//            // Arrange
-//            var model = new ClientRegisterDTO
-//            {
-//                UserName = "testuser",
-//                PhoneNumber = "01234567890",
-//                Email = "test@example.com",
-//                Password = "P@ssw0rd",
-//                PersonalPhoto = CreateMockFormFile("personal.jpg"),
-//                IdCardFrontPhoto = CreateMockFormFile("front.jpg"),
-//                IdCardBackPhoto = CreateMockFormFile("back.jpg"),
-//                CityId = 1,
-//                Location = "123 Main St"
-//            };
+        [Fact]
+        public async Task GetGovernments_ReturnsOkResult_WithGovernmentsList()
+        {
+            // Arrange
+            var mockGovernments = new List<Governorate>
+            {
+                new Governorate { Id = 1, Name = "Cairo" },
+                new Governorate { Id = 2, Name = "Alexandria" }
+            };
 
-//            _mockUserRepo.Setup(repo => repo.GenerateUserNameIdFromEmailAsync(It.IsAny<string>()))
-//                .ReturnsAsync("testuser");
+            _mockUserRepo.Setup(repo => repo.GetGovernmentsAsync())
+                .ReturnsAsync(mockGovernments);
 
-//            _mockClientRepo.Setup(repo => repo.RegisterClientAsync(It.IsAny<Client>()))
-//                .Returns(Task.CompletedTask);
+            // Act
+            var result = await _controller.GetGovernments();
 
-//            var httpContext = CreateMockHttpContext();
-//            _controller.ControllerContext = new ControllerContext()
-//            {
-//                HttpContext = httpContext
-//            };
+            // Assert
+            var okResult = Assert.IsType<OkObjectResult>(result);
+            var returnedGovernments = Assert.IsType<List<Governorate>>(okResult.Value);
+            Assert.Equal(2, returnedGovernments.Count);
+        }
 
-//            // Act
-//            var result = await _controller.RegisterClient(model);
+        [Fact]
+        public async Task GetCitiesByGovernment_ReturnsOkResult_WithCitiesList()
+        {
+            // Arrange
+            var governmentId = 1;
+            var mockCities = new List<City>
+            {
+                new City { Id = 1, Name = "Nasr City", GovernorateId = governmentId },
+                new City { Id = 2, Name = "Maadi", GovernorateId = governmentId }
+            };
 
-//            // Assert
-//            var okResult = Assert.IsType<OkObjectResult>(result);
-//            Assert.Equal("Client registered successfully", okResult.Value.GetType().GetProperty("Message").GetValue(okResult.Value));
-//            Assert.Equal("testuser", okResult.Value.GetType().GetProperty("UserNameId").GetValue(okResult.Value));
-//        }
+            _mockUserRepo.Setup(repo => repo.GetCitiesByGovernmentAsync(governmentId))
+                .ReturnsAsync(mockCities);
 
-//        [Fact]
-//        public async Task RegisterClient_InvalidModel_ReturnsBadRequest()
-//        {
-//            // Arrange
-//            var model = new ClientRegisterDTO(); // نموذج غير صالح
-//            _controller.ModelState.AddModelError("UserName", "Required");
+            // Act
+            var result = await _controller.GetCitiesByGovernment(governmentId);
 
-//            // Act
-//            var result = await _controller.RegisterClient(model);
+            // Assert
+            var okResult = Assert.IsType<OkObjectResult>(result);
+            var returnedCities = Assert.IsType<List<City>>(okResult.Value);
+            Assert.Equal(2, returnedCities.Count);
+            Assert.All(returnedCities, city => Assert.Equal(governmentId, city.GovernorateId));
+        }
 
-//            // Assert
-//            var badRequestResult = Assert.IsType<BadRequestObjectResult>(result);
-//            var serializableError = Assert.IsType<SerializableError>(badRequestResult.Value);
-//            Assert.True(serializableError.ContainsKey("UserName"));
-//        }
+        [Fact]
+        public async Task RegisterClient_ReturnsBadRequest_WhenModelStateInvalid()
+        {
+            // Arrange
+            _controller.ModelState.AddModelError("Email", "Email is required");
+            var model = new ClientRegisterDTO();
 
-//        [Fact]
-//        public async Task RegisterClient_ExceptionThrown_ReturnsInternalServerError()
-//        {
-//            // Arrange
-//            var model = new ClientRegisterDTO
-//            {
-//                UserName = "testuser",
-//                PhoneNumber = "01234567890",
-//                Email = "test@example.com",
-//                Password = "P@ssw0rd",
-//                PersonalPhoto = CreateMockFormFile("personal.jpg"),
-//                IdCardFrontPhoto = CreateMockFormFile("front.jpg"),
-//                IdCardBackPhoto = CreateMockFormFile("back.jpg"),
-//                CityId = 1,
-//                Location = "123 Main St"
-//            };
+            // Act
+            var result = await _controller.RegisterClient(model);
 
-//            _mockUserRepo.Setup(repo => repo.GenerateUserNameIdFromEmailAsync(It.IsAny<string>()))
-//                .ReturnsAsync("testuser");
+            // Assert
+            Assert.IsType<BadRequestObjectResult>(result);
+        }
 
-//            _mockClientRepo.Setup(repo => repo.RegisterClientAsync(It.IsAny<Client>()))
-//                .ThrowsAsync(new Exception("Test exception"));
+        [Fact]
+        public async Task RegisterClient_ReturnsOkResult_WhenRegistrationSuccessful()
+        {
+            // Arrange
+            var model = new ClientRegisterDTO
+            {
+                UserName = "testuser",
+                Email = "test@example.com",
+                Password = "P@ssw0rd!",
+                PhoneNumber = "01234567890",
+                CityId = 1,
+                Location = "Test Location",
+                PersonalPhoto = CreateMockFormFile("profile.jpg"),
+                IdCardFrontPhoto = CreateMockFormFile("front.jpg"),
+                IdCardBackPhoto = CreateMockFormFile("back.jpg")
+            };
 
-//            // Act
-//            var result = await _controller.RegisterClient(model);
+            var expectedResponse = new ClientRegisterResponse
+            {
+                UserName = "testuser",
+                Email = "test@example.com",
+                Token = "mock-token",
+                Expires = DateTime.Now.AddDays(1)
+            };
 
-//            // Assert
-//            var statusCodeResult = Assert.IsType<ObjectResult>(result);
-//            Assert.Equal(500, statusCodeResult.StatusCode);
-//            Assert.Equal("An error occurred while registering the client.", statusCodeResult.Value.GetType().GetProperty("Message").GetValue(statusCodeResult.Value));
-//            Assert.Equal("Test exception", statusCodeResult.Value.GetType().GetProperty("Error").GetValue(statusCodeResult.Value));
-//        }
+            _mockClientRepo.Setup(repo => repo.RegisterClientAsync(It.IsAny<ClientRegisterDTO>()))
+                .ReturnsAsync(expectedResponse);
 
-//        [Fact]
-//        public async Task RegisterClient_EmailAlreadyExists_ReturnsBadRequest()
-//        {
-//            // Arrange
-//            var model = new ClientRegisterDTO
-//            {
-//                UserName = "testuser",
-//                PhoneNumber = "01234567890",
-//                Email = "test@example.com",
-//                Password = "P@ssw0rd",
-//                PersonalPhoto = CreateMockFormFile("personal.jpg"),
-//                IdCardFrontPhoto = CreateMockFormFile("front.jpg"),
-//                IdCardBackPhoto = CreateMockFormFile("back.jpg"),
-//                CityId = 1,
-//                Location = "123 Main St"
-//            };
+            // Act
+            var result = await _controller.RegisterClient(model);
 
-//            _mockUserRepo.Setup(repo => repo.GenerateUserNameIdFromEmailAsync(It.IsAny<string>()))
-//                .ReturnsAsync("testuser");
+            // Assert
+            var okResult = Assert.IsType<OkObjectResult>(result);
+            var response = Assert.IsType<Response<ClientRegisterResponse>>(okResult.Value);
+            Assert.Equal("Client registered successfully", response.Message);
+            Assert.Equal(expectedResponse.Email, response.Data.Email);
+        }
 
-//            _mockClientRepo.Setup(repo => repo.RegisterClientAsync(It.IsAny<Client>()))
-//                .ThrowsAsync(new InvalidOperationException("Email is already registered."));
+        [Fact]
+        public async Task RegisterClient_ReturnsBadRequest_WhenEmailExists()
+        {
+            // Arrange
+            var model = new ClientRegisterDTO
+            {
+                Email = "existing@example.com"
+            };
 
-//            var httpContext = CreateMockHttpContext();
-//            _controller.ControllerContext = new ControllerContext()
-//            {
-//                HttpContext = httpContext
-//            };
+            _mockClientRepo.Setup(repo => repo.RegisterClientAsync(It.IsAny<ClientRegisterDTO>()))
+                .ThrowsAsync(new InvalidOperationException("Email is already registered."));
 
-//            // Act
-//            var result = await _controller.RegisterClient(model);
+            // Act
+            var result = await _controller.RegisterClient(model);
 
-//            // Assert
-//            var badRequestResult = Assert.IsType<BadRequestObjectResult>(result);
-//            Assert.Equal("Email is already registered.", badRequestResult.Value.GetType().GetProperty("Message").GetValue(badRequestResult.Value));
-//        }
+            // Assert
+            var badRequestResult = Assert.IsType<BadRequestObjectResult>(result);
+            var response = Assert.IsType<Response<ClientRegisterResponse>>(badRequestResult.Value);
+            Assert.False(response.Status);
+            Assert.Equal("Email is already registered.", response.Message);
+            Assert.Contains("Email is already registered.", response.Errors);
+        }
 
-//        private IFormFile CreateMockFormFile(string fileName)
-//        {
-//            var fileMock = new Mock<IFormFile>();
+        [Fact]
+        public async Task RegisterClient_ReturnsStatusCode500_WhenExceptionOccurs()
+        {
+            // Arrange
+            var model = new ClientRegisterDTO();
+            _mockClientRepo.Setup(repo => repo.RegisterClientAsync(It.IsAny<ClientRegisterDTO>()))
+                .ThrowsAsync(new Exception("Test exception"));
 
-//            // إنشاء صورة وهمية باستخدام ImageSharp
-//            using (var image = new Image<Rgba32>(100, 100)) // صورة بحجم 100x100
-//            {
-//                var ms = new MemoryStream();
-//                image.SaveAsJpeg(ms); // حفظ الصورة بصيغة JPEG
-//                ms.Position = 0;
+            // Act
+            var result = await _controller.RegisterClient(model);
 
-//                fileMock.Setup(f => f.FileName).Returns(fileName);
-//                fileMock.Setup(f => f.Length).Returns(ms.Length);
-//                fileMock.Setup(f => f.OpenReadStream()).Returns(ms);
+            // Assert
+            var statusCodeResult = Assert.IsType<ObjectResult>(result);
+            Assert.Equal(500, statusCodeResult.StatusCode);
+            var response = Assert.IsType<Response<ClientRegisterResponse>>(statusCodeResult.Value);
+            Assert.False(response.Status);
+            Assert.Equal("An error occurred while registering the client.", response.Message);
+            Assert.Contains("Test exception", response.Errors);
+        }
 
-//                return fileMock.Object;
-//            }
-//        }
 
-//        private HttpContext CreateMockHttpContext()
-//        {
-//            var httpContext = new DefaultHttpContext();
-//            httpContext.Request.Scheme = "http";
-//            httpContext.Request.Host = new HostString("localhost:5000");
-//            return httpContext;
-//        }
-//    }
-//}
+
+        private IFormFile CreateMockFormFile(string fileName)
+        {
+            var fileMock = new Mock<IFormFile>();
+            var ms = new MemoryStream();
+            var writer = new StreamWriter(ms);
+            writer.Write("test file content");
+            writer.Flush();
+            ms.Position = 0;
+
+            fileMock.Setup(f => f.FileName).Returns(fileName);
+            fileMock.Setup(f => f.Length).Returns(ms.Length);
+            fileMock.Setup(f => f.OpenReadStream()).Returns(ms);
+
+            return fileMock.Object;
+        }
+    }
+}

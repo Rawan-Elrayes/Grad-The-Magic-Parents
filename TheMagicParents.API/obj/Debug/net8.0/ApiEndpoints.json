@@ -80,5 +80,26 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EmailController",
+    "Method": "ConfirmEmail",
+    "RelativePath": "api/Email/confirm-email",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "token",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
   }
 ]

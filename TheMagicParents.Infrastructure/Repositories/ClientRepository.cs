@@ -6,6 +6,19 @@ using TheMagicParents.Infrastructure.Data;
 using TheMagicParents.Models;
 using TheMagicParents.Enums;
 using TheMagicParents.Core.DTOs;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using Microsoft.IdentityModel.Tokens;
+using System;
+using Microsoft.AspNetCore.Mvc;
+using System.Data;
+using System.Text;
+using Azure.Core;
+using Microsoft.AspNetCore.WebUtilities;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
+using TheMagicParents.Core.EmailService;
+using Microsoft.AspNetCore.Http;
 
 namespace TheMagicParents.Infrastructure.Repositories
 {
@@ -14,17 +27,26 @@ namespace TheMagicParents.Infrastructure.Repositories
         private readonly AppDbContext _context;
         private readonly UserManager<User> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
-        private readonly IUserRepository userRepository;
+        private readonly IUserRepository _userRepository;
+        private readonly IEmailSender _emailSender;
+        private readonly IConfiguration _configuration;
+        private readonly ILogger<UserRepository> _logger;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public ClientRepository(AppDbContext context, UserManager<User> userManager, RoleManager<IdentityRole> roleManager, IUserRepository userRepository)
+
+        public ClientRepository(AppDbContext context, UserManager<User> userManager, RoleManager<IdentityRole> roleManager, IUserRepository userRepository, IEmailSender emailSender, IConfiguration configuration, ILogger<UserRepository> logger, IHttpContextAccessor httpContextAccessor)
         {
             _context = context;
             _userManager = userManager;
             _roleManager = roleManager;
-            this.userRepository = userRepository;
+            _userRepository = userRepository;
+            _emailSender = emailSender;
+            _configuration = configuration;
+            _logger = logger;
+            _httpContextAccessor = httpContextAccessor;
         }
 
-        public async Task<Client> RegisterClientAsync(ClientRegisterDTO model)
+        public async Task<ClientResponse> RegisterClientAsync(ClientRegisterDTO model)
         {
             // التحقق من وجود البريد الإلكتروني مسبقًا
             var existingUser = await _userManager.FindByEmailAsync(model.Email);
@@ -38,23 +60,23 @@ namespace TheMagicParents.Infrastructure.Repositories
                 UserName = model.UserName,
                 PhoneNumber = model.PhoneNumber,
                 Email = model.Email,
-                PersonalPhoto = await userRepository.SaveImage(model.PersonalPhoto),
-                IdCardFrontPhoto = await userRepository.SaveImage(model.IdCardFrontPhoto),
-                IdCardBackPhoto = await userRepository.SaveImage(model.IdCardBackPhoto),
+                PersonalPhoto = await _userRepository.SaveImage(model.PersonalPhoto),
+                IdCardFrontPhoto = await _userRepository.SaveImage(model.IdCardFrontPhoto),
+                IdCardBackPhoto = await _userRepository.SaveImage(model.IdCardBackPhoto),
                 CityId = model.CityId,
-                AccountState = StateType.Active,
+                AccountState = StateType.Waiting,
                 Location = model.Location,
-                PasswordHash = model.Password
+                PasswordHash = model.Password,
+                EmailConfirmed=false
             };
-
             // توليد UserNameId من البريد الإلكتروني
-            client.UserNameId = await userRepository.GenerateUserNameIdFromEmailAsync(client.Email);
+            client.UserNameId = await _userRepository.GenerateUserNameIdFromEmailAsync(client.Email);
 
             // إنشاء المستخدم
             var result = await _userManager.CreateAsync(client, model.Password);
             if (!result.Succeeded)
             {
-                throw new Exception("User creation failed.");
+                throw new Exception(string.Join(", ", result.Errors.Select(e => e.Description)));
             }
 
             // التحقق من وجود دور Customer وإنشائه إذا لم يكن موجودًا
@@ -62,20 +84,55 @@ namespace TheMagicParents.Infrastructure.Repositories
             {
                 await _roleManager.CreateAsync(new IdentityRole(UserRoles.Client.ToString()));
             }
+            await _userManager.AddToRoleAsync(client, UserRoles.Client.ToString());
 
-            // إضافة المستخدم إلى دور Customer
-            if (await _roleManager.RoleExistsAsync(UserRoles.Client.ToString()))
+            await _context.SaveChangesAsync();
+
+            // توليد توكن تأكيد البريد
+            var emailConfirmationToken = await _userManager.GenerateEmailConfirmationTokenAsync(client);
+            var encodedToken = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(emailConfirmationToken));
+
+            try
             {
-                await _userManager.AddToRoleAsync(client, UserRoles.Client.ToString());
+                var callbackUrl = $"{_httpContextAccessor.HttpContext?.Request.Scheme}://{_httpContextAccessor.HttpContext?.Request.Host}/api/email/confirm-email?userId={client.Id}&token={encodedToken}";
+
+                var message = new Message(new string[] { client.Email! }, "Welcome To The Magic Parents",
+                    $"<h3>Welcome {client.UserName}!</h3>" +
+                    "<p>Thanks for use our application, Please confirm you E-mail:</p>" +
+                    $"<p><a href='{callbackUrl}'>Confirm</a></p>" +
+                    "<p>You have only 24 hours to confirm, If you don't register by this email you can ignore it.</p>");
+
+                _emailSender.SendEmail(message);
+
+                var (token, expires) = await _userRepository.GenerateJwtToken(client);
+                var jwtToken = new JwtSecurityTokenHandler().WriteToken(token);
+
+                return new ClientResponse
+                {
+                    City=_context.Cities.Find(client.CityId).Name,
+                    Email=client.Email,
+                    Expires=expires,
+                    IdCardBackPhoto=client.IdCardBackPhoto,
+                    IdCardFrontPhoto=client.IdCardFrontPhoto,
+                    Location=client.Location,
+                    PersonalPhoto=client.PersonalPhoto,
+                    PhoneNumber=client.PhoneNumber,
+                    Token=jwtToken,
+                    UserName = client.UserName
+                };
+            }
+            catch (Exception ex)
+            {
+                // حذف المستخدم إذا فشل إرسال البريد
+                await _userManager.DeleteAsync(client);
+                _logger.LogError(ex, "فشل إرسال بريد التأكيد");
+
+                throw new ApplicationException("فشل إرسال بريد التأكيد، يرجى المحاولة لاحقاً");
             }
 
             //HttpContext.Session.SetString("UserId", client.Id.ToString());
 
-            //await _context.Clients.AddAsync(client);
-            await _context.SaveChangesAsync();
-            return client;
+            
         }
-
-        
     }
 }

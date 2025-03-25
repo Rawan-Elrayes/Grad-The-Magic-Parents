@@ -23,3 +23,16 @@ D:\Master Graduation Project\my project\The Magic Parents\TheMagicParents.Core\o
 D:\Master Graduation Project\my project\The Magic Parents\TheMagicParents.Core\obj\Debug\net8.0\refint\TheMagicParents.Core.dll
 D:\Master Graduation Project\my project\The Magic Parents\TheMagicParents.Core\obj\Debug\net8.0\TheMagicParents.Core.pdb
 D:\Master Graduation Project\my project\The Magic Parents\TheMagicParents.Core\obj\Debug\net8.0\ref\TheMagicParents.Core.dll
+C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParents.Core\bin\Debug\net8.0\TheMagicParents.Core.deps.json
+C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParents.Core\bin\Debug\net8.0\TheMagicParents.Core.dll
+C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParents.Core\bin\Debug\net8.0\TheMagicParents.Core.pdb
+C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParents.Core\obj\Debug\net8.0\TheMagicParents.Core.csproj.AssemblyReference.cache
+C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParents.Core\obj\Debug\net8.0\TheMagicParents.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParents.Core\obj\Debug\net8.0\TheMagicParents.Core.AssemblyInfoInputs.cache
+C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParents.Core\obj\Debug\net8.0\TheMagicParents.Core.AssemblyInfo.cs
+C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParents.Core\obj\Debug\net8.0\TheMagicParents.Core.csproj.CoreCompileInputs.cache
+C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParents.Core\obj\Debug\net8.0\TheMagicParents.Core.sourcelink.json
+C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParents.Core\obj\Debug\net8.0\TheMagicParents.Core.dll
+C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParents.Core\obj\Debug\net8.0\refint\TheMagicParents.Core.dll
+C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParents.Core\obj\Debug\net8.0\TheMagicParents.Core.pdb
+C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParents.Core\obj\Debug\net8.0\ref\TheMagicParents.Core.dll
