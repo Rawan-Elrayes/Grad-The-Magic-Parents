@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TheMagicParents.Core.DTOs
 {
-    public class UserResponse
+    public class UserRegisterResponse
     {
         public string Token { get; set; }
         public DateTime Expires { get; set; }

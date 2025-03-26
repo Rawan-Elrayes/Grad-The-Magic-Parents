@@ -71,10 +71,12 @@ builder.Services.AddAuthentication(options =>
 var emailConfig = builder.Configuration.GetSection("EmailConfiguration").Get<EmailConfiguration>();
 builder.Services.AddSingleton(emailConfig);
 builder.Services.AddScoped<IEmailSender, EmailSender>();
+//Delete Unconfirmed users
 builder.Services.AddHostedService<UserCleanupService>();
 
 //  ”ÃÌ· «·‹ Repositories
 builder.Services.AddScoped<IClientRepository, ClientRepository>();
+builder.Services.AddScoped<IServiceProviderRepository, ServiceProviderRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 var app = builder.Build();

@@ -46,7 +46,7 @@ namespace TheMagicParents.Infrastructure.Repositories
             _httpContextAccessor = httpContextAccessor;
         }
 
-        public async Task<ClientResponse> RegisterClientAsync(ClientRegisterDTO model)
+        public async Task<ClientRegisterResponse> RegisterClientAsync(ClientRegisterDTO model)
         {
             // التحقق من وجود البريد الإلكتروني مسبقًا
             var existingUser = await _userManager.FindByEmailAsync(model.Email);
@@ -57,7 +57,7 @@ namespace TheMagicParents.Infrastructure.Repositories
 
             var client = new Client
             {
-                UserName = model.UserName,
+                UserNameId = model.UserName,
                 PhoneNumber = model.PhoneNumber,
                 Email = model.Email,
                 PersonalPhoto = await _userRepository.SaveImage(model.PersonalPhoto),
@@ -70,7 +70,7 @@ namespace TheMagicParents.Infrastructure.Repositories
                 EmailConfirmed=false
             };
             // توليد UserNameId من البريد الإلكتروني
-            client.UserNameId = await _userRepository.GenerateUserNameIdFromEmailAsync(client.Email);
+            client.UserName = await _userRepository.GenerateUserNameIdFromEmailAsync(client.Email);
 
             // إنشاء المستخدم
             var result = await _userManager.CreateAsync(client, model.Password);
@@ -97,7 +97,7 @@ namespace TheMagicParents.Infrastructure.Repositories
                 var callbackUrl = $"{_httpContextAccessor.HttpContext?.Request.Scheme}://{_httpContextAccessor.HttpContext?.Request.Host}/api/email/confirm-email?userId={client.Id}&token={encodedToken}";
 
                 var message = new Message(new string[] { client.Email! }, "Welcome To The Magic Parents",
-                    $"<h3>Welcome {client.UserName}!</h3>" +
+                    $"<h3>Welcome {client.UserNameId}!</h3>" +
                     "<p>Thanks for use our application, Please confirm you E-mail:</p>" +
                     $"<p><a href='{callbackUrl}'>Confirm</a></p>" +
                     "<p>You have only 24 hours to confirm, If you don't register by this email you can ignore it.</p>");
@@ -107,7 +107,7 @@ namespace TheMagicParents.Infrastructure.Repositories
                 var (token, expires) = await _userRepository.GenerateJwtToken(client);
                 var jwtToken = new JwtSecurityTokenHandler().WriteToken(token);
 
-                return new ClientResponse
+                return new ClientRegisterResponse
                 {
                     City=_context.Cities.Find(client.CityId).Name,
                     Email=client.Email,

@@ -10,6 +10,6 @@ namespace TheMagicParents.Core.Interfaces
 {
     public interface IClientRepository
     {
-        Task<ClientResponse> RegisterClientAsync(ClientRegisterDTO model);
+        Task<ClientRegisterResponse> RegisterClientAsync(ClientRegisterDTO model);
     }
 }

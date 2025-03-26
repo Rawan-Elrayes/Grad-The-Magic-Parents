@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace TheMagicParents.Core.DTOs
 {
-    public class ClientResponse:UserResponse
+    public class ClientRegisterResponse:UserRegisterResponse
     {
         public string Location { get; set; }
     }

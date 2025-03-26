@@ -20,12 +20,14 @@ namespace TheMagicParents.API.Controllers
     public class AccountController : ControllerBase
     {
         private readonly IClientRepository clientRepository;
+        private readonly IServiceProviderRepository serviceProviderRepository;
         private readonly IUserRepository userRepository;
 
-        public AccountController(IClientRepository clientRepository, IUserRepository userRepository)
+        public AccountController(IClientRepository clientRepository, IUserRepository userRepository, IServiceProviderRepository serviceProviderRepository)
         {
             this.clientRepository = clientRepository;
             this.userRepository = userRepository;
+            this.serviceProviderRepository = serviceProviderRepository;
         }
 
         [HttpGet("governments")]
@@ -81,6 +83,51 @@ namespace TheMagicParents.API.Controllers
                 return StatusCode(500, new Response<ClientRegisterResponse>
                 {
                     Message = "An error occurred while registering the client.",
+                    Status = false,
+                    Errors = new List<string> { ex.Message }
+                });
+            }
+        }
+
+        [HttpPost("register/ServiceProvider")]
+        public async Task<IActionResult> RegisterServiceProvider([FromForm] ServiceProviderRegisterDTO model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(new Response<ServiceProviderRegisterResponse>
+                {
+                    Message = "Invalid model state",
+                    Status = false,
+                    Errors = ModelState.Values.SelectMany(v => v.Errors)
+                                        .Select(e => e.ErrorMessage).ToList()
+                });
+            }
+
+            try
+            {
+                var ServiceProvider = await serviceProviderRepository.RegisterServiceProviderAsync(model);
+
+                return Ok(new Response<ServiceProviderRegisterResponse>
+                {
+                    Message = "service provider registered successfully",
+                    Data = ServiceProvider,
+                    Status = true
+                });
+            }
+            catch (InvalidOperationException ex)
+            {
+                return BadRequest(new Response<ServiceProviderRegisterResponse>
+                {
+                    Message = ex.Message,
+                    Status = false,
+                    Errors = new List<string> { ex.Message }
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new Response<ServiceProviderRegisterResponse>
+                {
+                    Message = "An error occurred while registering the service provider.",
                     Status = false,
                     Errors = new List<string> { ex.Message }
                 });

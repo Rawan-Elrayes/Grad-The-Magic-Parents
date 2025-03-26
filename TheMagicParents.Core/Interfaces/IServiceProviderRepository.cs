@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,8 +9,8 @@ using TheMagicParents.Models;
 
 namespace TheMagicParents.Core.Interfaces
 {
-    interface IServiceProviderRepository
+    public interface IServiceProviderRepository
     {
-        Task<Client> RegisterServiceProviderAsync(ServiceProviderRegisterDTO model);
+        Task<ServiceProviderRegisterResponse> RegisterServiceProviderAsync(ServiceProviderRegisterDTO model);
     }
 }

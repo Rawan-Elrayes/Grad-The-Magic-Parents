@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -9,10 +10,10 @@ using TheMagicParents.Models;
 
 namespace TheMagicParents.Core.DTOs
 {
-    class ServiceProviderRegisterDTO:UserRegisterDTO
+    public class ServiceProviderRegisterDTO:UserRegisterDTO
     {
         public ServiceType Type { get; set; }
-        public string? Certification { get; set; }
+        public IFormFile? Certification { get; set; }
 
         [Required]
         public double HourPrice { get; set; }

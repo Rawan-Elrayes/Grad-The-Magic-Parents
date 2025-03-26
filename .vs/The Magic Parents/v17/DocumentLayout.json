@@ -3,100 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B45BA0C8-319D-402C-B55B-7A875118A91F}|TheMagicParents.Core\\TheMagicParents.Core.csproj|c:\\users\\menna\\desktop\\the magic paretns\\grad-the-magic-parents\\themagicparents.core\\emailservice\\emailsender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B45BA0C8-319D-402C-B55B-7A875118A91F}|TheMagicParents.Core\\TheMagicParents.Core.csproj|solutionrelative:themagicparents.core\\emailservice\\emailsender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B45BA0C8-319D-402C-B55B-7A875118A91F}|TheMagicParents.Core\\TheMagicParents.Core.csproj|c:\\users\\menna\\desktop\\the magic paretns\\grad-the-magic-parents\\themagicparents.core\\emailservice\\emailconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B45BA0C8-319D-402C-B55B-7A875118A91F}|TheMagicParents.Core\\TheMagicParents.Core.csproj|solutionrelative:themagicparents.core\\emailservice\\emailconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{97ECE05A-5974-4879-AE82-39612DB11C8D}|TheMagicParents.API\\TheMagicParents.API.csproj|c:\\users\\menna\\desktop\\the magic paretns\\grad-the-magic-parents\\themagicparents.api\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{97ECE05A-5974-4879-AE82-39612DB11C8D}|TheMagicParents.API\\TheMagicParents.API.csproj|solutionrelative:themagicparents.api\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{97ECE05A-5974-4879-AE82-39612DB11C8D}|TheMagicParents.API\\TheMagicParents.API.csproj|c:\\users\\menna\\desktop\\the magic paretns\\grad-the-magic-parents\\themagicparents.api\\controllers\\emailcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{97ECE05A-5974-4879-AE82-39612DB11C8D}|TheMagicParents.API\\TheMagicParents.API.csproj|solutionrelative:themagicparents.api\\controllers\\emailcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F6FA9B1D-6481-40A5-A007-1858F99A80D1}|TheMagicParents.Infrastructure\\TheMagicParents.Infrastructure.csproj|c:\\users\\menna\\desktop\\the magic paretns\\grad-the-magic-parents\\themagicparents.infrastructure\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F6FA9B1D-6481-40A5-A007-1858F99A80D1}|TheMagicParents.Infrastructure\\TheMagicParents.Infrastructure.csproj|solutionrelative:themagicparents.infrastructure\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F6FA9B1D-6481-40A5-A007-1858F99A80D1}|TheMagicParents.Infrastructure\\TheMagicParents.Infrastructure.csproj|c:\\users\\menna\\desktop\\the magic paretns\\grad-the-magic-parents\\themagicparents.infrastructure\\repositories\\clientrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F6FA9B1D-6481-40A5-A007-1858F99A80D1}|TheMagicParents.Infrastructure\\TheMagicParents.Infrastructure.csproj|solutionrelative:themagicparents.infrastructure\\repositories\\clientrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{97ECE05A-5974-4879-AE82-39612DB11C8D}|TheMagicParents.API\\TheMagicParents.API.csproj|c:\\users\\menna\\desktop\\the magic paretns\\grad-the-magic-parents\\themagicparents.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{97ECE05A-5974-4879-AE82-39612DB11C8D}|TheMagicParents.API\\TheMagicParents.API.csproj|solutionrelative:themagicparents.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{97ECE05A-5974-4879-AE82-39612DB11C8D}|TheMagicParents.API\\TheMagicParents.API.csproj|c:\\users\\menna\\desktop\\the magic paretns\\grad-the-magic-parents\\themagicparents.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{97ECE05A-5974-4879-AE82-39612DB11C8D}|TheMagicParents.API\\TheMagicParents.API.csproj|solutionrelative:themagicparents.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{F6FA9B1D-6481-40A5-A007-1858F99A80D1}|TheMagicParents.Infrastructure\\TheMagicParents.Infrastructure.csproj|c:\\users\\menna\\desktop\\the magic paretns\\grad-the-magic-parents\\themagicparents.infrastructure\\services\\usercleanupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F6FA9B1D-6481-40A5-A007-1858F99A80D1}|TheMagicParents.Infrastructure\\TheMagicParents.Infrastructure.csproj|solutionrelative:themagicparents.infrastructure\\services\\usercleanupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B45BA0C8-319D-402C-B55B-7A875118A91F}|TheMagicParents.Core\\TheMagicParents.Core.csproj|c:\\users\\menna\\desktop\\the magic paretns\\grad-the-magic-parents\\themagicparents.core\\dtos\\userresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B45BA0C8-319D-402C-B55B-7A875118A91F}|TheMagicParents.Core\\TheMagicParents.Core.csproj|solutionrelative:themagicparents.core\\dtos\\userresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B45BA0C8-319D-402C-B55B-7A875118A91F}|TheMagicParents.Core\\TheMagicParents.Core.csproj|c:\\users\\menna\\desktop\\the magic paretns\\grad-the-magic-parents\\themagicparents.core\\dtos\\clientresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B45BA0C8-319D-402C-B55B-7A875118A91F}|TheMagicParents.Core\\TheMagicParents.Core.csproj|solutionrelative:themagicparents.core\\dtos\\clientresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B45BA0C8-319D-402C-B55B-7A875118A91F}|TheMagicParents.Core\\TheMagicParents.Core.csproj|c:\\users\\menna\\desktop\\the magic paretns\\grad-the-magic-parents\\themagicparents.core\\dtos\\response.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B45BA0C8-319D-402C-B55B-7A875118A91F}|TheMagicParents.Core\\TheMagicParents.Core.csproj|solutionrelative:themagicparents.core\\dtos\\response.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B45BA0C8-319D-402C-B55B-7A875118A91F}|TheMagicParents.Core\\TheMagicParents.Core.csproj|c:\\users\\menna\\desktop\\the magic paretns\\grad-the-magic-parents\\themagicparents.core\\emailservice\\message.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B45BA0C8-319D-402C-B55B-7A875118A91F}|TheMagicParents.Core\\TheMagicParents.Core.csproj|solutionrelative:themagicparents.core\\emailservice\\message.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B45BA0C8-319D-402C-B55B-7A875118A91F}|TheMagicParents.Core\\TheMagicParents.Core.csproj|c:\\users\\menna\\desktop\\the magic paretns\\grad-the-magic-parents\\themagicparents.core\\interfaces\\iemailsender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B45BA0C8-319D-402C-B55B-7A875118A91F}|TheMagicParents.Core\\TheMagicParents.Core.csproj|solutionrelative:themagicparents.core\\interfaces\\iemailsender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B45BA0C8-319D-402C-B55B-7A875118A91F}|TheMagicParents.Core\\TheMagicParents.Core.csproj|c:\\users\\menna\\desktop\\the magic paretns\\grad-the-magic-parents\\themagicparents.core\\interfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B45BA0C8-319D-402C-B55B-7A875118A91F}|TheMagicParents.Core\\TheMagicParents.Core.csproj|solutionrelative:themagicparents.core\\interfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B45BA0C8-319D-402C-B55B-7A875118A91F}|TheMagicParents.Core\\TheMagicParents.Core.csproj|c:\\users\\menna\\desktop\\the magic paretns\\grad-the-magic-parents\\themagicparents.core\\emailservice\\smtpsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B45BA0C8-319D-402C-B55B-7A875118A91F}|TheMagicParents.Core\\TheMagicParents.Core.csproj|solutionrelative:themagicparents.core\\emailservice\\smtpsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B45BA0C8-319D-402C-B55B-7A875118A91F}|TheMagicParents.Core\\TheMagicParents.Core.csproj|c:\\users\\menna\\desktop\\the magic paretns\\grad-the-magic-parents\\themagicparents.core\\interfaces\\iclientrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B45BA0C8-319D-402C-B55B-7A875118A91F}|TheMagicParents.Core\\TheMagicParents.Core.csproj|solutionrelative:themagicparents.core\\interfaces\\iclientrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EE215DA9-627A-45DF-AB71-460C95883B87}|TheMagicParentsTest\\TheMagicParentsTest.csproj|c:\\users\\menna\\desktop\\the magic paretns\\grad-the-magic-parents\\themagicparentstest\\accountcontrollertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EE215DA9-627A-45DF-AB71-460C95883B87}|TheMagicParentsTest\\TheMagicParentsTest.csproj|solutionrelative:themagicparentstest\\accountcontrollertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B45BA0C8-319D-402C-B55B-7A875118A91F}|TheMagicParents.Core\\TheMagicParents.Core.csproj|c:\\users\\menna\\desktop\\the magic paretns\\grad-the-magic-parents\\themagicparents.core\\dtos\\clientregisterdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B45BA0C8-319D-402C-B55B-7A875118A91F}|TheMagicParents.Core\\TheMagicParents.Core.csproj|solutionrelative:themagicparents.core\\dtos\\clientregisterdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F6FA9B1D-6481-40A5-A007-1858F99A80D1}|TheMagicParents.Infrastructure\\TheMagicParents.Infrastructure.csproj|c:\\users\\menna\\desktop\\the magic paretns\\grad-the-magic-parents\\themagicparents.infrastructure\\repositories\\serviceproviderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F6FA9B1D-6481-40A5-A007-1858F99A80D1}|TheMagicParents.Infrastructure\\TheMagicParents.Infrastructure.csproj|solutionrelative:themagicparents.infrastructure\\repositories\\serviceproviderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B45BA0C8-319D-402C-B55B-7A875118A91F}|TheMagicParents.Core\\TheMagicParents.Core.csproj|c:\\users\\menna\\desktop\\the magic paretns\\grad-the-magic-parents\\themagicparents.core\\dtos\\serviceproviderregisterdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B45BA0C8-319D-402C-B55B-7A875118A91F}|TheMagicParents.Core\\TheMagicParents.Core.csproj|solutionrelative:themagicparents.core\\dtos\\serviceproviderregisterdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B45BA0C8-319D-402C-B55B-7A875118A91F}|TheMagicParents.Core\\TheMagicParents.Core.csproj|c:\\users\\menna\\desktop\\the magic paretns\\grad-the-magic-parents\\themagicparents.core\\sharing\\emailstringbody.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B45BA0C8-319D-402C-B55B-7A875118A91F}|TheMagicParents.Core\\TheMagicParents.Core.csproj|solutionrelative:themagicparents.core\\sharing\\emailstringbody.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B45BA0C8-319D-402C-B55B-7A875118A91F}|TheMagicParents.Core\\TheMagicParents.Core.csproj|c:\\users\\menna\\desktop\\the magic paretns\\grad-the-magic-parents\\themagicparents.core\\dtos\\serviceproviderregisterresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B45BA0C8-319D-402C-B55B-7A875118A91F}|TheMagicParents.Core\\TheMagicParents.Core.csproj|solutionrelative:themagicparents.core\\dtos\\serviceproviderregisterresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F6FA9B1D-6481-40A5-A007-1858F99A80D1}|TheMagicParents.Infrastructure\\TheMagicParents.Infrastructure.csproj|c:\\users\\menna\\desktop\\the magic paretns\\grad-the-magic-parents\\themagicparents.infrastructure\\data\\migrations\\20250324134605_addcreatedat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F6FA9B1D-6481-40A5-A007-1858F99A80D1}|TheMagicParents.Infrastructure\\TheMagicParents.Infrastructure.csproj|solutionrelative:themagicparents.infrastructure\\data\\migrations\\20250324134605_addcreatedat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B45BA0C8-319D-402C-B55B-7A875118A91F}|TheMagicParents.Core\\TheMagicParents.Core.csproj|c:\\users\\menna\\desktop\\the magic paretns\\grad-the-magic-parents\\themagicparents.core\\dtos\\response.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B45BA0C8-319D-402C-B55B-7A875118A91F}|TheMagicParents.Core\\TheMagicParents.Core.csproj|solutionrelative:themagicparents.core\\dtos\\response.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B45BA0C8-319D-402C-B55B-7A875118A91F}|TheMagicParents.Core\\TheMagicParents.Core.csproj|c:\\users\\menna\\desktop\\the magic paretns\\grad-the-magic-parents\\themagicparents.core\\emailservice\\smtpsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B45BA0C8-319D-402C-B55B-7A875118A91F}|TheMagicParents.Core\\TheMagicParents.Core.csproj|solutionrelative:themagicparents.core\\emailservice\\smtpsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B45BA0C8-319D-402C-B55B-7A875118A91F}|TheMagicParents.Core\\TheMagicParents.Core.csproj|c:\\users\\menna\\desktop\\the magic paretns\\grad-the-magic-parents\\themagicparents.core\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B45BA0C8-319D-402C-B55B-7A875118A91F}|TheMagicParents.Core\\TheMagicParents.Core.csproj|solutionrelative:themagicparents.core\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B45BA0C8-319D-402C-B55B-7A875118A91F}|TheMagicParents.Core\\TheMagicParents.Core.csproj|c:\\users\\menna\\desktop\\the magic paretns\\grad-the-magic-parents\\themagicparents.core\\interfaces\\iserviceproviderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B45BA0C8-319D-402C-B55B-7A875118A91F}|TheMagicParents.Core\\TheMagicParents.Core.csproj|solutionrelative:themagicparents.core\\interfaces\\iserviceproviderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -106,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -114,46 +46,59 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ClientRepository.cs",
-              "DocumentMoniker": "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParents.Infrastructure\\Repositories\\ClientRepository.cs",
-              "RelativeDocumentMoniker": "TheMagicParents.Infrastructure\\Repositories\\ClientRepository.cs",
-              "ToolTip": "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParents.Infrastructure\\Repositories\\ClientRepository.cs",
-              "RelativeToolTip": "TheMagicParents.Infrastructure\\Repositories\\ClientRepository.cs",
-              "ViewState": "AgIAAFkAAAAAAAAAAAAQwGAAAAChAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "ServiceProviderRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParents.Infrastructure\\Repositories\\ServiceProviderRepository.cs",
+              "RelativeDocumentMoniker": "TheMagicParents.Infrastructure\\Repositories\\ServiceProviderRepository.cs",
+              "ToolTip": "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParents.Infrastructure\\Repositories\\ServiceProviderRepository.cs",
+              "RelativeToolTip": "TheMagicParents.Infrastructure\\Repositories\\ServiceProviderRepository.cs",
+              "ViewState": "AgIAAKQAAAAAAAAAAAAAAGgAAABBAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-24T13:29:05.354Z",
+              "WhenOpened": "2025-03-25T15:57:34.824Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParents.API\\Program.cs",
-              "RelativeDocumentMoniker": "TheMagicParents.API\\Program.cs",
-              "ToolTip": "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParents.API\\Program.cs",
-              "RelativeToolTip": "TheMagicParents.API\\Program.cs",
-              "ViewState": "AgIAAEEAAAAAAAAAAAAAAEkAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "UserCleanupService.cs",
+              "DocumentMoniker": "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParents.Infrastructure\\Services\\UserCleanupService.cs",
+              "RelativeDocumentMoniker": "TheMagicParents.Infrastructure\\Services\\UserCleanupService.cs",
+              "ToolTip": "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParents.Infrastructure\\Services\\UserCleanupService.cs",
+              "RelativeToolTip": "TheMagicParents.Infrastructure\\Services\\UserCleanupService.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABQAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-24T20:23:58.946Z",
+              "WhenOpened": "2025-03-25T01:35:37.074Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "AccountController.cs",
-              "DocumentMoniker": "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParents.API\\Controllers\\AccountController.cs",
-              "RelativeDocumentMoniker": "TheMagicParents.API\\Controllers\\AccountController.cs",
-              "ToolTip": "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParents.API\\Controllers\\AccountController.cs",
-              "RelativeToolTip": "TheMagicParents.API\\Controllers\\AccountController.cs",
-              "ViewState": "AgIAACMAAAAAAAAAAAAYwD0AAAAAAAAAAAAAAA==",
+              "Title": "ServiceProviderRegisterDTO.cs",
+              "DocumentMoniker": "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParents.Core\\DTOs\\ServiceProviderRegisterDTO.cs",
+              "RelativeDocumentMoniker": "TheMagicParents.Core\\DTOs\\ServiceProviderRegisterDTO.cs",
+              "ToolTip": "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParents.Core\\DTOs\\ServiceProviderRegisterDTO.cs",
+              "RelativeToolTip": "TheMagicParents.Core\\DTOs\\ServiceProviderRegisterDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-24T23:46:51.938Z",
+              "WhenOpened": "2025-03-24T13:33:06.378Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 3,
+              "Title": "ServiceProviderRegisterResponse.cs",
+              "DocumentMoniker": "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParents.Core\\DTOs\\ServiceProviderRegisterResponse.cs",
+              "RelativeDocumentMoniker": "TheMagicParents.Core\\DTOs\\ServiceProviderRegisterResponse.cs",
+              "ToolTip": "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParents.Core\\DTOs\\ServiceProviderRegisterResponse.cs",
+              "RelativeToolTip": "TheMagicParents.Core\\DTOs\\ServiceProviderRegisterResponse.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAsAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T15:51:59.915Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "Response.cs",
               "DocumentMoniker": "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParents.Core\\DTOs\\Response.cs",
               "RelativeDocumentMoniker": "TheMagicParents.Core\\DTOs\\Response.cs",
@@ -165,149 +110,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "ClientResponse.cs",
-              "DocumentMoniker": "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParents.Core\\DTOs\\ClientResponse.cs",
-              "RelativeDocumentMoniker": "TheMagicParents.Core\\DTOs\\ClientResponse.cs",
-              "ToolTip": "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParents.Core\\DTOs\\ClientResponse.cs",
-              "RelativeToolTip": "TheMagicParents.Core\\DTOs\\ClientResponse.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAADwvwsAAAALAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-24T23:02:47.808Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParents.API\\appsettings.json",
-              "RelativeDocumentMoniker": "TheMagicParents.API\\appsettings.json",
-              "ToolTip": "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParents.API\\appsettings.json",
-              "RelativeToolTip": "TheMagicParents.API\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-03-24T13:23:35.843Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "EmailConfiguration.cs",
-              "DocumentMoniker": "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParents.Core\\EmailService\\EmailConfiguration.cs",
-              "RelativeDocumentMoniker": "TheMagicParents.Core\\EmailService\\EmailConfiguration.cs",
-              "ToolTip": "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParents.Core\\EmailService\\EmailConfiguration.cs",
-              "RelativeToolTip": "TheMagicParents.Core\\EmailService\\EmailConfiguration.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAA1AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-25T01:00:52.22Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "EmailSender.cs",
-              "DocumentMoniker": "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParents.Core\\EmailService\\EmailSender.cs",
-              "RelativeDocumentMoniker": "TheMagicParents.Core\\EmailService\\EmailSender.cs",
-              "ToolTip": "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParents.Core\\EmailService\\EmailSender.cs",
-              "RelativeToolTip": "TheMagicParents.Core\\EmailService\\EmailSender.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAAAAB4AAAAzAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-24T20:45:00.554Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "EmailController.cs",
-              "DocumentMoniker": "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParents.API\\Controllers\\EmailController.cs",
-              "RelativeDocumentMoniker": "TheMagicParents.API\\Controllers\\EmailController.cs",
-              "ToolTip": "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParents.API\\Controllers\\EmailController.cs",
-              "RelativeToolTip": "TheMagicParents.API\\Controllers\\EmailController.cs",
-              "ViewState": "AgIAABwAAAAAAAAAAAAowC8AAABAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-25T02:07:31.919Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "UserRepository.cs",
-              "DocumentMoniker": "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParents.Infrastructure\\Repositories\\UserRepository.cs",
-              "RelativeDocumentMoniker": "TheMagicParents.Infrastructure\\Repositories\\UserRepository.cs",
-              "ToolTip": "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParents.Infrastructure\\Repositories\\UserRepository.cs",
-              "RelativeToolTip": "TheMagicParents.Infrastructure\\Repositories\\UserRepository.cs",
-              "ViewState": "AgIAAC8AAAAAAAAAAAAAABkAAAA5AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-24T14:15:35.255Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "IUserRepository.cs",
-              "DocumentMoniker": "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParents.Core\\Interfaces\\IUserRepository.cs",
-              "RelativeDocumentMoniker": "TheMagicParents.Core\\Interfaces\\IUserRepository.cs",
-              "ToolTip": "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParents.Core\\Interfaces\\IUserRepository.cs",
-              "RelativeToolTip": "TheMagicParents.Core\\Interfaces\\IUserRepository.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABIAAAA3AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-24T13:31:46.06Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "UserCleanupService.cs",
-              "DocumentMoniker": "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParents.Infrastructure\\Services\\UserCleanupService.cs",
-              "RelativeDocumentMoniker": "TheMagicParents.Infrastructure\\Services\\UserCleanupService.cs",
-              "ToolTip": "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParents.Infrastructure\\Services\\UserCleanupService.cs",
-              "RelativeToolTip": "TheMagicParents.Infrastructure\\Services\\UserCleanupService.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAADEAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-25T01:35:37.074Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "UserResponse.cs",
-              "DocumentMoniker": "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParents.Core\\DTOs\\UserResponse.cs",
-              "RelativeDocumentMoniker": "TheMagicParents.Core\\DTOs\\UserResponse.cs",
-              "ToolTip": "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParents.Core\\DTOs\\UserResponse.cs",
-              "RelativeToolTip": "TheMagicParents.Core\\DTOs\\UserResponse.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-24T23:16:31.73Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Message.cs",
-              "DocumentMoniker": "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParents.Core\\EmailService\\Message.cs",
-              "RelativeDocumentMoniker": "TheMagicParents.Core\\EmailService\\Message.cs",
-              "ToolTip": "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParents.Core\\EmailService\\Message.cs",
-              "RelativeToolTip": "TheMagicParents.Core\\EmailService\\Message.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAABMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-24T21:15:55.119Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "IEmailSender.cs",
-              "DocumentMoniker": "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParents.Core\\Interfaces\\IEmailSender.cs",
-              "RelativeDocumentMoniker": "TheMagicParents.Core\\Interfaces\\IEmailSender.cs",
-              "ToolTip": "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParents.Core\\Interfaces\\IEmailSender.cs",
-              "RelativeToolTip": "TheMagicParents.Core\\Interfaces\\IEmailSender.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-24T20:45:27.502Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 5,
               "Title": "SmtpSettings.cs",
               "DocumentMoniker": "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParents.Core\\EmailService\\SmtpSettings.cs",
               "RelativeDocumentMoniker": "TheMagicParents.Core\\EmailService\\SmtpSettings.cs",
@@ -319,79 +122,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "IClientRepository.cs",
-              "DocumentMoniker": "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParents.Core\\Interfaces\\IClientRepository.cs",
-              "RelativeDocumentMoniker": "TheMagicParents.Core\\Interfaces\\IClientRepository.cs",
-              "ToolTip": "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParents.Core\\Interfaces\\IClientRepository.cs",
-              "RelativeToolTip": "TheMagicParents.Core\\Interfaces\\IClientRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-24T23:18:57.64Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "AccountControllerTests.cs",
-              "DocumentMoniker": "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParentsTest\\AccountControllerTests.cs",
-              "RelativeDocumentMoniker": "TheMagicParentsTest\\AccountControllerTests.cs",
-              "ToolTip": "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParentsTest\\AccountControllerTests.cs",
-              "RelativeToolTip": "TheMagicParentsTest\\AccountControllerTests.cs",
-              "ViewState": "AgIAAHMAAAAAAAAAAAAqwH0AAABNAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-24T23:53:45.056Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "ClientRegisterDTO.cs",
-              "DocumentMoniker": "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParents.Core\\DTOs\\ClientRegisterDTO.cs",
-              "RelativeDocumentMoniker": "TheMagicParents.Core\\DTOs\\ClientRegisterDTO.cs",
-              "ToolTip": "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParents.Core\\DTOs\\ClientRegisterDTO.cs",
-              "RelativeToolTip": "TheMagicParents.Core\\DTOs\\ClientRegisterDTO.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAADwvw8AAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-24T23:04:17.31Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "EmailStringBody.cs",
-              "DocumentMoniker": "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParents.Core\\Sharing\\EmailStringBody.cs",
-              "RelativeDocumentMoniker": "TheMagicParents.Core\\Sharing\\EmailStringBody.cs",
-              "ToolTip": "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParents.Core\\Sharing\\EmailStringBody.cs",
-              "RelativeToolTip": "TheMagicParents.Core\\Sharing\\EmailStringBody.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-23T10:40:41.422Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "ServiceProviderRegisterDTO.cs",
-              "DocumentMoniker": "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParents.Core\\DTOs\\ServiceProviderRegisterDTO.cs",
-              "RelativeDocumentMoniker": "TheMagicParents.Core\\DTOs\\ServiceProviderRegisterDTO.cs",
-              "ToolTip": "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParents.Core\\DTOs\\ServiceProviderRegisterDTO.cs",
-              "RelativeToolTip": "TheMagicParents.Core\\DTOs\\ServiceProviderRegisterDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-24T13:33:06.378Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "20250324134605_AddCreatedAt.cs",
-              "DocumentMoniker": "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParents.Infrastructure\\Data\\Migrations\\20250324134605_AddCreatedAt.cs",
-              "RelativeDocumentMoniker": "TheMagicParents.Infrastructure\\Data\\Migrations\\20250324134605_AddCreatedAt.cs",
-              "ToolTip": "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParents.Infrastructure\\Data\\Migrations\\20250324134605_AddCreatedAt.cs",
-              "RelativeToolTip": "TheMagicParents.Infrastructure\\Data\\Migrations\\20250324134605_AddCreatedAt.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-24T13:46:05.728Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 6,
               "Title": "User.cs",
               "DocumentMoniker": "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParents.Core\\Models\\User.cs",
               "RelativeDocumentMoniker": "TheMagicParents.Core\\Models\\User.cs",
@@ -400,18 +131,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-24T13:44:02.916Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "IServiceProviderRepository.cs",
-              "DocumentMoniker": "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParents.Core\\Interfaces\\IServiceProviderRepository.cs",
-              "RelativeDocumentMoniker": "TheMagicParents.Core\\Interfaces\\IServiceProviderRepository.cs",
-              "ToolTip": "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParents.Core\\Interfaces\\IServiceProviderRepository.cs",
-              "RelativeToolTip": "TheMagicParents.Core\\Interfaces\\IServiceProviderRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAABBAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-24T13:31:09.097Z"
             }
           ]
         }
