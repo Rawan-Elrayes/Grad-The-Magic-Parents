@@ -484,3 +484,11 @@ C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParents.
 C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParents.API\bin\Debug\net8.0\System.Security.Cryptography.Pkcs.dll
 C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParents.API\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
 C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParents.API\bin\Debug\net8.0\MailKit.dll
+D:\Master Graduation Project\my project\The Magic Parents\TheMagicParents.API\obj\Debug\net8.0\TheMagicParents.API.sourcelink.json
+D:\Master Graduation Project\my project\The Magic Parents\TheMagicParents.API\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
+D:\Master Graduation Project\my project\The Magic Parents\TheMagicParents.API\bin\Debug\net8.0\MailKit.dll
+D:\Master Graduation Project\my project\The Magic Parents\TheMagicParents.API\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Master Graduation Project\my project\The Magic Parents\TheMagicParents.API\bin\Debug\net8.0\Microsoft.Bcl.TimeProvider.dll
+D:\Master Graduation Project\my project\The Magic Parents\TheMagicParents.API\bin\Debug\net8.0\MimeKit.dll
+D:\Master Graduation Project\my project\The Magic Parents\TheMagicParents.API\bin\Debug\net8.0\System.Security.Cryptography.Pkcs.dll
+D:\Master Graduation Project\my project\The Magic Parents\TheMagicParents.API\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll

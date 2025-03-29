@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParentsTest\\TheMagicParentsTest.csproj": {}
+    "D:\\Master Graduation Project\\my project\\The Magic Parents\\TheMagicParentsTest\\TheMagicParentsTest.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParents.API\\TheMagicParents.API.csproj": {
+    "D:\\Master Graduation Project\\my project\\The Magic Parents\\TheMagicParents.API\\TheMagicParents.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParents.API\\TheMagicParents.API.csproj",
+        "projectUniqueName": "D:\\Master Graduation Project\\my project\\The Magic Parents\\TheMagicParents.API\\TheMagicParents.API.csproj",
         "projectName": "TheMagicParents.API",
-        "projectPath": "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParents.API\\TheMagicParents.API.csproj",
-        "packagesPath": "C:\\Users\\abdulllah\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParents.API\\obj\\",
+        "projectPath": "D:\\Master Graduation Project\\my project\\The Magic Parents\\TheMagicParents.API\\TheMagicParents.API.csproj",
+        "packagesPath": "C:\\Users\\LEGION 5\\.nuget\\packages\\",
+        "outputPath": "D:\\Master Graduation Project\\my project\\The Magic Parents\\TheMagicParents.API\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\abdulllah\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\LEGION 5\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,17 +22,18 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParents.Core\\TheMagicParents.Core.csproj": {
-                "projectPath": "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParents.Core\\TheMagicParents.Core.csproj"
+              "D:\\Master Graduation Project\\my project\\The Magic Parents\\TheMagicParents.Core\\TheMagicParents.Core.csproj": {
+                "projectPath": "D:\\Master Graduation Project\\my project\\The Magic Parents\\TheMagicParents.Core\\TheMagicParents.Core.csproj"
               },
-              "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParents.Infrastructure\\TheMagicParents.Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParents.Infrastructure\\TheMagicParents.Infrastructure.csproj"
+              "D:\\Master Graduation Project\\my project\\The Magic Parents\\TheMagicParents.Infrastructure\\TheMagicParents.Infrastructure.csproj": {
+                "projectPath": "D:\\Master Graduation Project\\my project\\The Magic Parents\\TheMagicParents.Infrastructure\\TheMagicParents.Infrastructure.csproj"
               }
             }
           }
@@ -50,8 +47,7 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.200"
+        }
       },
       "frameworks": {
         "net8.0": {
@@ -103,25 +99,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParents.Core\\TheMagicParents.Core.csproj": {
+    "D:\\Master Graduation Project\\my project\\The Magic Parents\\TheMagicParents.Core\\TheMagicParents.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParents.Core\\TheMagicParents.Core.csproj",
+        "projectUniqueName": "D:\\Master Graduation Project\\my project\\The Magic Parents\\TheMagicParents.Core\\TheMagicParents.Core.csproj",
         "projectName": "TheMagicParents.Core",
-        "projectPath": "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParents.Core\\TheMagicParents.Core.csproj",
-        "packagesPath": "C:\\Users\\abdulllah\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParents.Core\\obj\\",
+        "projectPath": "D:\\Master Graduation Project\\my project\\The Magic Parents\\TheMagicParents.Core\\TheMagicParents.Core.csproj",
+        "packagesPath": "C:\\Users\\LEGION 5\\.nuget\\packages\\",
+        "outputPath": "D:\\Master Graduation Project\\my project\\The Magic Parents\\TheMagicParents.Core\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\abdulllah\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\LEGION 5\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -129,6 +121,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -146,8 +139,7 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.200"
+        }
       },
       "frameworks": {
         "net8.0": {
@@ -198,25 +190,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParents.Infrastructure\\TheMagicParents.Infrastructure.csproj": {
+    "D:\\Master Graduation Project\\my project\\The Magic Parents\\TheMagicParents.Infrastructure\\TheMagicParents.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParents.Infrastructure\\TheMagicParents.Infrastructure.csproj",
+        "projectUniqueName": "D:\\Master Graduation Project\\my project\\The Magic Parents\\TheMagicParents.Infrastructure\\TheMagicParents.Infrastructure.csproj",
         "projectName": "TheMagicParents.Infrastructure",
-        "projectPath": "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParents.Infrastructure\\TheMagicParents.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\abdulllah\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParents.Infrastructure\\obj\\",
+        "projectPath": "D:\\Master Graduation Project\\my project\\The Magic Parents\\TheMagicParents.Infrastructure\\TheMagicParents.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\LEGION 5\\.nuget\\packages\\",
+        "outputPath": "D:\\Master Graduation Project\\my project\\The Magic Parents\\TheMagicParents.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\abdulllah\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\LEGION 5\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -224,14 +212,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParents.Core\\TheMagicParents.Core.csproj": {
-                "projectPath": "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParents.Core\\TheMagicParents.Core.csproj"
+              "D:\\Master Graduation Project\\my project\\The Magic Parents\\TheMagicParents.Core\\TheMagicParents.Core.csproj": {
+                "projectPath": "D:\\Master Graduation Project\\my project\\The Magic Parents\\TheMagicParents.Core\\TheMagicParents.Core.csproj"
               }
             }
           }
@@ -245,8 +234,7 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.200"
+        }
       },
       "frameworks": {
         "net8.0": {
@@ -291,25 +279,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParentsTest\\TheMagicParentsTest.csproj": {
+    "D:\\Master Graduation Project\\my project\\The Magic Parents\\TheMagicParentsTest\\TheMagicParentsTest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParentsTest\\TheMagicParentsTest.csproj",
+        "projectUniqueName": "D:\\Master Graduation Project\\my project\\The Magic Parents\\TheMagicParentsTest\\TheMagicParentsTest.csproj",
         "projectName": "TheMagicParentsTest",
-        "projectPath": "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParentsTest\\TheMagicParentsTest.csproj",
-        "packagesPath": "C:\\Users\\abdulllah\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParentsTest\\obj\\",
+        "projectPath": "D:\\Master Graduation Project\\my project\\The Magic Parents\\TheMagicParentsTest\\TheMagicParentsTest.csproj",
+        "packagesPath": "C:\\Users\\LEGION 5\\.nuget\\packages\\",
+        "outputPath": "D:\\Master Graduation Project\\my project\\The Magic Parents\\TheMagicParentsTest\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\abdulllah\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\LEGION 5\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -317,14 +301,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParents.API\\TheMagicParents.API.csproj": {
-                "projectPath": "C:\\Users\\Menna\\Desktop\\The Magic Paretns\\Grad-The-Magic-Parents\\TheMagicParents.API\\TheMagicParents.API.csproj"
+              "D:\\Master Graduation Project\\my project\\The Magic Parents\\TheMagicParents.API\\TheMagicParents.API.csproj": {
+                "projectPath": "D:\\Master Graduation Project\\my project\\The Magic Parents\\TheMagicParents.API\\TheMagicParents.API.csproj"
               }
             }
           }
@@ -338,8 +323,7 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.200"
+        }
       },
       "frameworks": {
         "net8.0": {
@@ -398,7 +382,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

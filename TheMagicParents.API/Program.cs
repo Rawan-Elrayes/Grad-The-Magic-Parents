@@ -11,6 +11,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using TheMagicParents.Core.EmailService;
 using EcommerceMola.EmailModels;
+using TheMagicParents.Infrastructure.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -78,6 +79,8 @@ builder.Services.AddHostedService<UserCleanupService>();
 builder.Services.AddScoped<IClientRepository, ClientRepository>();
 builder.Services.AddScoped<IServiceProviderRepository, ServiceProviderRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IAuthentication, AuthenticationService>();
+
 
 var app = builder.Build();
 

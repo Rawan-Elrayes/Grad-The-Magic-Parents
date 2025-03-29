@@ -1,12 +1,8 @@
-﻿using MimeKit;
+using MimeKit;
 using MailKit.Net.Smtp;
-using System.Text;
-using Microsoft.EntityFrameworkCore;
-using System.Net.Mail;
-using TheMagicParents.Core.EmailService;
 using TheMagicParents.Core.Interfaces;
 
-namespace EcommerceMola.EmailModels
+namespace TheMagicParents.Core.EmailService
 {
     public class EmailSender : IEmailSender
     {
@@ -23,6 +19,12 @@ namespace EcommerceMola.EmailModels
             Send(emailMessage);
         }
 
+        public async Task SendEmailAsync(Message message)
+        {
+            var emailMessage = CreateEmailMessage(message);
+            await SendAsync(emailMessage);
+        }
+
         private MimeMessage CreateEmailMessage(Message message)
         {
             var emailMessage = new MimeMessage();
@@ -36,9 +38,8 @@ namespace EcommerceMola.EmailModels
 
         private void Send(MimeMessage mailMessage)
         {
-            using var client = new MailKit.Net.Smtp.SmtpClient();
+            using var client = new SmtpClient();
             client.ServerCertificateValidationCallback = (s, c, h, e) => true;
-            client.Timeout = 86400000;
             try
             {
                 client.Connect(_emailConfig.SmtpServer, _emailConfig.Port, true);
@@ -46,14 +47,26 @@ namespace EcommerceMola.EmailModels
                 client.Authenticate(_emailConfig.Username, _emailConfig.Password);
                 client.Send(mailMessage);
             }
-            catch
-            {
-                throw;
-            }
             finally
             {
                 client.Disconnect(true);
-                client.Dispose();
+            }
+        }
+
+        private async Task SendAsync(MimeMessage mailMessage)
+        {
+            using var client = new SmtpClient();
+            client.ServerCertificateValidationCallback = (s, c, h, e) => true;
+            try
+            {
+                await client.ConnectAsync(_emailConfig.SmtpServer, _emailConfig.Port, true);
+                client.AuthenticationMechanisms.Remove("XOAUTH2");
+                await client.AuthenticateAsync(_emailConfig.Username, _emailConfig.Password);
+                await client.SendAsync(mailMessage);
+            }
+            finally
+            {
+                await client.DisconnectAsync(true);
             }
         }
     }

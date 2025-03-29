@@ -36,3 +36,4 @@ C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParents.
 C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParents.Core\obj\Debug\net8.0\refint\TheMagicParents.Core.dll
 C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParents.Core\obj\Debug\net8.0\TheMagicParents.Core.pdb
 C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParents.Core\obj\Debug\net8.0\ref\TheMagicParents.Core.dll
+D:\Master Graduation Project\my project\The Magic Parents\TheMagicParents.Core\obj\Debug\net8.0\TheMagicParents.Core.sourcelink.json

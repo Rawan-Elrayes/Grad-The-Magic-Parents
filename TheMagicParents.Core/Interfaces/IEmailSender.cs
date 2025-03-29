@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,5 +10,6 @@ namespace TheMagicParents.Core.Interfaces
     public interface IEmailSender
     {
         void SendEmail(Message message);
+        Task SendEmailAsync(Message message);
     }
 }
