@@ -78,23 +78,15 @@
         }
       },
       "coverlet.collector/6.0.0": {},
-      "Habanero/3.0.1": {
+      "MailKit/4.11.0": {
+        "dependencies": {
+          "MimeKit": "4.11.0",
+          "System.Formats.Asn1": "8.0.2"
+        },
         "runtime": {
-          "lib/Habanero.BO.dll": {
-            "assemblyVersion": "3.0.0.0",
-            "fileVersion": "3.0.0.0"
-          },
-          "lib/Habanero.Base.dll": {
-            "assemblyVersion": "3.0.0.0",
-            "fileVersion": "3.0.0.0"
-          },
-          "lib/Habanero.Console.dll": {
-            "assemblyVersion": "3.0.0.0",
-            "fileVersion": "3.0.0.0"
-          },
-          "lib/Habanero.DB.dll": {
-            "assemblyVersion": "3.0.0.0",
-            "fileVersion": "3.0.0.0"
+          "lib/net8.0/MailKit.dll": {
+            "assemblyVersion": "4.11.0.0",
+            "fileVersion": "4.11.0.0"
           }
         }
       },
@@ -1939,7 +1931,6 @@
       "xunit.runner.visualstudio/2.5.3": {},
       "TheMagicParents.API/1.0.0": {
         "dependencies": {
-          "Habanero": "3.0.1",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "8.0.13",
           "Microsoft.IdentityModel.Tokens": "8.2.0",
           "Moq": "4.20.72",
@@ -1957,6 +1948,7 @@
       },
       "TheMagicParents.Core/1.0.0": {
         "dependencies": {
+          "MailKit": "4.11.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.13",
           "Microsoft.EntityFrameworkCore": "8.0.13",
           "Microsoft.IdentityModel.Tokens": "8.2.0",
@@ -2029,12 +2021,12 @@
       "path": "coverlet.collector/6.0.0",
       "hashPath": "coverlet.collector.6.0.0.nupkg.sha512"
     },
-    "Habanero/3.0.1": {
+    "MailKit/4.11.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-BX8WuZobnYHRU5VYFXYAtZ5Rpm1EgKZhz5cKBFGit5jhW+BNnN/gfjLOJByzZYmc0i5DmMrvBGP6JioR2p3Cqw==",
-      "path": "habanero/3.0.1",
-      "hashPath": "habanero.3.0.1.nupkg.sha512"
+      "sha512": "sha512-JVoRxJ+QRqFMRtEM4veStj3pMLBPRulQGV+iZm6Tq1pnr66Dy6dFYOW9Uw02nxAVzdZAN8G+y3BsUPtgZcKXhA==",
+      "path": "mailkit/4.11.0",
+      "hashPath": "mailkit.4.11.0.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Authentication.Abstractions/2.3.0": {
       "type": "package",

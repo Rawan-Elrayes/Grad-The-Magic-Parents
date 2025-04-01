@@ -36,6 +36,9 @@ namespace TheMagicParents.Core.DTOs
         public IFormFile IdCardBackPhoto { get; set; }
 
         [Required]
+        public IFormFile PersonWithCard { get; set; }
+
+        [Required]
         [DisplayName("City")]
         public int CityId { get; set; }
     }

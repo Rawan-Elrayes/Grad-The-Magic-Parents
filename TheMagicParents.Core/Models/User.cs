@@ -9,6 +9,7 @@ namespace TheMagicParents.Models
         public string PersonalPhoto { get; set; }
         public string IdCardFrontPhoto { get; set; }
         public string IdCardBackPhoto { get;set; }
+        public string PersonWithCard { get; set; }
         public StateType AccountState { get; set; }
         public int NumberOfSuccessfulServices { get; set; } = 0;
         public int NumberOfCanceledServices { get; set; } = 0;
