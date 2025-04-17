@@ -63,6 +63,7 @@ namespace TheMagicParents.Infrastructure.Repositories
                 PersonalPhoto = await _userRepository.SaveImage(model.PersonalPhoto),
                 IdCardFrontPhoto = await _userRepository.SaveImage(model.IdCardFrontPhoto),
                 IdCardBackPhoto = await _userRepository.SaveImage(model.IdCardBackPhoto),
+                PersonWithCard= await _userRepository.SaveImage(model.PersonWithCard),
                 CityId = model.CityId,
                 AccountState = StateType.Waiting,
                 Certification = await SavePdf(model.Certification),

@@ -63,6 +63,7 @@ namespace TheMagicParents.Infrastructure.Repositories
                 PersonalPhoto = await _userRepository.SaveImage(model.PersonalPhoto),
                 IdCardFrontPhoto = await _userRepository.SaveImage(model.IdCardFrontPhoto),
                 IdCardBackPhoto = await _userRepository.SaveImage(model.IdCardBackPhoto),
+                PersonWithCard = await _userRepository.SaveImage(model.PersonWithCard),
                 CityId = model.CityId,
                 AccountState = StateType.Waiting,
                 Location = model.Location,
@@ -96,11 +97,7 @@ namespace TheMagicParents.Infrastructure.Repositories
             {
                 var callbackUrl = $"{_httpContextAccessor.HttpContext?.Request.Scheme}://{_httpContextAccessor.HttpContext?.Request.Host}/api/email/confirm-email?userId={client.Id}&token={encodedToken}";
 
-                var message = new Message(new string[] { client.Email! }, "Welcome To The Magic Parents",
-                    $"<h3>Welcome {client.UserNameId}!</h3>" +
-                    "<p>Thanks for use our application, Please confirm you E-mail:</p>" +
-                    $"<p><a href='{callbackUrl}'>Confirm</a></p>" +
-                    "<p>You have only 24 hours to confirm, If you don't register by this email you can ignore it.</p>");
+                var message = new Message(new string[] { client.Email! }, "Welcome To The Magic Parents", GetHtmlContent(client.UserNameId, callbackUrl));
 
                 _emailSender.SendEmail(message);
 
@@ -133,6 +130,14 @@ namespace TheMagicParents.Infrastructure.Repositories
             //HttpContext.Session.SetString("UserId", client.Id.ToString());
 
             
+        }
+
+        private string GetHtmlContent(string UserName, string URL)
+        {
+            return $"<h3>Welcome {UserName}!</h3>" +
+                    "<p>Thanks for use our application, Please confirm you E-mail:</p>" +
+                    $"<p><a href='{URL}'>Confirm</a></p>" +
+                    "<p>You have only 24 hours to confirm, If you don't register by this email you can ignore it.</p>";
         }
     }
 }

@@ -533,19 +533,8 @@ C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsT
 C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\obj\Debug\net8.0\TheMagicParentsTest.genruntimeconfig.cache
 C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\obj\Debug\net8.0\ref\TheMagicParentsTest.dll
 C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Habanero.BO.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Habanero.Base.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Habanero.Console.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Habanero.DB.dll
 C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\MimeKit.dll
 C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\System.Security.Cryptography.Pkcs.dll
 C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
-D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\obj\Debug\net8.0\TheMagicParentsTest.sourcelink.json
-D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
-D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\bin\Debug\net8.0\MailKit.dll
-D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
-D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.Bcl.TimeProvider.dll
-D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\bin\Debug\net8.0\MimeKit.dll
-D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\bin\Debug\net8.0\System.Security.Cryptography.Pkcs.dll
-D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\MailKit.dll
