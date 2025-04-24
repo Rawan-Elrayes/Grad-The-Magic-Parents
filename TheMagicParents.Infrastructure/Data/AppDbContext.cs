@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -51,9 +52,14 @@ namespace TheMagicParents.Infrastructure.Data
                 .HasForeignKey<Review>(r => r.BookingID)
                 .OnDelete(DeleteBehavior.Cascade);
 
+       //     builder.Entity<Admin>()
+       //.HasOne<IdentityUser>()
+       //.WithMany()
+       //.HasForeignKey(a => a.UserId)
+       //.IsRequired();
+
         }
 
-        public virtual DbSet<Admin> Admins { get; set; }
         public virtual DbSet<Availability> Availabilities { get; set; }
         public virtual DbSet<Booking> Bookings { get; set; }
         public virtual DbSet<City> Cities { get; set; }

@@ -88,7 +88,7 @@ namespace TheMagicParents.Infrastructure.Repositories
             await _userManager.AddToRoleAsync(client, UserRoles.Client.ToString());
 
             await _context.SaveChangesAsync();
-
+            /*
             // توليد توكن تأكيد البريد
             var emailConfirmationToken = await _userManager.GenerateEmailConfirmationTokenAsync(client);
             var encodedToken = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(emailConfirmationToken));
@@ -129,7 +129,26 @@ namespace TheMagicParents.Infrastructure.Repositories
 
             //HttpContext.Session.SetString("UserId", client.Id.ToString());
 
-            
+           */
+
+
+            //--- Edit after comment email confirmation
+            var (token, expires) = await _userRepository.GenerateJwtToken(client);
+            var jwtToken = new JwtSecurityTokenHandler().WriteToken(token);
+
+            return new ClientRegisterResponse
+            {
+                City = _context.Cities.Find(client.CityId).Name,
+                Email = client.Email,
+                Expires = expires,
+                IdCardBackPhoto = client.IdCardBackPhoto,
+                IdCardFrontPhoto = client.IdCardFrontPhoto,
+                Location = client.Location,
+                PersonalPhoto = client.PersonalPhoto,
+                PhoneNumber = client.PhoneNumber,
+                Token = jwtToken,
+                UserName = client.UserName
+            };
         }
 
         private string GetHtmlContent(string UserName, string URL)

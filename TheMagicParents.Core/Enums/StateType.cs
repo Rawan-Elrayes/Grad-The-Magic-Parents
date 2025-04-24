@@ -2,6 +2,7 @@
 {
     public enum StateType
     {
+        New,
         Active,
         Waiting,
         Blocked,

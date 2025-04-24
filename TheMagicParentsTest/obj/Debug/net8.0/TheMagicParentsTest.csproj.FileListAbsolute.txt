@@ -1,204 +1,36 @@
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\CoverletSourceRootsMapping_TheMagicParentsTest
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\testhost.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\TheMagicParents.API.deps.json
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\TheMagicParents.API.runtimeconfig.json
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\appsettings.Development.json
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\appsettings.json
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\TheMagicParents.API.exe
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\testhost.exe
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\xunit.runner.visualstudio.dotnetcore.testadapter.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\xunit.runner.reporters.netcoreapp10.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\xunit.runner.utility.netcoreapp10.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\TheMagicParentsTest.deps.json
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\TheMagicParentsTest.runtimeconfig.json
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\TheMagicParentsTest.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\TheMagicParentsTest.pdb
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Azure.Core.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Azure.Identity.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Castle.Core.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.Internal.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.VisualStudio.CodeCoverage.Shim.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.Data.SqlClient.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.Extensions.Caching.Memory.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.Identity.Client.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.OpenApi.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.TestPlatform.CoreUtilities.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.TestPlatform.PlatformAbstractions.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.VisualStudio.TestPlatform.ObjectModel.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.TestPlatform.CommunicationUtilities.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.TestPlatform.CrossPlatEngine.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.TestPlatform.Utilities.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.VisualStudio.TestPlatform.Common.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Moq.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Newtonsoft.Json.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\NuGet.Frameworks.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\System.ClientModel.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\System.Drawing.Common.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\System.Memory.Data.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\System.Runtime.Caching.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\System.Security.Permissions.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\System.Windows.Extensions.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\xunit.abstractions.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\xunit.assert.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\xunit.core.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\xunit.execution.dotnet.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\cs\Microsoft.TestPlatform.CoreUtilities.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\cs\Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\de\Microsoft.TestPlatform.CoreUtilities.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\de\Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\es\Microsoft.TestPlatform.CoreUtilities.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\es\Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\fr\Microsoft.TestPlatform.CoreUtilities.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\fr\Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\it\Microsoft.TestPlatform.CoreUtilities.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\it\Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\ja\Microsoft.TestPlatform.CoreUtilities.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\ja\Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\ko\Microsoft.TestPlatform.CoreUtilities.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\ko\Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\pl\Microsoft.TestPlatform.CoreUtilities.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\pl\Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\pt-BR\Microsoft.TestPlatform.CoreUtilities.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\pt-BR\Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\ru\Microsoft.TestPlatform.CoreUtilities.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\ru\Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\tr\Microsoft.TestPlatform.CoreUtilities.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\tr\Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\zh-Hans\Microsoft.TestPlatform.CoreUtilities.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\zh-Hans\Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\zh-Hant\Microsoft.TestPlatform.CoreUtilities.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\zh-Hant\Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\cs\Microsoft.TestPlatform.CommunicationUtilities.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\cs\Microsoft.TestPlatform.CrossPlatEngine.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\cs\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\de\Microsoft.TestPlatform.CommunicationUtilities.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\de\Microsoft.TestPlatform.CrossPlatEngine.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\de\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\es\Microsoft.TestPlatform.CommunicationUtilities.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\es\Microsoft.TestPlatform.CrossPlatEngine.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\es\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\fr\Microsoft.TestPlatform.CommunicationUtilities.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\fr\Microsoft.TestPlatform.CrossPlatEngine.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\fr\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\it\Microsoft.TestPlatform.CommunicationUtilities.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\it\Microsoft.TestPlatform.CrossPlatEngine.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\it\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\ja\Microsoft.TestPlatform.CommunicationUtilities.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\ja\Microsoft.TestPlatform.CrossPlatEngine.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\ja\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\ko\Microsoft.TestPlatform.CommunicationUtilities.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\ko\Microsoft.TestPlatform.CrossPlatEngine.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\ko\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\pl\Microsoft.TestPlatform.CommunicationUtilities.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\pl\Microsoft.TestPlatform.CrossPlatEngine.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\pl\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\pt-BR\Microsoft.TestPlatform.CommunicationUtilities.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\pt-BR\Microsoft.TestPlatform.CrossPlatEngine.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\pt-BR\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\ru\Microsoft.TestPlatform.CommunicationUtilities.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\ru\Microsoft.TestPlatform.CrossPlatEngine.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\ru\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\tr\Microsoft.TestPlatform.CommunicationUtilities.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\tr\Microsoft.TestPlatform.CrossPlatEngine.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\tr\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\zh-Hans\Microsoft.TestPlatform.CommunicationUtilities.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\zh-Hans\Microsoft.TestPlatform.CrossPlatEngine.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\zh-Hans\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\zh-Hant\Microsoft.TestPlatform.CommunicationUtilities.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\zh-Hant\Microsoft.TestPlatform.CrossPlatEngine.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\zh-Hant\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\TheMagicParents.API.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\TheMagicParents.Core.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\TheMagicParents.Infrastructure.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\TheMagicParents.API.pdb
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\TheMagicParents.Core.pdb
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\TheMagicParents.Infrastructure.pdb
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\obj\Debug\net8.0\TheMagicParentsTest.csproj.AssemblyReference.cache
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\obj\Debug\net8.0\TheMagicParentsTest.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\obj\Debug\net8.0\TheMagicParentsTest.AssemblyInfoInputs.cache
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\obj\Debug\net8.0\TheMagicParentsTest.AssemblyInfo.cs
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\obj\Debug\net8.0\TheMagicParentsTest.csproj.CoreCompileInputs.cache
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\obj\Debug\net8.0\TheMagicParentsTest.sourcelink.json
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\obj\Debug\net8.0\TheMagic.3F398047.Up2Date
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\obj\Debug\net8.0\TheMagicParentsTest.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\obj\Debug\net8.0\refint\TheMagicParentsTest.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\obj\Debug\net8.0\TheMagicParentsTest.pdb
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\obj\Debug\net8.0\TheMagicParentsTest.genruntimeconfig.cache
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\obj\Debug\net8.0\ref\TheMagicParentsTest.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\TheMagicParents.API.staticwebassets.endpoints.json
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.DotNet.PlatformAbstractions.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.Extensions.Diagnostics.Abstractions.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.Extensions.Hosting.Abstractions.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.Extensions.ObjectPool.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\SixLabors.ImageSharp.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\TheMagicParents.API.staticwebassets.runtime.json
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\SixLabors.Fonts.dll
-C:\Users\Menna\Desktop\The Magic Paretns\The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\SixLabors.ImageSharp.Drawing.dll
 D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\bin\Debug\net8.0\CoverletSourceRootsMapping_TheMagicParentsTest
-D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\bin\Debug\net8.0\appsettings.Development.json
-D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\bin\Debug\net8.0\testhost.exe
+D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\obj\Debug\net8.0\TheMagicParentsTest.csproj.AssemblyReference.cache
+D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\obj\Debug\net8.0\TheMagicParentsTest.GeneratedMSBuildEditorConfig.editorconfig
+D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\obj\Debug\net8.0\TheMagicParentsTest.AssemblyInfoInputs.cache
+D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\obj\Debug\net8.0\TheMagicParentsTest.AssemblyInfo.cs
+D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\obj\Debug\net8.0\TheMagicParentsTest.csproj.CoreCompileInputs.cache
+D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\obj\Debug\net8.0\TheMagicParentsTest.sourcelink.json
 D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\bin\Debug\net8.0\testhost.dll
-D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\bin\Debug\net8.0\xunit.runner.visualstudio.dotnetcore.testadapter.dll
-D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\bin\Debug\net8.0\xunit.runner.reporters.netcoreapp10.dll
-D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\bin\Debug\net8.0\xunit.runner.utility.netcoreapp10.dll
 D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\bin\Debug\net8.0\TheMagicParents.API.deps.json
 D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\bin\Debug\net8.0\TheMagicParents.API.runtimeconfig.json
+D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\bin\Debug\net8.0\appsettings.Development.json
 D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\bin\Debug\net8.0\appsettings.json
 D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\bin\Debug\net8.0\TheMagicParents.API.staticwebassets.runtime.json
 D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\bin\Debug\net8.0\TheMagicParents.API.exe
+D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\bin\Debug\net8.0\testhost.exe
+D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\bin\Debug\net8.0\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\bin\Debug\net8.0\xunit.runner.reporters.netcoreapp10.dll
+D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\bin\Debug\net8.0\xunit.runner.utility.netcoreapp10.dll
 D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\bin\Debug\net8.0\TheMagicParentsTest.deps.json
 D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\bin\Debug\net8.0\TheMagicParentsTest.runtimeconfig.json
 D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\bin\Debug\net8.0\TheMagicParentsTest.dll
 D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\bin\Debug\net8.0\TheMagicParentsTest.pdb
 D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\bin\Debug\net8.0\Azure.Core.dll
 D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\bin\Debug\net8.0\Azure.Identity.dll
+D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
 D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\bin\Debug\net8.0\Castle.Core.dll
+D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\bin\Debug\net8.0\MailKit.dll
+D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.Internal.dll
 D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.Bcl.TimeProvider.dll
 D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.VisualStudio.CodeCoverage.Shim.dll
 D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.Data.SqlClient.dll
 D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.DotNet.PlatformAbstractions.dll
@@ -236,6 +68,7 @@ D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\bi
 D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.TestPlatform.Utilities.dll
 D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.VisualStudio.TestPlatform.Common.dll
 D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
+D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\bin\Debug\net8.0\MimeKit.dll
 D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\bin\Debug\net8.0\Moq.dll
 D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\bin\Debug\net8.0\Newtonsoft.Json.dll
 D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\bin\Debug\net8.0\NuGet.Frameworks.dll
@@ -252,6 +85,7 @@ D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\bi
 D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
 D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\bin\Debug\net8.0\System.Memory.Data.dll
 D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\bin\Debug\net8.0\System.Runtime.Caching.dll
+D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\bin\Debug\net8.0\System.Security.Cryptography.Pkcs.dll
 D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
 D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\bin\Debug\net8.0\System.Security.Permissions.dll
 D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\bin\Debug\net8.0\System.Windows.Extensions.dll
@@ -334,6 +168,7 @@ D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\bi
 D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\bin\Debug\net8.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
 D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
 D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
+D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
 D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\bin\Debug\net8.0\TheMagicParents.API.dll
@@ -342,199 +177,9 @@ D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\bi
 D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\bin\Debug\net8.0\TheMagicParents.API.pdb
 D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\bin\Debug\net8.0\TheMagicParents.Core.pdb
 D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\bin\Debug\net8.0\TheMagicParents.Infrastructure.pdb
-D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\obj\Debug\net8.0\TheMagicParentsTest.csproj.AssemblyReference.cache
-D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\obj\Debug\net8.0\TheMagicParentsTest.GeneratedMSBuildEditorConfig.editorconfig
-D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\obj\Debug\net8.0\TheMagicParentsTest.AssemblyInfoInputs.cache
-D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\obj\Debug\net8.0\TheMagicParentsTest.AssemblyInfo.cs
-D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\obj\Debug\net8.0\TheMagicParentsTest.csproj.CoreCompileInputs.cache
 D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\obj\Debug\net8.0\TheMagic.3F398047.Up2Date
 D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\obj\Debug\net8.0\TheMagicParentsTest.dll
 D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\obj\Debug\net8.0\refint\TheMagicParentsTest.dll
 D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\obj\Debug\net8.0\TheMagicParentsTest.pdb
 D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\obj\Debug\net8.0\TheMagicParentsTest.genruntimeconfig.cache
 D:\Master Graduation Project\my project\The Magic Parents\TheMagicParentsTest\obj\Debug\net8.0\ref\TheMagicParentsTest.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\CoverletSourceRootsMapping_TheMagicParentsTest
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\appsettings.Development.json
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\testhost.exe
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\testhost.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\xunit.runner.visualstudio.dotnetcore.testadapter.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\xunit.runner.reporters.netcoreapp10.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\xunit.runner.utility.netcoreapp10.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\TheMagicParents.API.deps.json
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\TheMagicParents.API.runtimeconfig.json
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\appsettings.json
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\TheMagicParents.API.staticwebassets.runtime.json
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\TheMagicParents.API.staticwebassets.endpoints.json
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\TheMagicParents.API.exe
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\TheMagicParentsTest.deps.json
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\TheMagicParentsTest.runtimeconfig.json
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\TheMagicParentsTest.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\TheMagicParentsTest.pdb
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Azure.Core.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Azure.Identity.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Castle.Core.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.Internal.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.Bcl.TimeProvider.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.VisualStudio.CodeCoverage.Shim.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.Data.SqlClient.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.DotNet.PlatformAbstractions.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.Extensions.Caching.Memory.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.Extensions.Diagnostics.Abstractions.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.Extensions.Hosting.Abstractions.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.Extensions.ObjectPool.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.Identity.Client.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.OpenApi.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.TestPlatform.CoreUtilities.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.TestPlatform.PlatformAbstractions.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.VisualStudio.TestPlatform.ObjectModel.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.TestPlatform.CommunicationUtilities.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.TestPlatform.CrossPlatEngine.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.TestPlatform.Utilities.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.VisualStudio.TestPlatform.Common.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Moq.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Newtonsoft.Json.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\NuGet.Frameworks.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\SixLabors.Fonts.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\SixLabors.ImageSharp.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\SixLabors.ImageSharp.Drawing.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\System.ClientModel.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\System.Drawing.Common.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\System.Memory.Data.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\System.Runtime.Caching.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\System.Security.Permissions.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\System.Windows.Extensions.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\xunit.abstractions.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\xunit.assert.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\xunit.core.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\xunit.execution.dotnet.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\cs\Microsoft.TestPlatform.CoreUtilities.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\cs\Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\de\Microsoft.TestPlatform.CoreUtilities.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\de\Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\es\Microsoft.TestPlatform.CoreUtilities.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\es\Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\fr\Microsoft.TestPlatform.CoreUtilities.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\fr\Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\it\Microsoft.TestPlatform.CoreUtilities.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\it\Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\ja\Microsoft.TestPlatform.CoreUtilities.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\ja\Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\ko\Microsoft.TestPlatform.CoreUtilities.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\ko\Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\pl\Microsoft.TestPlatform.CoreUtilities.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\pl\Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\pt-BR\Microsoft.TestPlatform.CoreUtilities.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\pt-BR\Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\ru\Microsoft.TestPlatform.CoreUtilities.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\ru\Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\tr\Microsoft.TestPlatform.CoreUtilities.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\tr\Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\zh-Hans\Microsoft.TestPlatform.CoreUtilities.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\zh-Hans\Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\zh-Hant\Microsoft.TestPlatform.CoreUtilities.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\zh-Hant\Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\cs\Microsoft.TestPlatform.CommunicationUtilities.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\cs\Microsoft.TestPlatform.CrossPlatEngine.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\cs\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\de\Microsoft.TestPlatform.CommunicationUtilities.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\de\Microsoft.TestPlatform.CrossPlatEngine.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\de\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\es\Microsoft.TestPlatform.CommunicationUtilities.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\es\Microsoft.TestPlatform.CrossPlatEngine.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\es\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\fr\Microsoft.TestPlatform.CommunicationUtilities.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\fr\Microsoft.TestPlatform.CrossPlatEngine.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\fr\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\it\Microsoft.TestPlatform.CommunicationUtilities.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\it\Microsoft.TestPlatform.CrossPlatEngine.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\it\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\ja\Microsoft.TestPlatform.CommunicationUtilities.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\ja\Microsoft.TestPlatform.CrossPlatEngine.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\ja\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\ko\Microsoft.TestPlatform.CommunicationUtilities.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\ko\Microsoft.TestPlatform.CrossPlatEngine.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\ko\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\pl\Microsoft.TestPlatform.CommunicationUtilities.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\pl\Microsoft.TestPlatform.CrossPlatEngine.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\pl\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\pt-BR\Microsoft.TestPlatform.CommunicationUtilities.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\pt-BR\Microsoft.TestPlatform.CrossPlatEngine.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\pt-BR\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\ru\Microsoft.TestPlatform.CommunicationUtilities.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\ru\Microsoft.TestPlatform.CrossPlatEngine.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\ru\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\tr\Microsoft.TestPlatform.CommunicationUtilities.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\tr\Microsoft.TestPlatform.CrossPlatEngine.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\tr\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\zh-Hans\Microsoft.TestPlatform.CommunicationUtilities.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\zh-Hans\Microsoft.TestPlatform.CrossPlatEngine.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\zh-Hans\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\zh-Hant\Microsoft.TestPlatform.CommunicationUtilities.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\zh-Hant\Microsoft.TestPlatform.CrossPlatEngine.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\zh-Hant\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\TheMagicParents.API.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\TheMagicParents.Core.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\TheMagicParents.Infrastructure.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\TheMagicParents.API.pdb
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\TheMagicParents.Core.pdb
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\TheMagicParents.Infrastructure.pdb
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\obj\Debug\net8.0\TheMagicParentsTest.csproj.AssemblyReference.cache
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\obj\Debug\net8.0\TheMagicParentsTest.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\obj\Debug\net8.0\TheMagicParentsTest.AssemblyInfoInputs.cache
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\obj\Debug\net8.0\TheMagicParentsTest.AssemblyInfo.cs
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\obj\Debug\net8.0\TheMagicParentsTest.csproj.CoreCompileInputs.cache
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\obj\Debug\net8.0\TheMagicParentsTest.sourcelink.json
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\obj\Debug\net8.0\TheMagic.3F398047.Up2Date
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\obj\Debug\net8.0\TheMagicParentsTest.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\obj\Debug\net8.0\refint\TheMagicParentsTest.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\obj\Debug\net8.0\TheMagicParentsTest.pdb
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\obj\Debug\net8.0\TheMagicParentsTest.genruntimeconfig.cache
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\obj\Debug\net8.0\ref\TheMagicParentsTest.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\MimeKit.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\System.Security.Cryptography.Pkcs.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
-C:\Users\Menna\Desktop\The Magic Paretns\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\MailKit.dll

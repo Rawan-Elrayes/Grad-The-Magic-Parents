@@ -90,7 +90,7 @@ namespace TheMagicParents.Infrastructure.Repositories
             await _userManager.AddToRoleAsync(ServiceProvider, UserRoles.ServiceProvider.ToString());
 
             await _context.SaveChangesAsync();
-
+            /*
             // توليد توكن تأكيد البريد
             var emailConfirmationToken = await _userManager.GenerateEmailConfirmationTokenAsync(ServiceProvider);
             var encodedToken = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(emailConfirmationToken));
@@ -131,9 +131,27 @@ namespace TheMagicParents.Infrastructure.Repositories
                 _logger.LogError(ex, "فشل إرسال بريد التأكيد");
 
                 throw new ApplicationException("فشل إرسال بريد التأكيد، يرجى المحاولة لاحقاً");
-            }
+            }*/
 
             //HttpContext.Session.SetString("UserId", client.Id.ToString());
+
+            //---Edit after comment email confirmation
+            var (token, expires) = await _userRepository.GenerateJwtToken(ServiceProvider);
+            var jwtToken = new JwtSecurityTokenHandler().WriteToken(token);
+
+            return new ServiceProviderRegisterResponse
+            {
+                City = _context.Cities.Find(ServiceProvider.CityId).Name,
+                Email = ServiceProvider.Email,
+                Expires = expires,
+                IdCardBackPhoto = ServiceProvider.IdCardBackPhoto,
+                IdCardFrontPhoto = ServiceProvider.IdCardFrontPhoto,
+                Certification = ServiceProvider.Certification,
+                PersonalPhoto = ServiceProvider.PersonalPhoto,
+                PhoneNumber = ServiceProvider.PhoneNumber,
+                Token = jwtToken,
+                UserName = ServiceProvider.UserName
+            };
         }
 
         private async Task<string> SavePdf(IFormFile pdfFile)

@@ -6,6 +6,7 @@ using System.Text;
 using TheMagicParents.Core.DTOs;
 using TheMagicParents.Core.EmailService;
 using TheMagicParents.Core.Interfaces;
+using TheMagicParents.Enums;
 using TheMagicParents.Models;
 
 namespace TheMagicParents.Infrastructure.Services
@@ -34,14 +35,27 @@ namespace TheMagicParents.Infrastructure.Services
             var user = await _userManager.FindByEmailAsync(model.Email);
             if (user == null)
                 return new Response<string> { Status = false, Message = "Invalid email or password" };
+            //handle admin part
+            if (await _userManager.IsInRoleAsync(user, "Admin"))
+            {
+                user.EmailConfirmed = true;
+                await _userManager.UpdateAsync(user);
+            }
+
 
             // Check if email is confirmed
             if (!await _userManager.IsEmailConfirmedAsync(user))
+            {
                 return new Response<string> { Status = false, Message = "Please confirm your email before logging in" };
+            }
+            user.AccountState = Enums.StateType.Active;
+//updateAsyncprnot//----------------------------------------------------------
+//--------------------------------------------------------------
+
 
             var result = await _signInManager.PasswordSignInAsync(user, model.Password, false, true);
             if (!result.Succeeded)
-                return new Response<string> { Status = false, Message = "Invalid email or password" };
+                return new Response<string> { Status = false, Message = "Invalid email or password"+ model.Password.ToString() };
 
             return new Response<string> { Status = true, Message = "Login successful", Data = user.Id };
         }
