@@ -126,6 +126,7 @@ public class AdminController : ControllerBase
     }
 
     [HttpGet("pending-users")]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> GetPendingUsers()
     {
         var pendingUsers = await _userManager.Users
@@ -144,6 +145,7 @@ public class AdminController : ControllerBase
     }
 
     [HttpPost("verify-user/{userId}")]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> VerifyUser(string userId, [FromBody] bool isApproved)
     {
         var user = await _userManager.FindByIdAsync(userId);

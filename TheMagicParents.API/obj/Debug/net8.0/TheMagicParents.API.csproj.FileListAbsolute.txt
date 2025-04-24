@@ -162,3 +162,4 @@ D:\Master Graduation Project\my project\The Magic Parents\TheMagicParents.API\ob
 D:\Master Graduation Project\my project\The Magic Parents\TheMagicParents.API\obj\Debug\net8.0\TheMagicParents.API.pdb
 D:\Master Graduation Project\my project\The Magic Parents\TheMagicParents.API\obj\Debug\net8.0\TheMagicParents.API.genruntimeconfig.cache
 D:\Master Graduation Project\my project\The Magic Parents\TheMagicParents.API\obj\Debug\net8.0\ref\TheMagicParents.API.dll
+D:\Master Graduation Project\my project\The Magic Parents\TheMagicParents.API\obj\Debug\net8.0\TheMagicParents.API.MvcApplicationPartsAssemblyInfo.cs
