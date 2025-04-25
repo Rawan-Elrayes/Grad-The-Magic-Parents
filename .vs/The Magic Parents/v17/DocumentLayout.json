@@ -50,8 +50,7 @@
               "RelativeToolTip": "TheMagicParents.API\\Controllers\\AccountController.cs",
               "ViewState": "AgIAAKAAAAAAAAAAAAAAALYAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-25T15:38:22.853Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-25T15:38:22.853Z"
             },
             {
               "$type": "Document",
@@ -61,7 +60,7 @@
               "RelativeDocumentMoniker": "TheMagicParents.API\\appsettings.json",
               "ToolTip": "C:\\Users\\Menna\\Desktop\\The Magic Parents\\Grad-The-Magic-Parents\\TheMagicParents.API\\appsettings.json",
               "RelativeToolTip": "TheMagicParents.API\\appsettings.json",
-              "ViewState": "AgIAABcAAAAAAAAAAAAAABkAAAAdAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2025-04-25T15:28:46.933Z",
               "EditorCaption": ""
@@ -100,8 +99,7 @@
               "RelativeToolTip": "TheMagicParents.API\\Controllers\\AdminController.cs",
               "ViewState": "AgIAACEAAAAAAAAAAAAowJUAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-24T11:04:21.315Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-24T11:04:21.315Z"
             }
           ]
         }
