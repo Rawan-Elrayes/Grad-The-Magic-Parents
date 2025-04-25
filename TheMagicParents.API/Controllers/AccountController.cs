@@ -181,32 +181,5 @@ namespace TheMagicParents.API.Controllers
             var result = await _authService.LogoutAsync();
             return Ok(result);
         }
-
-        [HttpPost("send-confirmation-email")]
-        public async Task<IActionResult> SendConfirmationEmail([FromBody] string email)
-        {
-            var result = await _authService.SendEmailConfirmationAsync(email);
-            if (!result.Status)
-                return BadRequest(result);
-            return Ok(result);
-        }
-
-        [HttpGet("confirm-email")]
-        public async Task<IActionResult> ConfirmEmail([FromQuery] string userId, [FromQuery] string token)
-        {
-            if (string.IsNullOrEmpty(userId) || string.IsNullOrEmpty(token))
-                return BadRequest(new { Status = false, Message = "Invalid confirmation link" });
-
-            var user = await _authService.GetUserByIdAsync(userId);
-            if (user == null)
-                return BadRequest(new { Status = false, Message = "User not found" });
-
-            var result = await _authService.ConfirmEmailAsync(user.Email!, token);
-            if (!result.Status)
-                return BadRequest(result);
-            
-            // Redirect to frontend with success message
-            return Redirect($"/email-confirmed?status=success");
-        }
     }
 }
