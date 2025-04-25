@@ -126,7 +126,7 @@ public class AdminController : ControllerBase
     }
 
     [HttpGet("pending-users")]
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin" )]
     public async Task<IActionResult> GetPendingUsers()
     {
         var pendingUsers = await _userManager.Users

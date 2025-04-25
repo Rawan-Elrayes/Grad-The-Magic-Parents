@@ -5,6 +5,14 @@
     {
       "AbsoluteMoniker": "D:0:0:{97ECE05A-5974-4879-AE82-39612DB11C8D}|TheMagicParents.API\\TheMagicParents.API.csproj|d:\\master graduation project\\my project\\the magic parents\\themagicparents.api\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{97ECE05A-5974-4879-AE82-39612DB11C8D}|TheMagicParents.API\\TheMagicParents.API.csproj|solutionrelative:themagicparents.api\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F6FA9B1D-6481-40A5-A007-1858F99A80D1}|TheMagicParents.Infrastructure\\TheMagicParents.Infrastructure.csproj|d:\\master graduation project\\my project\\the magic parents\\themagicparents.infrastructure\\services\\authenticationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F6FA9B1D-6481-40A5-A007-1858F99A80D1}|TheMagicParents.Infrastructure\\TheMagicParents.Infrastructure.csproj|solutionrelative:themagicparents.infrastructure\\services\\authenticationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{97ECE05A-5974-4879-AE82-39612DB11C8D}|TheMagicParents.API\\TheMagicParents.API.csproj|d:\\master graduation project\\my project\\the magic parents\\themagicparents.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{97ECE05A-5974-4879-AE82-39612DB11C8D}|TheMagicParents.API\\TheMagicParents.API.csproj|solutionrelative:themagicparents.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -26,13 +34,39 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Master Graduation Project\\my project\\The Magic Parents\\TheMagicParents.API\\Program.cs",
+              "RelativeDocumentMoniker": "TheMagicParents.API\\Program.cs",
+              "ToolTip": "D:\\Master Graduation Project\\my project\\The Magic Parents\\TheMagicParents.API\\Program.cs",
+              "RelativeToolTip": "TheMagicParents.API\\Program.cs",
+              "ViewState": "AQIAACUAAAAAAAAAAAAAADIAAAACAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-25T10:46:14.342Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AuthenticationService.cs",
+              "DocumentMoniker": "D:\\Master Graduation Project\\my project\\The Magic Parents\\TheMagicParents.Infrastructure\\Services\\AuthenticationService.cs",
+              "RelativeDocumentMoniker": "TheMagicParents.Infrastructure\\Services\\AuthenticationService.cs",
+              "ToolTip": "D:\\Master Graduation Project\\my project\\The Magic Parents\\TheMagicParents.Infrastructure\\Services\\AuthenticationService.cs",
+              "RelativeToolTip": "TheMagicParents.Infrastructure\\Services\\AuthenticationService.cs",
+              "ViewState": "AQIAABwAAAAAAAAAAAAAACgAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-25T06:34:51.806Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "AdminController.cs",
               "DocumentMoniker": "D:\\Master Graduation Project\\my project\\The Magic Parents\\TheMagicParents.API\\Controllers\\AdminController.cs",
               "RelativeDocumentMoniker": "TheMagicParents.API\\Controllers\\AdminController.cs",
               "ToolTip": "D:\\Master Graduation Project\\my project\\The Magic Parents\\TheMagicParents.API\\Controllers\\AdminController.cs",
               "RelativeToolTip": "TheMagicParents.API\\Controllers\\AdminController.cs",
-              "ViewState": "AQIAAIMAAAAAAAAAAAAcwJMAAAAgAAAA",
+              "ViewState": "AQIAAIUAAAAAAAAAAAAAAJUAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-24T11:04:21.315Z",
               "EditorCaption": ""
