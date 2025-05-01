@@ -13,6 +13,7 @@ using TheMagicParents.Core.EmailService;
 using EcommerceMola.EmailModels;
 using TheMagicParents.Infrastructure.Services;
 using Microsoft.OpenApi.Models;
+using TheMagicParents.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -84,10 +85,6 @@ builder.Services.AddIdentity<User, IdentityRole>()
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-
-
-
-
 // ⁄—Ì› «·Ã·”…
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession(options =>
@@ -98,15 +95,15 @@ builder.Services.AddSession(options =>
 });
 builder.Services.AddHttpContextAccessor();
 
-
-
-
 //Email configuration
 var emailConfig = builder.Configuration.GetSection("EmailConfiguration").Get<EmailConfiguration>();
 builder.Services.AddSingleton(emailConfig);
 builder.Services.AddScoped<IEmailSender, EmailSender>();
 //Delete Unconfirmed users
 builder.Services.AddHostedService<UserCleanupService>();
+
+// Delete expired availabilities
+builder.Services.AddHostedService<AvailabilityUpdateService>();
 
 //  ”ÃÌ· «·‹ Repositories
 builder.Services.AddScoped<IClientRepository, ClientRepository>();

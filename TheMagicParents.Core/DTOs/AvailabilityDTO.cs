@@ -1,16 +1,17 @@
-﻿using Microsoft.AspNetCore.Http;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace TheMagicParents.Core.DTOs
 {
-    public class ClientRegisterResponse:UserRegisterResponse
+    public class AvailabilityDTO
     {
-        public string Location { get; set; }
+        [Required]
+        public DateTime Date { get; set; }
+        [Required]
+        public List<TimeSpan> Hours { get; set; }
     }
 }

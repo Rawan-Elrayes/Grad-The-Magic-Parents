@@ -6,11 +6,9 @@ namespace TheMagicParents.Models
 	public class Availability
 	{
 		public int Id { get; set; }
-		//Handle that each day has certain times
-		[Required]
 		public DateTime Date { get; set; }
-		[Required]
-		public TimeSpan Time { get; set; } 
+		public TimeSpan StartTime { get; set; } 
+		public TimeSpan EndTime { get; set; } 
 		public string ServiceProciderID { get; set; }
 
 		[ForeignKey("ServiceProciderID")]

@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TheMagicParents.Core.DTOs
+namespace TheMagicParents.Core.Responses
 {
     public class UserRegisterResponse
     {
+        public string Id { get; set; }
         public string Token { get; set; }
         public DateTime Expires { get; set; }
         public string UserName { get; set; }

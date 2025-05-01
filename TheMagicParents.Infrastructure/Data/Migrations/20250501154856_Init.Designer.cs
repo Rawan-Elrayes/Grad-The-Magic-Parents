@@ -12,8 +12,8 @@ using TheMagicParents.Infrastructure.Data;
 namespace TheMagicParents.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250401205515_AddPersonWithCard")]
-    partial class AddPersonWithCard
+    [Migration("20250501154856_Init")]
+    partial class Init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -158,20 +158,6 @@ namespace TheMagicParents.Infrastructure.Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("TheMagicParents.Models.Admin", b =>
-                {
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Email");
-
-                    b.ToTable("Admins");
-                });
-
             modelBuilder.Entity("TheMagicParents.Models.Availability", b =>
                 {
                     b.Property<int>("Id")
@@ -183,11 +169,14 @@ namespace TheMagicParents.Infrastructure.Data.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
+                    b.Property<TimeSpan>("EndTime")
+                        .HasColumnType("time");
+
                     b.Property<string>("ServiceProciderID")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<TimeSpan>("Time")
+                    b.Property<TimeSpan>("StartTime")
                         .HasColumnType("time");
 
                     b.HasKey("Id");
@@ -408,17 +397,17 @@ namespace TheMagicParents.Infrastructure.Data.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
-                    b.Property<int>("AccountState")
+                    b.Property<int?>("AccountState")
                         .HasColumnType("int");
 
-                    b.Property<int>("CityId")
+                    b.Property<int?>("CityId")
                         .HasColumnType("int");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("CreatedAt")
+                    b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
@@ -429,11 +418,9 @@ namespace TheMagicParents.Infrastructure.Data.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("IdCardBackPhoto")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("IdCardFrontPhoto")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("LockoutEnabled")
@@ -450,24 +437,22 @@ namespace TheMagicParents.Infrastructure.Data.Migrations
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
-                    b.Property<int>("NumberOfCanceledServices")
+                    b.Property<int?>("NumberOfCanceledServices")
                         .HasColumnType("int");
 
-                    b.Property<int>("NumberOfSuccessfulServices")
+                    b.Property<int?>("NumberOfSuccessfulServices")
                         .HasColumnType("int");
 
-                    b.Property<int>("NumberOfSupports")
+                    b.Property<int?>("NumberOfSupports")
                         .HasColumnType("int");
 
                     b.Property<string>("PasswordHash")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PersonWithCard")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PersonalPhoto")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhoneNumber")
@@ -487,7 +472,6 @@ namespace TheMagicParents.Infrastructure.Data.Migrations
                         .HasColumnType("nvarchar(256)");
 
                     b.Property<string>("UserNameId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserType")
@@ -704,9 +688,7 @@ namespace TheMagicParents.Infrastructure.Data.Migrations
                 {
                     b.HasOne("TheMagicParents.Models.City", "City")
                         .WithMany("Users")
-                        .HasForeignKey("CityId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CityId");
 
                     b.Navigation("City");
                 });

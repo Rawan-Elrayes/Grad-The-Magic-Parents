@@ -23,14 +23,12 @@ namespace TheMagicParents.Infrastructure.Repositories
         private readonly AppDbContext _context;
         private readonly UserManager<User> _userManager;
         private readonly IConfiguration _configuration;
-        private readonly ILogger<UserRepository> _logger;
         
-        public UserRepository(AppDbContext context, UserManager<User> userManager, ILogger<UserRepository> logger, IConfiguration configuration)
+        public UserRepository(AppDbContext context, UserManager<User> userManager, IConfiguration configuration)
         {
             _context = context;
             _userManager = userManager;
             _configuration = configuration;
-            _logger = logger;
         }
 
         public async Task<IEnumerable<Governorate>> GetGovernmentsAsync()

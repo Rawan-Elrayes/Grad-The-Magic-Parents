@@ -1,10 +1,12 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TheMagicParents.Core.DTOs;
+using TheMagicParents.Core.Responses;
 using TheMagicParents.Models;
 
 namespace TheMagicParents.Core.Interfaces
@@ -12,5 +14,7 @@ namespace TheMagicParents.Core.Interfaces
     public interface IServiceProviderRepository
     {
         Task<ServiceProviderRegisterResponse> RegisterServiceProviderAsync(ServiceProviderRegisterDTO model);
+        Task<AvailabilityResponse> SaveAvailability(AvailabilityDTO request, string Id);
+        Task<AvailabilityResponse> GetAvailabilitiesHoures(DateTime date, string Id);
     }
 }

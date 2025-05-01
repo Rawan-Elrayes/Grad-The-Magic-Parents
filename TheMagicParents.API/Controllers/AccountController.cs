@@ -12,6 +12,7 @@ using TheMagicParents.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.WebUtilities;
 using System.Text;
+using TheMagicParents.Core.Responses;
 
 namespace TheMagicParents.API.Controllers
 {
@@ -63,7 +64,7 @@ namespace TheMagicParents.API.Controllers
             try
             {
                 var client = await clientRepository.RegisterClientAsync(model);
-
+                HttpContext.Session.SetString("UserId", client.Id.ToString());
                 return Ok(new Response<ClientRegisterResponse>
                 {
                     Message = "Client registered successfully",
@@ -109,6 +110,7 @@ namespace TheMagicParents.API.Controllers
             {
                 var ServiceProvider = await serviceProviderRepository.RegisterServiceProviderAsync(model);
 
+                HttpContext.Session.SetString("UserId", ServiceProvider.Id.ToString());
                 return Ok(new Response<ServiceProviderRegisterResponse>
                 {
                     Message = "service provider registered successfully",
@@ -143,6 +145,7 @@ namespace TheMagicParents.API.Controllers
                 return BadRequest(ModelState);
 
             var result = await _authService.LoginAsync(model);
+            HttpContext.Session.SetString("UserId", result.Data.ToString());
             if (!result.Status)
                 return BadRequest(result);
 

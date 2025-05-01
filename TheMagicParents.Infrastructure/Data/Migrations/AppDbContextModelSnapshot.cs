@@ -166,11 +166,14 @@ namespace TheMagicParents.Infrastructure.Data.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
+                    b.Property<TimeSpan>("EndTime")
+                        .HasColumnType("time");
+
                     b.Property<string>("ServiceProciderID")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<TimeSpan>("Time")
+                    b.Property<TimeSpan>("StartTime")
                         .HasColumnType("time");
 
                     b.HasKey("Id");

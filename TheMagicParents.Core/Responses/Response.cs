@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TheMagicParents.Models;
 
-namespace TheMagicParents.Core.DTOs
+namespace TheMagicParents.Core.Responses
 {
     public class Response<T>
     {
@@ -18,12 +18,12 @@ namespace TheMagicParents.Core.DTOs
             Status = status;
         }
 
-        public Response(string message = "", T data = default, Boolean status = false, List<string> errors = null)
+        public Response(string message = "", T data = default, bool status = false, List<string> errors = null)
         {
-            this.Message = message;
-            this.Status = status;
-            this.Data = data;
-            this.Errors = errors;
+            Message = message;
+            Status = status;
+            Data = data;
+            Errors = errors;
         }
 
         public Response(string errorMessage)
@@ -33,7 +33,7 @@ namespace TheMagicParents.Core.DTOs
             Errors = new List<string> { errorMessage };
         }
 
-        public Boolean Status { get; set; }
+        public bool Status { get; set; }
         public T Data { get; set; }
         public string Message { get; set; }
         public List<string> Errors { get; set; }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TheMagicParents.Core.DTOs;
+using TheMagicParents.Core.Responses;
 using TheMagicParents.Models;
 
 namespace TheMagicParents.Core.Interfaces

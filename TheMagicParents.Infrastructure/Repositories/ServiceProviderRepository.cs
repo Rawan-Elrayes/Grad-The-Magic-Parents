@@ -1,24 +1,14 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-using System.Threading.Tasks;
 using TheMagicParents.Core.Interfaces;
 using TheMagicParents.Infrastructure.Data;
 using TheMagicParents.Models;
 using TheMagicParents.Enums;
 using TheMagicParents.Core.DTOs;
 using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using Microsoft.IdentityModel.Tokens;
-using System;
-using Microsoft.AspNetCore.Mvc;
 using System.Data;
-using System.Text;
-using Azure.Core;
-using Microsoft.AspNetCore.WebUtilities;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
-using TheMagicParents.Core.EmailService;
 using Microsoft.AspNetCore.Http;
+using TheMagicParents.Core.Responses;
+using Microsoft.EntityFrameworkCore;
 
 namespace TheMagicParents.Infrastructure.Repositories
 {
@@ -28,22 +18,14 @@ namespace TheMagicParents.Infrastructure.Repositories
         private readonly UserManager<User> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly IUserRepository _userRepository;
-        private readonly IEmailSender _emailSender;
-        private readonly IConfiguration _configuration;
-        private readonly ILogger<UserRepository> _logger;
-        private readonly IHttpContextAccessor _httpContextAccessor;
 
 
-        public ServiceProviderRepository(AppDbContext context, UserManager<User> userManager, RoleManager<IdentityRole> roleManager, IUserRepository userRepository, IEmailSender emailSender, IConfiguration configuration, ILogger<UserRepository> logger, IHttpContextAccessor httpContextAccessor)
+        public ServiceProviderRepository(AppDbContext context, UserManager<User> userManager, RoleManager<IdentityRole> roleManager, IUserRepository userRepository)
         {
             _context = context;
             _userManager = userManager;
             _roleManager = roleManager;
             _userRepository = userRepository;
-            _emailSender = emailSender;
-            _configuration = configuration;
-            _logger = logger;
-            _httpContextAccessor = httpContextAccessor;
         }
 
         public async Task<ServiceProviderRegisterResponse> RegisterServiceProviderAsync(ServiceProviderRegisterDTO model)
@@ -63,7 +45,7 @@ namespace TheMagicParents.Infrastructure.Repositories
                 PersonalPhoto = await _userRepository.SaveImage(model.PersonalPhoto),
                 IdCardFrontPhoto = await _userRepository.SaveImage(model.IdCardFrontPhoto),
                 IdCardBackPhoto = await _userRepository.SaveImage(model.IdCardBackPhoto),
-                PersonWithCard= await _userRepository.SaveImage(model.PersonWithCard),
+                PersonWithCard = await _userRepository.SaveImage(model.PersonWithCard),
                 CityId = model.CityId,
                 AccountState = StateType.Waiting,
                 Certification = await SavePdf(model.Certification),
@@ -90,57 +72,13 @@ namespace TheMagicParents.Infrastructure.Repositories
             await _userManager.AddToRoleAsync(ServiceProvider, UserRoles.ServiceProvider.ToString());
 
             await _context.SaveChangesAsync();
-            /*
-            // توليد توكن تأكيد البريد
-            var emailConfirmationToken = await _userManager.GenerateEmailConfirmationTokenAsync(ServiceProvider);
-            var encodedToken = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(emailConfirmationToken));
 
-            try
-            {
-                var callbackUrl = $"{_httpContextAccessor.HttpContext?.Request.Scheme}://{_httpContextAccessor.HttpContext?.Request.Host}/api/email/confirm-email?userId={ServiceProvider.Id}&token={encodedToken}";
-
-                var message = new Message(new string[] { ServiceProvider.Email! }, "Welcome To The Magic Parents",
-                    $"<h3>Welcome {ServiceProvider.UserNameId}!</h3>" +
-                    "<p>Thanks for use our application, Please confirm you E-mail:</p>" +
-                    $"<p><a href='{callbackUrl}'>Confirm</a></p>" +
-                    "<p>You have only 24 hours to confirm, If you don't register by this email you can ignore it.</p>");
-
-                _emailSender.SendEmail(message);
-
-                var (token, expires) = await _userRepository.GenerateJwtToken(ServiceProvider);
-                var jwtToken = new JwtSecurityTokenHandler().WriteToken(token);
-
-                return new ServiceProviderRegisterResponse
-                {
-                    City = _context.Cities.Find(ServiceProvider.CityId).Name,
-                    Email = ServiceProvider.Email,
-                    Expires = expires,
-                    IdCardBackPhoto = ServiceProvider.IdCardBackPhoto,
-                    IdCardFrontPhoto = ServiceProvider.IdCardFrontPhoto,
-                    Certification = ServiceProvider.Certification,
-                    PersonalPhoto = ServiceProvider.PersonalPhoto,
-                    PhoneNumber = ServiceProvider.PhoneNumber,
-                    Token = jwtToken,
-                    UserName = ServiceProvider.UserName
-                };
-            }
-            catch (Exception ex)
-            {
-                // حذف المستخدم إذا فشل إرسال البريد
-                await _userManager.DeleteAsync(ServiceProvider);
-                _logger.LogError(ex, "فشل إرسال بريد التأكيد");
-
-                throw new ApplicationException("فشل إرسال بريد التأكيد، يرجى المحاولة لاحقاً");
-            }*/
-
-            //HttpContext.Session.SetString("UserId", client.Id.ToString());
-
-            //---Edit after comment email confirmation
             var (token, expires) = await _userRepository.GenerateJwtToken(ServiceProvider);
             var jwtToken = new JwtSecurityTokenHandler().WriteToken(token);
 
             return new ServiceProviderRegisterResponse
             {
+                Id = ServiceProvider.Id,
                 City = _context.Cities.Find(ServiceProvider.CityId).Name,
                 Email = ServiceProvider.Email,
                 Expires = expires,
@@ -163,14 +101,14 @@ namespace TheMagicParents.Infrastructure.Repositories
             // التحقق من أن الملف موجود وصالح
             if (pdfFile == null || pdfFile.Length == 0)
             {
-                throw new ArgumentException("الملف المرفوع غير صالح أو فارغ");
+                throw new ArgumentException("The uploaded file is invalid or empty.");
             }
-        
+
             // التحقق من أن الملف هو PDF
             var extension = Path.GetExtension(pdfFile.FileName).ToLower();
             if (extension != ".pdf")
             {
-                throw new ArgumentException("الملف يجب أن يكون بصيغة PDF");
+                throw new ArgumentException("The file must be in PDF format.");
             }
 
             // إنشاء اسم فريد للملف
@@ -194,6 +132,67 @@ namespace TheMagicParents.Infrastructure.Repositories
 
             // إرجاع المسار النسبي الذي يمكن استخدامه في الواجهة الأمامية
             return $"/pdfs/{newFileName}";
+        }
+
+        public async Task<AvailabilityResponse> SaveAvailability(AvailabilityDTO request, string Id)
+        {
+            try
+            {
+                // Create new availabilities
+                var newAvailabilities = new List<Availability>();
+                foreach (var hour in request.Hours)
+                {
+                    newAvailabilities.Add(new Availability
+                    {
+                        ServiceProciderID = Id,
+                        Date = request.Date.Date,
+                        StartTime = hour,
+                        EndTime = hour.Add(TimeSpan.FromHours(1))
+                    });
+                }
+
+                // Add new ones
+                await _context.Availabilities.AddRangeAsync(newAvailabilities);
+                await _context.SaveChangesAsync();
+
+                return new AvailabilityResponse
+                {
+                    Date=request.Date.Date,
+                    Houres=newAvailabilities.Select(a=>a.StartTime).ToList()
+                };
+
+            }
+            catch (Exception ex)
+            {
+                // Log error here
+                throw new InvalidOperationException("An error occurred while saving availability");
+                
+            }
+        }
+
+        public async Task<AvailabilityResponse> GetAvailabilitiesHoures(DateTime date, string Id)
+        {
+            try
+            {
+                var availabilities = await GetByDateAsync(date, Id);
+
+                return new AvailabilityResponse
+                {
+                    Date = date,
+                    Houres = availabilities
+                };
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException("An error occurred while getting availabilities.");
+            }
+        }
+
+        private async Task<List<TimeSpan>> GetByDateAsync(DateTime date, string Id)
+        {
+            return await _context.Availabilities
+                .Where(a => a.Date.Date == date.Date.Date && a.ServiceProciderID == Id).Select(a=>a.StartTime)
+                .ToListAsync();
         }
     }
 }

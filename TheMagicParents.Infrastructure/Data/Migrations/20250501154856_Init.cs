@@ -6,23 +6,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace TheMagicParents.Infrastructure.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class init : Migration
+    public partial class Init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.CreateTable(
-                name: "Admins",
-                columns: table => new
-                {
-                    Email = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Admins", x => x.Email);
-                });
-
             migrationBuilder.CreateTable(
                 name: "AspNetRoles",
                 columns: table => new
@@ -38,7 +26,7 @@ namespace TheMagicParents.Infrastructure.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Goverments",
+                name: "Governorates",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -47,7 +35,7 @@ namespace TheMagicParents.Infrastructure.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Goverments", x => x.Id);
+                    table.PrimaryKey("PK_Governorates", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -93,15 +81,15 @@ namespace TheMagicParents.Infrastructure.Data.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    GovermentId = table.Column<int>(type: "int", nullable: false)
+                    GovernorateId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Cities", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Cities_Goverments_GovermentId",
-                        column: x => x.GovermentId,
-                        principalTable: "Goverments",
+                        name: "FK_Cities_Governorates_GovernorateId",
+                        column: x => x.GovernorateId,
+                        principalTable: "Governorates",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -111,14 +99,17 @@ namespace TheMagicParents.Infrastructure.Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    PersonalPhoto = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    IdCardFrontPhoto = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    IdCardBackPhoto = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    AccountState = table.Column<int>(type: "int", nullable: false),
-                    NumberOfSuccessfulServices = table.Column<int>(type: "int", nullable: false),
-                    NumberOfCanceledServices = table.Column<int>(type: "int", nullable: false),
-                    NumberOfSupports = table.Column<int>(type: "int", nullable: false),
-                    CityId = table.Column<int>(type: "int", nullable: false),
+                    PersonalPhoto = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IdCardFrontPhoto = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IdCardBackPhoto = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PersonWithCard = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    AccountState = table.Column<int>(type: "int", nullable: true),
+                    NumberOfSuccessfulServices = table.Column<int>(type: "int", nullable: true),
+                    NumberOfCanceledServices = table.Column<int>(type: "int", nullable: true),
+                    NumberOfSupports = table.Column<int>(type: "int", nullable: true),
+                    UserNameId = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CityId = table.Column<int>(type: "int", nullable: true),
                     UserType = table.Column<string>(type: "nvarchar(21)", maxLength: 21, nullable: false),
                     Points = table.Column<int>(type: "int", nullable: true),
                     Location = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -150,8 +141,7 @@ namespace TheMagicParents.Infrastructure.Data.Migrations
                         name: "FK_AspNetUsers_Cities_CityId",
                         column: x => x.CityId,
                         principalTable: "Cities",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_AspNetUsers_Supports_Client_SupportID",
                         column: x => x.Client_SupportID,
@@ -256,7 +246,8 @@ namespace TheMagicParents.Infrastructure.Data.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Time = table.Column<TimeSpan>(type: "time", nullable: false),
+                    StartTime = table.Column<TimeSpan>(type: "time", nullable: false),
+                    EndTime = table.Column<TimeSpan>(type: "time", nullable: false),
                     ServiceProciderID = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
                 constraints: table =>
@@ -460,9 +451,9 @@ namespace TheMagicParents.Infrastructure.Data.Migrations
                 column: "ServiceProviderID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Cities_GovermentId",
+                name: "IX_Cities_GovernorateId",
                 table: "Cities",
-                column: "GovermentId");
+                column: "GovernorateId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Payments_BookingID",
@@ -485,9 +476,6 @@ namespace TheMagicParents.Infrastructure.Data.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "Admins");
-
             migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
 
@@ -531,7 +519,7 @@ namespace TheMagicParents.Infrastructure.Data.Migrations
                 name: "Supports");
 
             migrationBuilder.DropTable(
-                name: "Goverments");
+                name: "Governorates");
         }
     }
 }

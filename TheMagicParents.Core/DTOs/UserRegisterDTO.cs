@@ -38,6 +38,11 @@ namespace TheMagicParents.Core.DTOs
         [Required]
         public IFormFile PersonWithCard { get; set; }
 
+
+        [Required]
+        [DisplayName("Governorate")]
+        public int GovernorateId { get; set; }
+
         [Required]
         [DisplayName("City")]
         public int CityId { get; set; }

@@ -7,6 +7,7 @@ using System.Text;
 using TheMagicParents.Core.DTOs;
 using TheMagicParents.Core.EmailService;
 using TheMagicParents.Core.Interfaces;
+using TheMagicParents.Core.Responses;
 using TheMagicParents.Enums;
 using TheMagicParents.Infrastructure.Repositories;
 using TheMagicParents.Models;
