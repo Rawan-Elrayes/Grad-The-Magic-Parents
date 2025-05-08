@@ -179,4 +179,107 @@ public class AdminController : ControllerBase
             //return Ok("User verification rejected");
         }
     }
+
+    [HttpGet("pending-deletions")]
+    [Authorize(Roles = "Admin")]
+    public async Task<IActionResult> GetPendingDeletions()
+    {
+        var pendingDeletions = await _userManager.Users
+            .Where(u => u.AccountState == StateType.PendingDeletion)
+            .Select(u => new
+            {
+                u.Id,
+                u.UserName,
+                UserType = _userManager.GetRolesAsync(u).Result.FirstOrDefault(),
+                ActiveBookings = _context.Bookings
+                    .Where(b => (b.ClientId == u.Id || b.ServiceProviderID == u.Id) &&
+                               (b.Status == BookingStatus.pending || b.Status == BookingStatus.provider_confirmed || b.Status == BookingStatus.paid))
+                    .Select(b => new
+                    {
+                        b.BookingID,
+                        b.Status,
+                        b.BookingTime
+                        //b.ServiceProvider.Type
+                    }).ToList(),
+                HasActiveBookings = _context.Bookings
+                .Any(b => (b.ClientId == u.Id || b.ServiceProviderID == u.Id) &&
+                               (b.Status == BookingStatus.pending || b.Status == BookingStatus.provider_confirmed || b.Status == BookingStatus.paid))
+            })
+            .ToListAsync();
+
+        return Ok(pendingDeletions);
+    }
+
+    [HttpPost("handle-deletion/{userId}")]
+    [Authorize(Roles = "Admin")]
+    public async Task<IActionResult> HandleDeletionRequest(string userId, [FromBody] bool isApproved)
+    {
+        var user = await _userManager.FindByIdAsync(userId);
+        if (user == null)
+            return NotFound("User not found");
+
+        if (isApproved)
+        {
+            var result = await _userManager.DeleteAsync(user);
+            if (!result.Succeeded)
+                return BadRequest("Failed to delete user");
+
+            return Ok("User deleted successfully");
+        }
+        else
+        {
+            user.AccountState = StateType.Active;
+            var result = await _userManager.UpdateAsync(user);
+            if (!result.Succeeded)
+                return BadRequest("Failed to reject deletion request");
+
+            return Ok("Deletion request rejected");
+        }
+    }
+
+    [HttpGet("pending-reports")]
+    [Authorize(Roles = "Admin")]
+    public async Task<IActionResult> GetPendingReports()
+    {
+        var reports = await _userRepository.GetPendingReportsAsync();
+
+        var reportData = reports.Select(r => new
+        {
+            ReportId = r.SupportID,
+            ReportedUser = r.user.UserName,
+            ReportedUserNameId = r.user.UserNameId,
+            ComplainerName = _userManager.FindByIdAsync(r.ComplainerId.ToString()).Result?.UserNameId,
+            Comment = r.Comment,
+            CurrentSupportCount = r.user.NumberOfSupports
+        });
+
+        return Ok(new Response<object>
+        {
+            Data = reportData,
+            Status = true,
+            Message = "Pending reports retrieved successfully"
+        });
+    }
+
+    [HttpPost("handle-report/{reportId}")]
+    [Authorize(Roles = "Admin")]
+    public async Task<IActionResult> HandleReport(int reportId, [FromBody] bool isImportant)
+    {
+        var result = await _userRepository.HandleReportAsync(reportId, isImportant);
+
+        if (!result)
+            return NotFound(new Response<string>
+            {
+                Message = "Report not found",
+                Status = false
+            });
+
+        return Ok(new Response<string>
+        {
+            Message = $"Report {(isImportant ? "approved" : "rejected")} successfully",
+            Status = true
+        });
+    }
+
+
 }

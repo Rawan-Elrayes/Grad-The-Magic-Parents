@@ -99,5 +99,85 @@ namespace TheMagicParents.Infrastructure.Repositories
                 UserName = client.UserName
             };
         }
+
+        public async Task<ClientGetDataResponse> GetProfileAsync(string userId)
+        {
+            var client = await _userManager.Users.OfType<Client>()
+        .Where(c => c.Id == userId)
+        .Select(c => new
+        {
+            c.UserName,
+            c.PhoneNumber,
+            c.PersonalPhoto,
+            c.Location,
+            c.CityId,
+            CityName = c.City.Name,
+            GovernmentId = c.City.GovernorateId,
+            GovernmentName = c.City.Governorate.Name
+        })
+        .FirstOrDefaultAsync();
+
+            if (client == null)
+                throw new InvalidOperationException("Client not found");
+
+            return new ClientGetDataResponse
+            {
+                UserName = client.UserName,
+                PhoneNumber = client.PhoneNumber,
+                PersonalPhoto = client.PersonalPhoto,
+                GovernmentId = client.GovernmentId,
+                Government = client.GovernmentName,
+                CityId = client.CityId,
+                City = client.CityName,
+                Location = client.Location
+            };
+        }
+
+        public async Task<ClientGetDataResponse> UpdateProfileAsync(string userId, ClientUpdateProfileDTO model)
+        {
+            var client = await _userManager.Users.OfType<Client>()
+         .Include(c => c.City)
+             .ThenInclude(city => city.Governorate)
+         .FirstOrDefaultAsync(c => c.Id == userId);
+
+            if (client == null)
+                throw new InvalidOperationException("Client not found");
+
+            client.UserName = model.UserName;
+            client.PhoneNumber = model.PhoneNumber;
+            client.CityId = model.CityId;
+            client.Location = model.Location;
+
+            if (model.PersonalPhoto != null)
+            {
+                client.PersonalPhoto = await _userRepository.SaveImage(model.PersonalPhoto);
+            }
+
+            var result = await _userManager.UpdateAsync(client);
+            if (!result.Succeeded)
+            {
+                throw new Exception(string.Join(", ", result.Errors.Select(e => e.Description)));
+            }
+
+            await _context.SaveChangesAsync();
+
+            // Reload the client to get updated data with relationships
+            var updatedClient = await _userManager.Users.OfType<Client>()
+                .Include(c => c.City)
+                    .ThenInclude(city => city.Governorate)
+                .FirstOrDefaultAsync(c => c.Id == userId);
+
+            return new ClientGetDataResponse
+            {
+                UserName = updatedClient.UserName,
+                PhoneNumber = updatedClient.PhoneNumber,
+                PersonalPhoto = updatedClient.PersonalPhoto,
+                GovernmentId = updatedClient.City.GovernorateId,
+                Government = updatedClient.City.Governorate.Name,
+                CityId = updatedClient.CityId,
+                City = updatedClient.City.Name,
+                Location = updatedClient.Location
+            };
+        }
     }
 }

@@ -122,5 +122,60 @@ namespace TheMagicParents.Infrastructure.Repositories
 
             return (token, expires);
         }
+
+            public async Task<bool> SubmitReportAsync(string reporterUserId, string reportedUserNameId, string comment)
+            {
+                var reportedUser = await _userManager.Users
+                    .FirstOrDefaultAsync(u => u.UserNameId == reportedUserNameId);
+
+                if (reportedUser == null || reporterUserId == reportedUser.Id)
+                    return false;
+
+                var support = new Support
+                {
+                    Comment = comment,
+                    Status = "Pending",
+                    ComplainerId = reporterUserId,
+                    user = reportedUser
+                };
+
+                _context.Supports.Add(support);
+                await _context.SaveChangesAsync();
+                return true;
+            }
+
+            public async Task<IEnumerable<Support>> GetPendingReportsAsync()
+            {
+                return await _context.Supports
+                    .Include(s => s.user)
+                    .Where(s => s.Status == "Pending")
+                    .ToListAsync();
+            }
+
+            public async Task<bool> HandleReportAsync(int reportId, bool isImportant)
+            {
+                var report = await _context.Supports
+                    .Include(s => s.user)
+                    .FirstOrDefaultAsync(s => s.SupportID == reportId);
+
+                if (report == null)
+                    return false;
+
+            if (isImportant)
+            {
+                report.user.NumberOfSupports++;
+                report.Status = "Approved";
+                await _context.SaveChangesAsync();
+            }
+            else
+            {
+                _context.Supports.Remove(report);  // Delete the report if rejected
+                await _context.SaveChangesAsync();
+            }
+            return true;
+
+            }
+        
+
     }
 }

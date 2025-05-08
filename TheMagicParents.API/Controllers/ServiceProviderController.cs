@@ -67,5 +67,77 @@ namespace TheMagicParents.API.Controllers
                 return StatusCode(500, new { Message = ex.Message });
             }
         }
+
+        [HttpGet("profileData")]
+        public async Task<IActionResult> GetServiceProviderProfile()
+        {
+            var userId = HttpContext.Session.GetString("UserId");
+            if (string.IsNullOrEmpty(userId))
+                return Unauthorized(new Response<string>
+                {
+                    Message = "User not authenticated",
+                    Status = false
+                });
+
+            try
+            {
+                var profile = await serviceProviderRepository.GetProfileAsync(userId);
+                return Ok(new Response<ProviderGetDataResponse>
+                {
+                    Data = profile,
+                    Status = true,
+                    Message = "Profile retrieved successfully"
+                });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new Response<ProviderGetDataResponse>
+                {
+                    Message = ex.Message,
+                    Status = false,
+                    Errors = new List<string> { ex.Message }
+                });
+            }
+        }
+
+
+        [HttpPut("update-profile")]
+        public async Task<IActionResult> UpdateServiceProviderProfile([FromForm] ServiceProviderUpdateProfileDTO model)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            try
+            {
+                var userId = HttpContext.Session.GetString("UserId");
+                var result = await serviceProviderRepository.UpdateProfileAsync(userId, model);
+
+                return Ok(new Response<ProviderGetDataResponse>
+                {
+                    Message = "Profile updated successfully",
+                    Data = result,
+                    Status = true
+                });
+            }
+            catch (InvalidOperationException ex)
+            {
+                return BadRequest(new Response<ProviderGetDataResponse>
+                {
+                    Message = ex.Message,
+                    Status = false,
+                    Errors = new List<string> { ex.Message }
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new Response<ProviderGetDataResponse>
+                {
+                    Message = "An error occurred while updating the profile.",
+                    Status = false,
+                    Errors = new List<string> { ex.Message }
+                });
+            }
+        }
+
     }
 }

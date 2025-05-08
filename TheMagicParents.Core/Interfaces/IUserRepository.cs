@@ -17,5 +17,9 @@ namespace TheMagicParents.Core.Interfaces
         Task<string> GenerateUserNameIdFromEmailAsync(string email);
         Task<string> SaveImage(IFormFile image);
         Task<(JwtSecurityToken Token, DateTime Expires)> GenerateJwtToken<TUser>(TUser user) where TUser : User;
+
+        Task<bool> SubmitReportAsync(string reporterUserId, string reportedUserNameId, string comment);
+        Task<IEnumerable<Support>> GetPendingReportsAsync();
+        Task<bool> HandleReportAsync(int reportId, bool isImportant);
     }
 }

@@ -36,7 +36,7 @@ namespace TheMagicParents.Services
         {
             using (var scope = _serviceProvider.CreateScope())
             {
-                var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+                var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
                 var today = DateTime.Today;
 
                 // الحصول على التواريخ المنتهية (أقدم من اليوم الحالي)

@@ -374,8 +374,9 @@ namespace TheMagicParents.Infrastructure.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ComplainerId")
-                        .HasColumnType("int");
+                    b.Property<string>("ComplainerId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Status")
                         .IsRequired()
@@ -461,6 +462,9 @@ namespace TheMagicParents.Infrastructure.Data.Migrations
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("SupportId")
+                        .HasColumnType("int");
+
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
 
@@ -488,6 +492,10 @@ namespace TheMagicParents.Infrastructure.Data.Migrations
                         .HasDatabaseName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
+                    b.HasIndex("SupportId")
+                        .IsUnique()
+                        .HasFilter("[SupportId] IS NOT NULL");
+
                     b.ToTable("AspNetUsers", (string)null);
 
                     b.HasDiscriminator<string>("UserType").HasValue("User");
@@ -506,17 +514,6 @@ namespace TheMagicParents.Infrastructure.Data.Migrations
                     b.Property<int>("Points")
                         .HasColumnType("int");
 
-                    b.Property<int?>("SupportID")
-                        .HasColumnType("int");
-
-                    b.HasIndex("SupportID");
-
-                    b.ToTable("AspNetUsers", t =>
-                        {
-                            t.Property("SupportID")
-                                .HasColumnName("Client_SupportID");
-                        });
-
                     b.HasDiscriminator().HasValue("Client");
                 });
 
@@ -533,13 +530,8 @@ namespace TheMagicParents.Infrastructure.Data.Migrations
                     b.Property<double>("Rate")
                         .HasColumnType("float");
 
-                    b.Property<int?>("SupportID")
-                        .HasColumnType("int");
-
                     b.Property<int>("Type")
                         .HasColumnType("int");
-
-                    b.HasIndex("SupportID");
 
                     b.HasDiscriminator().HasValue("ServiceProvider");
                 });
@@ -687,21 +679,13 @@ namespace TheMagicParents.Infrastructure.Data.Migrations
                         .WithMany("Users")
                         .HasForeignKey("CityId");
 
+                    b.HasOne("TheMagicParents.Models.Support", "support")
+                        .WithOne("user")
+                        .HasForeignKey("TheMagicParents.Models.User", "SupportId");
+
                     b.Navigation("City");
-                });
 
-            modelBuilder.Entity("TheMagicParents.Models.Client", b =>
-                {
-                    b.HasOne("TheMagicParents.Models.Support", null)
-                        .WithMany("Clients")
-                        .HasForeignKey("SupportID");
-                });
-
-            modelBuilder.Entity("TheMagicParents.Models.ServiceProvider", b =>
-                {
-                    b.HasOne("TheMagicParents.Models.Support", null)
-                        .WithMany("ServiceProviders")
-                        .HasForeignKey("SupportID");
+                    b.Navigation("support");
                 });
 
             modelBuilder.Entity("TheMagicParents.Models.Booking", b =>
@@ -725,9 +709,8 @@ namespace TheMagicParents.Infrastructure.Data.Migrations
 
             modelBuilder.Entity("TheMagicParents.Models.Support", b =>
                 {
-                    b.Navigation("Clients");
-
-                    b.Navigation("ServiceProviders");
+                    b.Navigation("user")
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("TheMagicParents.Models.Client", b =>

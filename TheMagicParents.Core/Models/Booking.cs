@@ -14,7 +14,7 @@ namespace TheMagicParents.Models
 		public DateTime BookingTime { get; set; }
 		[Required]
 		public decimal TotalPrice { get; set; }
-		public BookingStatus Status { get; set; } = BookingStatus.pending;
+		public BookingStatus Status { get; set; } = BookingStatus.none;
 		public string Location { get; set; }
 		public int CityID { get; set; }
 

@@ -194,5 +194,87 @@ namespace TheMagicParents.Infrastructure.Repositories
                 .Where(a => a.Date.Date == date.Date.Date && a.ServiceProciderID == Id).Select(a=>a.StartTime)
                 .ToListAsync();
         }
+
+        public async Task<ProviderGetDataResponse> GetProfileAsync(string userId)
+        {
+            var provider = await _userManager.Users.OfType<ServiceProvider>()
+        .Where(p => p.Id == userId)
+        .Select(p => new
+        {
+            p.UserName,
+            p.PhoneNumber,
+            p.PersonalPhoto,
+            p.HourPrice,
+            p.Type,
+            p.CityId,
+            CityName = p.City.Name,
+            GovernmentId = p.City.GovernorateId,
+            GovernmentName = p.City.Governorate.Name
+        })
+        .FirstOrDefaultAsync();
+
+            if (provider == null)
+                throw new InvalidOperationException("Service provider not found");
+
+            return new ProviderGetDataResponse
+            {
+                UserName = provider.UserName,
+                PhoneNumber = provider.PhoneNumber,
+                PersonalPhoto = provider.PersonalPhoto,
+                GovernmentId = provider.GovernmentId,
+                Government = provider.GovernmentName,
+                CityId = provider.CityId ?? 0,
+                City = provider.CityName,
+                HourPrice = provider.HourPrice,
+            };
+        }
+
+        public async Task<ProviderGetDataResponse> UpdateProfileAsync(string userId, ServiceProviderUpdateProfileDTO model)
+        {
+            var provider = await _userManager.Users.OfType<ServiceProvider>()
+       .Include(p => p.City)
+           .ThenInclude(city => city.Governorate)
+       .FirstOrDefaultAsync(p => p.Id == userId);
+
+            if (provider == null)
+                throw new InvalidOperationException("Service provider not found");
+
+            provider.UserName = model.UserName;
+            provider.PhoneNumber = model.PhoneNumber;
+            provider.CityId = model.CityId;
+            provider.HourPrice = model.HourPrice;
+
+            if (model.PersonalPhoto != null)
+            {
+                provider.PersonalPhoto = await _userRepository.SaveImage(model.PersonalPhoto);
+            }
+
+            var result = await _userManager.UpdateAsync(provider);
+            if (!result.Succeeded)
+            {
+                throw new Exception(string.Join(", ", result.Errors.Select(e => e.Description)));
+            }
+
+            await _context.SaveChangesAsync();
+
+            // Reload to get updated data with relationships
+            var updatedProvider = await _userManager.Users.OfType<ServiceProvider>()
+                .Include(p => p.City)
+                    .ThenInclude(city => city.Governorate)
+                .FirstOrDefaultAsync(p => p.Id == userId);
+
+            return new ProviderGetDataResponse
+            {
+                UserName = updatedProvider.UserName,
+                PhoneNumber = updatedProvider.PhoneNumber,
+                PersonalPhoto = updatedProvider.PersonalPhoto,
+                GovernmentId = updatedProvider.City.GovernorateId,
+                Government = updatedProvider.City.Governorate.Name,
+                CityId = updatedProvider.CityId,
+                City = updatedProvider.City.Name,
+                HourPrice = updatedProvider.HourPrice
+            };
+        }
+
     }
 }

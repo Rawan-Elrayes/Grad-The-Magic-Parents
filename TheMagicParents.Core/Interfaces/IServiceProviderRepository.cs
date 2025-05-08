@@ -16,5 +16,7 @@ namespace TheMagicParents.Core.Interfaces
         Task<ServiceProviderRegisterResponse> RegisterServiceProviderAsync(ServiceProviderRegisterDTO model);
         Task<AvailabilityResponse> SaveAvailability(AvailabilityDTO request, string Id);
         Task<AvailabilityResponse> GetAvailabilitiesHoures(DateTime date, string Id);
+        Task<ProviderGetDataResponse> GetProfileAsync(string userId);
+        Task<ProviderGetDataResponse> UpdateProfileAsync(string userId, ServiceProviderUpdateProfileDTO model);
     }
 }

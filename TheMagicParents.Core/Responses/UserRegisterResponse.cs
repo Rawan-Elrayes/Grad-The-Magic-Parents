@@ -18,5 +18,7 @@ namespace TheMagicParents.Core.Responses
         public string IdCardFrontPhoto { get; set; }
         public string IdCardBackPhoto { get; set; }
         public string City { get; set; }
+        public string Government { get; set; }
+
     }
 }

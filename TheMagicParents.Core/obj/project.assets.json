@@ -1728,24 +1728,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\abdulllah\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\LEGION 5\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Menna\\Desktop\\The Magic Parents\\Grad-The-Magic-Parents\\TheMagicParents.Core\\TheMagicParents.Core.csproj",
+      "projectUniqueName": "D:\\Master Graduation Project\\my project\\Grad-The-Magic-Parents\\TheMagicParents.Core\\TheMagicParents.Core.csproj",
       "projectName": "TheMagicParents.Core",
-      "projectPath": "C:\\Users\\Menna\\Desktop\\The Magic Parents\\Grad-The-Magic-Parents\\TheMagicParents.Core\\TheMagicParents.Core.csproj",
-      "packagesPath": "C:\\Users\\abdulllah\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Menna\\Desktop\\The Magic Parents\\Grad-The-Magic-Parents\\TheMagicParents.Core\\obj\\",
+      "projectPath": "D:\\Master Graduation Project\\my project\\Grad-The-Magic-Parents\\TheMagicParents.Core\\TheMagicParents.Core.csproj",
+      "packagesPath": "C:\\Users\\LEGION 5\\.nuget\\packages\\",
+      "outputPath": "D:\\Master Graduation Project\\my project\\Grad-The-Magic-Parents\\TheMagicParents.Core\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\abdulllah\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\LEGION 5\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1753,6 +1748,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -1770,8 +1766,7 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      },
-      "SdkAnalysisLevel": "9.0.200"
+      }
     },
     "frameworks": {
       "net8.0": {
@@ -1822,7 +1817,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

@@ -10,6 +10,7 @@ using TheMagicParents.Enums;
 using TheMagicParents.Models;
 using TheMagicParents.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Identity;
+
 using Microsoft.AspNetCore.WebUtilities;
 using System.Text;
 using TheMagicParents.Core.Responses;
@@ -24,13 +25,15 @@ namespace TheMagicParents.API.Controllers
         private readonly IServiceProviderRepository serviceProviderRepository;
         private readonly IUserRepository userRepository;
         private readonly IAuthentication _authService;
+        private readonly UserManager<User> _userManager;
 
-        public AccountController(IClientRepository clientRepository, IUserRepository userRepository, IServiceProviderRepository serviceProviderRepository, IAuthentication authService)
+        public AccountController(IClientRepository clientRepository, IUserRepository userRepository, IServiceProviderRepository serviceProviderRepository, IAuthentication authService, UserManager<User> userManager)
         {
             this.clientRepository = clientRepository;
             this.userRepository = userRepository;
             this.serviceProviderRepository = serviceProviderRepository;
             _authService = authService;
+            _userManager = userManager;
         }
 
         [HttpGet("governments")]
@@ -145,7 +148,10 @@ namespace TheMagicParents.API.Controllers
                 return BadRequest(ModelState);
 
             var result = await _authService.LoginAsync(model);
-            HttpContext.Session.SetString("UserId", result.Data.ToString());
+            if (result.Data != null)  // Adding null check before accessing Data
+            {
+                HttpContext.Session.SetString("UserId", result.Data.ToString());
+            }
             if (!result.Status)
                 return BadRequest(result);
 
@@ -183,6 +189,103 @@ namespace TheMagicParents.API.Controllers
         {
             var result = await _authService.LogoutAsync();
             return Ok(result);
+        }
+
+        //Forgot to handle change password and deletion through repository pattern 
+
+        [HttpPost("change-password")]
+        public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordDTO model)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var userId = HttpContext.Session.GetString("UserId");
+            var user = await _userManager.FindByIdAsync(userId);
+
+            if (user == null)
+                return BadRequest(new Response<string>
+                {
+                    Message = "User not found",
+                    Status = false
+                });
+
+            var result = await _userManager.ChangePasswordAsync(user, model.OldPassword, model.NewPassword);
+
+            if (!result.Succeeded)
+                return BadRequest(new Response<string>
+                {
+                    Message = "Failed to change password",
+                    Status = false,
+                    Errors = result.Errors.Select(e => e.Description).ToList()
+                });
+
+            return Ok(new Response<string>
+            {
+                Message = "Password changed successfully",
+                Status = true
+            });
+        }
+
+
+        [HttpPost("request-account-deletion")]
+        public async Task<IActionResult> RequestAccountDeletion()
+        {
+            var userId = HttpContext.Session.GetString("UserId");
+            var user = await _userManager.FindByIdAsync(userId);
+
+            if (user == null)
+                return BadRequest(new Response<string>
+                {
+                    Message = "User not found",
+                    Status = false
+                });
+
+            user.AccountState = StateType.PendingDeletion;
+            var result = await _userManager.UpdateAsync(user);
+
+            if (!result.Succeeded)
+                return BadRequest(new Response<string>
+                {
+                    Message = "Failed to request account deletion",
+                    Status = false,
+                    Errors = result.Errors.Select(e => e.Description).ToList()
+                });
+
+            return Ok(new Response<string>
+            {
+                Message = "Account deletion request submitted successfully",
+                Status = true
+            });
+        }
+
+        [HttpPost("report-user")]
+        public async Task<IActionResult> ReportUser([FromBody] SupportDTO model)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var reporterId = HttpContext.Session.GetString("UserId");
+            if (string.IsNullOrEmpty(reporterId))
+                return Unauthorized(new Response<string>
+                {
+                    Message = "User not authenticated",
+                    Status = false
+                });
+
+            var result = await userRepository.SubmitReportAsync(reporterId, model.UserNameId, model.Comment);
+
+            if (!result)
+                return BadRequest(new Response<string>
+                {
+                    Message = "Failed to submit report. User not found or invalid report.",
+                    Status = false
+                });
+
+            return Ok(new Response<string>
+            {
+                Message = "Report submitted successfully",
+                Status = true
+            });
         }
     }
 }

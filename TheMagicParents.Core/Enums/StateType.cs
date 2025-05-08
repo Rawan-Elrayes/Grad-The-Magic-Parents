@@ -6,6 +6,7 @@
         Active,
         Waiting,
         Blocked,
+        PendingDeletion,
         Deleted
     }
 }

@@ -12,5 +12,8 @@ namespace TheMagicParents.Core.Interfaces
     public interface IClientRepository
     {
         Task<ClientRegisterResponse> RegisterClientAsync(ClientRegisterDTO model);
+        Task<ClientGetDataResponse> GetProfileAsync(string userId);
+        Task<ClientGetDataResponse> UpdateProfileAsync(string userId, ClientUpdateProfileDTO model);
     }
+
 }

@@ -34,3 +34,21 @@ C:\Users\Menna\Desktop\The Magic Parents\Grad-The-Magic-Parents\TheMagicParents.
 C:\Users\Menna\Desktop\The Magic Parents\Grad-The-Magic-Parents\TheMagicParents.Infrastructure\obj\Debug\net8.0\TheMagicParents.Infrastructure.pdb
 C:\Users\Menna\Desktop\The Magic Parents\Grad-The-Magic-Parents\TheMagicParents.Infrastructure\obj\Debug\net8.0\TheMagicParents.Infrastructure.genruntimeconfig.cache
 C:\Users\Menna\Desktop\The Magic Parents\Grad-The-Magic-Parents\TheMagicParents.Infrastructure\obj\Debug\net8.0\ref\TheMagicParents.Infrastructure.dll
+D:\Master Graduation Project\my project\Grad-The-Magic-Parents\TheMagicParents.Infrastructure\bin\Debug\net8.0\TheMagicParents.Infrastructure.deps.json
+D:\Master Graduation Project\my project\Grad-The-Magic-Parents\TheMagicParents.Infrastructure\bin\Debug\net8.0\TheMagicParents.Infrastructure.runtimeconfig.json
+D:\Master Graduation Project\my project\Grad-The-Magic-Parents\TheMagicParents.Infrastructure\bin\Debug\net8.0\TheMagicParents.Infrastructure.dll
+D:\Master Graduation Project\my project\Grad-The-Magic-Parents\TheMagicParents.Infrastructure\bin\Debug\net8.0\TheMagicParents.Infrastructure.pdb
+D:\Master Graduation Project\my project\Grad-The-Magic-Parents\TheMagicParents.Infrastructure\bin\Debug\net8.0\TheMagicParents.Core.dll
+D:\Master Graduation Project\my project\Grad-The-Magic-Parents\TheMagicParents.Infrastructure\bin\Debug\net8.0\TheMagicParents.Core.pdb
+D:\Master Graduation Project\my project\Grad-The-Magic-Parents\TheMagicParents.Infrastructure\obj\Debug\net8.0\TheMagicParents.Infrastructure.csproj.AssemblyReference.cache
+D:\Master Graduation Project\my project\Grad-The-Magic-Parents\TheMagicParents.Infrastructure\obj\Debug\net8.0\TheMagicParents.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\Master Graduation Project\my project\Grad-The-Magic-Parents\TheMagicParents.Infrastructure\obj\Debug\net8.0\TheMagicParents.Infrastructure.AssemblyInfoInputs.cache
+D:\Master Graduation Project\my project\Grad-The-Magic-Parents\TheMagicParents.Infrastructure\obj\Debug\net8.0\TheMagicParents.Infrastructure.AssemblyInfo.cs
+D:\Master Graduation Project\my project\Grad-The-Magic-Parents\TheMagicParents.Infrastructure\obj\Debug\net8.0\TheMagicParents.Infrastructure.csproj.CoreCompileInputs.cache
+D:\Master Graduation Project\my project\Grad-The-Magic-Parents\TheMagicParents.Infrastructure\obj\Debug\net8.0\TheMagicParents.Infrastructure.sourcelink.json
+D:\Master Graduation Project\my project\Grad-The-Magic-Parents\TheMagicParents.Infrastructure\obj\Debug\net8.0\TheMagic.15EA7ED9.Up2Date
+D:\Master Graduation Project\my project\Grad-The-Magic-Parents\TheMagicParents.Infrastructure\obj\Debug\net8.0\TheMagicParents.Infrastructure.dll
+D:\Master Graduation Project\my project\Grad-The-Magic-Parents\TheMagicParents.Infrastructure\obj\Debug\net8.0\refint\TheMagicParents.Infrastructure.dll
+D:\Master Graduation Project\my project\Grad-The-Magic-Parents\TheMagicParents.Infrastructure\obj\Debug\net8.0\TheMagicParents.Infrastructure.pdb
+D:\Master Graduation Project\my project\Grad-The-Magic-Parents\TheMagicParents.Infrastructure\obj\Debug\net8.0\TheMagicParents.Infrastructure.genruntimeconfig.cache
+D:\Master Graduation Project\my project\Grad-The-Magic-Parents\TheMagicParents.Infrastructure\obj\Debug\net8.0\ref\TheMagicParents.Infrastructure.dll

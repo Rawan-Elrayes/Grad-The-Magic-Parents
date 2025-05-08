@@ -21,5 +21,9 @@ namespace TheMagicParents.Models
         public int? CityId { get; set; }
 		[ForeignKey(nameof(CityId))]
 		public virtual City City { get; set; }
+
+        public int? SupportId { get; set; }
+        [ForeignKey(nameof(SupportId))]
+        public virtual Support support { get; set; }
     }
 }
