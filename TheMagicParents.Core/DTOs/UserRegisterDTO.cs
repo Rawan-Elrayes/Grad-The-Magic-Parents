@@ -13,7 +13,7 @@ namespace TheMagicParents.Core.DTOs
     public class UserRegisterDTO
     {
         [Required]
-        public string UserName { get; set; }
+        public string UserNameId { get; set; }
 
         [Required]
         [MinLength(11), MaxLength(11)]

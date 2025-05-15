@@ -8,7 +8,7 @@ namespace TheMagicParents.Core.Responses
 {
     public class GetDataResponse
     {
-        public string UserName { get; set; }
+        public string UserNameId { get; set; }
         public string PhoneNumber { get; set; }
         public string PersonalPhoto { get; set; }
         public string City { get; set; }

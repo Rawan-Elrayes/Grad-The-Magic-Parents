@@ -49,7 +49,7 @@ namespace TheMagicParents.Infrastructure.Repositories
 
             var client = new Client
             {
-                UserNameId = model.UserName,
+                UserNameId = model.UserNameId,
                 PhoneNumber = model.PhoneNumber,
                 Email = model.Email,
                 PersonalPhoto = await _userRepository.SaveImage(model.PersonalPhoto),
@@ -96,7 +96,7 @@ namespace TheMagicParents.Infrastructure.Repositories
                 PersonalPhoto = client.PersonalPhoto,
                 PhoneNumber = client.PhoneNumber,
                 Token = jwtToken,
-                UserName = client.UserName
+                UserNameId = client.UserNameId
             };
         }
 
@@ -106,7 +106,7 @@ namespace TheMagicParents.Infrastructure.Repositories
         .Where(c => c.Id == userId)
         .Select(c => new
         {
-            c.UserName,
+            c.UserNameId,
             c.PhoneNumber,
             c.PersonalPhoto,
             c.Location,
@@ -122,7 +122,7 @@ namespace TheMagicParents.Infrastructure.Repositories
 
             return new ClientGetDataResponse
             {
-                UserName = client.UserName,
+                UserNameId = client.UserNameId,
                 PhoneNumber = client.PhoneNumber,
                 PersonalPhoto = client.PersonalPhoto,
                 GovernmentId = client.GovernmentId,
@@ -143,7 +143,7 @@ namespace TheMagicParents.Infrastructure.Repositories
             if (client == null)
                 throw new InvalidOperationException("Client not found");
 
-            client.UserName = model.UserName;
+            client.UserNameId = model.UserNameId;
             client.PhoneNumber = model.PhoneNumber;
             client.CityId = model.CityId;
             client.Location = model.Location;
@@ -169,7 +169,7 @@ namespace TheMagicParents.Infrastructure.Repositories
 
             return new ClientGetDataResponse
             {
-                UserName = updatedClient.UserName,
+                UserNameId = updatedClient.UserNameId,
                 PhoneNumber = updatedClient.PhoneNumber,
                 PersonalPhoto = updatedClient.PersonalPhoto,
                 GovernmentId = updatedClient.City.GovernorateId,

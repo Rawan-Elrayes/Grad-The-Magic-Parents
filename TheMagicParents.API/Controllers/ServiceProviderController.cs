@@ -139,5 +139,29 @@ namespace TheMagicParents.API.Controllers
             }
         }
 
+        [HttpPost("filter")]
+        public async Task<IActionResult> FilterProviders([FromBody] ProviderFilterDTO filter, [FromQuery] int page = 1, [FromQuery] int pageSize = 8)
+        {
+            try
+            {
+                var result = await serviceProviderRepository.GetFilteredProvidersAsync(filter, page, pageSize);
+                return Ok(new Response<PagedResult<FilteredProviderDTO>>
+                {
+                    Data = result,
+                    Status = true,
+                    Message = "Providers retrieved successfully"
+                });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new Response<PagedResult<FilteredProviderDTO>>
+                {
+                    Message = "Failed to retrieve providers",
+                    Status = false,
+                    Errors = new List<string> { ex.Message }
+                });
+            }
+        }
+
     }
 }

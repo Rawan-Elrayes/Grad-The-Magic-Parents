@@ -9,6 +9,8 @@ using System.Data;
 using Microsoft.AspNetCore.Http;
 using TheMagicParents.Core.Responses;
 using Microsoft.EntityFrameworkCore;
+//using System.Linq.Dynamic.Core;
+
 
 namespace TheMagicParents.Infrastructure.Repositories
 {
@@ -39,7 +41,7 @@ namespace TheMagicParents.Infrastructure.Repositories
 
             var ServiceProvider = new ServiceProvider
             {
-                UserNameId = model.UserName,
+                UserNameId = model.UserNameId,
                 PhoneNumber = model.PhoneNumber,
                 Email = model.Email,
                 PersonalPhoto = await _userRepository.SaveImage(model.PersonalPhoto),
@@ -88,7 +90,7 @@ namespace TheMagicParents.Infrastructure.Repositories
                 PersonalPhoto = ServiceProvider.PersonalPhoto,
                 PhoneNumber = ServiceProvider.PhoneNumber,
                 Token = jwtToken,
-                UserName = ServiceProvider.UserName
+                UserNameId = ServiceProvider.UserNameId
             };
         }
 
@@ -201,7 +203,7 @@ namespace TheMagicParents.Infrastructure.Repositories
         .Where(p => p.Id == userId)
         .Select(p => new
         {
-            p.UserName,
+            p.UserNameId,
             p.PhoneNumber,
             p.PersonalPhoto,
             p.HourPrice,
@@ -218,7 +220,7 @@ namespace TheMagicParents.Infrastructure.Repositories
 
             return new ProviderGetDataResponse
             {
-                UserName = provider.UserName,
+                UserNameId = provider.UserNameId,
                 PhoneNumber = provider.PhoneNumber,
                 PersonalPhoto = provider.PersonalPhoto,
                 GovernmentId = provider.GovernmentId,
@@ -239,7 +241,7 @@ namespace TheMagicParents.Infrastructure.Repositories
             if (provider == null)
                 throw new InvalidOperationException("Service provider not found");
 
-            provider.UserName = model.UserName;
+            provider.UserNameId = model.UserNameId;
             provider.PhoneNumber = model.PhoneNumber;
             provider.CityId = model.CityId;
             provider.HourPrice = model.HourPrice;
@@ -265,7 +267,7 @@ namespace TheMagicParents.Infrastructure.Repositories
 
             return new ProviderGetDataResponse
             {
-                UserName = updatedProvider.UserName,
+                UserNameId = updatedProvider.UserNameId,
                 PhoneNumber = updatedProvider.PhoneNumber,
                 PersonalPhoto = updatedProvider.PersonalPhoto,
                 GovernmentId = updatedProvider.City.GovernorateId,
@@ -273,6 +275,44 @@ namespace TheMagicParents.Infrastructure.Repositories
                 CityId = updatedProvider.CityId,
                 City = updatedProvider.City.Name,
                 HourPrice = updatedProvider.HourPrice
+            };
+        }
+
+        public async Task<PagedResult<FilteredProviderDTO>> GetFilteredProvidersAsync(ProviderFilterDTO filter, int page = 1, int pageSize = 8)
+        {
+            var query = _context.ServiceProviders
+                .Include(sp => sp.City)
+                .Include(sp => sp.Availabilities)
+                .Where(sp => sp.Type == filter.ServiceType
+                    && sp.CityId == filter.CityId
+                    && sp.City.GovernorateId == filter.GovernmentId
+                    && sp.AccountState == StateType.Active);
+
+            // Check if provider has any availabilities on the specified date
+            query = query.Where(sp => sp.Availabilities.Any(a =>
+                a.Date.Date == filter.Date.Date));
+
+            var totalCount = await query.CountAsync();
+            var items = await query
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .Select(sp => new FilteredProviderDTO
+                {
+                    Id = sp.Id,
+                    UserName = sp.UserName,
+                    PersonalPhoto = sp.PersonalPhoto,
+                    Rating = sp.Rate,
+                    PricePerHour = sp.HourPrice,
+                    IsAvailableOnDate = true  // If we got here, they have availability on this date
+                })
+                .ToListAsync();
+
+            return new Core.Responses.PagedResult<FilteredProviderDTO>
+            {
+                Items = items,
+                TotalCount = totalCount,
+                PageNumber = page,
+                PageSize = pageSize
             };
         }
 

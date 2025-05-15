@@ -272,7 +272,7 @@ namespace TheMagicParents.API.Controllers
                     Status = false
                 });
 
-            var result = await userRepository.SubmitReportAsync(reporterId, model.UserNameId, model.Comment);
+            var result = await userRepository.SubmitReportAsync(reporterId, model.UserName, model.Comment);
 
             if (!result)
                 return BadRequest(new Response<string>

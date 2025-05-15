@@ -7,16 +7,36 @@
       "RelativeMoniker": "D:0:0:{F6FA9B1D-6481-40A5-A007-1858F99A80D1}|TheMagicParents.Infrastructure\\TheMagicParents.Infrastructure.csproj|solutionrelative:themagicparents.infrastructure\\repositories\\serviceproviderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F6FA9B1D-6481-40A5-A007-1858F99A80D1}|TheMagicParents.Infrastructure\\TheMagicParents.Infrastructure.csproj|d:\\master graduation project\\my project\\grad-the-magic-parents\\themagicparents.infrastructure\\repositories\\clientrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F6FA9B1D-6481-40A5-A007-1858F99A80D1}|TheMagicParents.Infrastructure\\TheMagicParents.Infrastructure.csproj|solutionrelative:themagicparents.infrastructure\\repositories\\clientrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{97ECE05A-5974-4879-AE82-39612DB11C8D}|TheMagicParents.API\\TheMagicParents.API.csproj|d:\\master graduation project\\my project\\grad-the-magic-parents\\themagicparents.api\\controllers\\serviceprovidercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{97ECE05A-5974-4879-AE82-39612DB11C8D}|TheMagicParents.API\\TheMagicParents.API.csproj|solutionrelative:themagicparents.api\\controllers\\serviceprovidercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B45BA0C8-319D-402C-B55B-7A875118A91F}|TheMagicParents.Core\\TheMagicParents.Core.csproj|d:\\master graduation project\\my project\\grad-the-magic-parents\\themagicparents.core\\responses\\getdataresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B45BA0C8-319D-402C-B55B-7A875118A91F}|TheMagicParents.Core\\TheMagicParents.Core.csproj|solutionrelative:themagicparents.core\\responses\\getdataresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B45BA0C8-319D-402C-B55B-7A875118A91F}|TheMagicParents.Core\\TheMagicParents.Core.csproj|d:\\master graduation project\\my project\\grad-the-magic-parents\\themagicparents.core\\interfaces\\iserviceproviderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B45BA0C8-319D-402C-B55B-7A875118A91F}|TheMagicParents.Core\\TheMagicParents.Core.csproj|solutionrelative:themagicparents.core\\interfaces\\iserviceproviderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B45BA0C8-319D-402C-B55B-7A875118A91F}|TheMagicParents.Core\\TheMagicParents.Core.csproj|d:\\master graduation project\\my project\\grad-the-magic-parents\\themagicparents.core\\dtos\\updateprofiledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B45BA0C8-319D-402C-B55B-7A875118A91F}|TheMagicParents.Core\\TheMagicParents.Core.csproj|solutionrelative:themagicparents.core\\dtos\\updateprofiledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B45BA0C8-319D-402C-B55B-7A875118A91F}|TheMagicParents.Core\\TheMagicParents.Core.csproj|d:\\master graduation project\\my project\\grad-the-magic-parents\\themagicparents.core\\dtos\\providerfilterdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B45BA0C8-319D-402C-B55B-7A875118A91F}|TheMagicParents.Core\\TheMagicParents.Core.csproj|solutionrelative:themagicparents.core\\dtos\\providerfilterdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B45BA0C8-319D-402C-B55B-7A875118A91F}|TheMagicParents.Core\\TheMagicParents.Core.csproj|d:\\master graduation project\\my project\\grad-the-magic-parents\\themagicparents.core\\responses\\pagedresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B45BA0C8-319D-402C-B55B-7A875118A91F}|TheMagicParents.Core\\TheMagicParents.Core.csproj|solutionrelative:themagicparents.core\\responses\\pagedresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B45BA0C8-319D-402C-B55B-7A875118A91F}|TheMagicParents.Core\\TheMagicParents.Core.csproj|d:\\master graduation project\\my project\\grad-the-magic-parents\\themagicparents.core\\dtos\\adminregisterdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B45BA0C8-319D-402C-B55B-7A875118A91F}|TheMagicParents.Core\\TheMagicParents.Core.csproj|solutionrelative:themagicparents.core\\dtos\\adminregisterdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{97ECE05A-5974-4879-AE82-39612DB11C8D}|TheMagicParents.API\\TheMagicParents.API.csproj|d:\\master graduation project\\my project\\grad-the-magic-parents\\themagicparents.api\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{97ECE05A-5974-4879-AE82-39612DB11C8D}|TheMagicParents.API\\TheMagicParents.API.csproj|solutionrelative:themagicparents.api\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B45BA0C8-319D-402C-B55B-7A875118A91F}|TheMagicParents.Core\\TheMagicParents.Core.csproj|d:\\master graduation project\\my project\\grad-the-magic-parents\\themagicparents.core\\models\\admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B45BA0C8-319D-402C-B55B-7A875118A91F}|TheMagicParents.Core\\TheMagicParents.Core.csproj|solutionrelative:themagicparents.core\\models\\admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B45BA0C8-319D-402C-B55B-7A875118A91F}|TheMagicParents.Core\\TheMagicParents.Core.csproj|d:\\master graduation project\\my project\\grad-the-magic-parents\\themagicparents.core\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B45BA0C8-319D-402C-B55B-7A875118A91F}|TheMagicParents.Core\\TheMagicParents.Core.csproj|solutionrelative:themagicparents.core\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +46,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,54 +58,119 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ServiceProviderRepository.cs",
-              "DocumentMoniker": "D:\\Master Graduation Project\\my project\\Grad-The-Magic-Parents\\TheMagicParents.Infrastructure\\Repositories\\ServiceProviderRepository.cs",
-              "RelativeDocumentMoniker": "TheMagicParents.Infrastructure\\Repositories\\ServiceProviderRepository.cs",
-              "ToolTip": "D:\\Master Graduation Project\\my project\\Grad-The-Magic-Parents\\TheMagicParents.Infrastructure\\Repositories\\ServiceProviderRepository.cs*",
-              "RelativeToolTip": "TheMagicParents.Infrastructure\\Repositories\\ServiceProviderRepository.cs*",
-              "ViewState": "AQIAAAIBAAAAAAAAAAAvwBIBAAA1AAAA",
+              "DocumentIndex": 1,
+              "Title": "ServiceProviderController.cs",
+              "DocumentMoniker": "D:\\Master Graduation Project\\my project\\Grad-The-Magic-Parents\\TheMagicParents.API\\Controllers\\ServiceProviderController.cs",
+              "RelativeDocumentMoniker": "TheMagicParents.API\\Controllers\\ServiceProviderController.cs",
+              "ToolTip": "D:\\Master Graduation Project\\my project\\Grad-The-Magic-Parents\\TheMagicParents.API\\Controllers\\ServiceProviderController.cs",
+              "RelativeToolTip": "TheMagicParents.API\\Controllers\\ServiceProviderController.cs",
+              "ViewState": "AQIAAIkAAAAAAAAAAAAqwKUAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-08T14:52:48.274Z",
+              "WhenOpened": "2025-05-15T01:28:37.908Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PagedResult.cs",
+              "DocumentMoniker": "D:\\Master Graduation Project\\my project\\Grad-The-Magic-Parents\\TheMagicParents.Core\\Responses\\PagedResult.cs",
+              "RelativeDocumentMoniker": "TheMagicParents.Core\\Responses\\PagedResult.cs",
+              "ToolTip": "D:\\Master Graduation Project\\my project\\Grad-The-Magic-Parents\\TheMagicParents.Core\\Responses\\PagedResult.cs",
+              "RelativeToolTip": "TheMagicParents.Core\\Responses\\PagedResult.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-15T01:21:21.507Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "GetDataResponse.cs",
-              "DocumentMoniker": "D:\\Master Graduation Project\\my project\\Grad-The-Magic-Parents\\TheMagicParents.Core\\Responses\\GetDataResponse.cs",
-              "RelativeDocumentMoniker": "TheMagicParents.Core\\Responses\\GetDataResponse.cs",
-              "ToolTip": "D:\\Master Graduation Project\\my project\\Grad-The-Magic-Parents\\TheMagicParents.Core\\Responses\\GetDataResponse.cs",
-              "RelativeToolTip": "TheMagicParents.Core\\Responses\\GetDataResponse.cs",
-              "ViewState": "AQIAAAoAAAAAAAAAAAAcwB8AAAAAAAAA",
+              "Title": "IServiceProviderRepository.cs",
+              "DocumentMoniker": "D:\\Master Graduation Project\\my project\\Grad-The-Magic-Parents\\TheMagicParents.Core\\Interfaces\\IServiceProviderRepository.cs",
+              "RelativeDocumentMoniker": "TheMagicParents.Core\\Interfaces\\IServiceProviderRepository.cs",
+              "ToolTip": "D:\\Master Graduation Project\\my project\\Grad-The-Magic-Parents\\TheMagicParents.Core\\Interfaces\\IServiceProviderRepository.cs",
+              "RelativeToolTip": "TheMagicParents.Core\\Interfaces\\IServiceProviderRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAACAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-08T14:50:26.852Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ClientRepository.cs",
-              "DocumentMoniker": "D:\\Master Graduation Project\\my project\\Grad-The-Magic-Parents\\TheMagicParents.Infrastructure\\Repositories\\ClientRepository.cs",
-              "RelativeDocumentMoniker": "TheMagicParents.Infrastructure\\Repositories\\ClientRepository.cs",
-              "ToolTip": "D:\\Master Graduation Project\\my project\\Grad-The-Magic-Parents\\TheMagicParents.Infrastructure\\Repositories\\ClientRepository.cs",
-              "RelativeToolTip": "TheMagicParents.Infrastructure\\Repositories\\ClientRepository.cs",
-              "ViewState": "AQIAAIYAAAAAAAAAAAAAAIYAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-08T14:47:58.493Z",
+              "WhenOpened": "2025-05-14T22:19:07.866Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "UpdateProfileDTO.cs",
-              "DocumentMoniker": "D:\\Master Graduation Project\\my project\\Grad-The-Magic-Parents\\TheMagicParents.Core\\DTOs\\UpdateProfileDTO.cs",
-              "RelativeDocumentMoniker": "TheMagicParents.Core\\DTOs\\UpdateProfileDTO.cs",
-              "ToolTip": "D:\\Master Graduation Project\\my project\\Grad-The-Magic-Parents\\TheMagicParents.Core\\DTOs\\UpdateProfileDTO.cs",
-              "RelativeToolTip": "TheMagicParents.Core\\DTOs\\UpdateProfileDTO.cs",
+              "Title": "ProviderFilterDTO.cs",
+              "DocumentMoniker": "D:\\Master Graduation Project\\my project\\Grad-The-Magic-Parents\\TheMagicParents.Core\\DTOs\\ProviderFilterDTO.cs",
+              "RelativeDocumentMoniker": "TheMagicParents.Core\\DTOs\\ProviderFilterDTO.cs",
+              "ToolTip": "D:\\Master Graduation Project\\my project\\Grad-The-Magic-Parents\\TheMagicParents.Core\\DTOs\\ProviderFilterDTO.cs",
+              "RelativeToolTip": "TheMagicParents.Core\\DTOs\\ProviderFilterDTO.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAkwBIAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-14T22:17:50.591Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "User.cs",
+              "DocumentMoniker": "D:\\Master Graduation Project\\my project\\Grad-The-Magic-Parents\\TheMagicParents.Core\\Models\\User.cs",
+              "RelativeDocumentMoniker": "TheMagicParents.Core\\Models\\User.cs",
+              "ToolTip": "D:\\Master Graduation Project\\my project\\Grad-The-Magic-Parents\\TheMagicParents.Core\\Models\\User.cs",
+              "RelativeToolTip": "TheMagicParents.Core\\Models\\User.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAcwBkAAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-14T12:15:59.005Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ServiceProviderRepository.cs",
+              "DocumentMoniker": "D:\\Master Graduation Project\\my project\\Grad-The-Magic-Parents\\TheMagicParents.Infrastructure\\Repositories\\ServiceProviderRepository.cs",
+              "RelativeDocumentMoniker": "TheMagicParents.Infrastructure\\Repositories\\ServiceProviderRepository.cs",
+              "ToolTip": "D:\\Master Graduation Project\\my project\\Grad-The-Magic-Parents\\TheMagicParents.Infrastructure\\Repositories\\ServiceProviderRepository.cs",
+              "RelativeToolTip": "TheMagicParents.Infrastructure\\Repositories\\ServiceProviderRepository.cs",
+              "ViewState": "AQIAABABAAAAAAAAAAAAABMBAAAxAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-14T11:36:22.254Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AdminRegisterDTO.cs",
+              "DocumentMoniker": "D:\\Master Graduation Project\\my project\\Grad-The-Magic-Parents\\TheMagicParents.Core\\DTOs\\AdminRegisterDTO.cs",
+              "RelativeDocumentMoniker": "TheMagicParents.Core\\DTOs\\AdminRegisterDTO.cs",
+              "ToolTip": "D:\\Master Graduation Project\\my project\\Grad-The-Magic-Parents\\TheMagicParents.Core\\DTOs\\AdminRegisterDTO.cs",
+              "RelativeToolTip": "TheMagicParents.Core\\DTOs\\AdminRegisterDTO.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-08T14:47:50.84Z",
+              "WhenOpened": "2025-05-14T12:00:09.792Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Admin.cs",
+              "DocumentMoniker": "D:\\Master Graduation Project\\my project\\Grad-The-Magic-Parents\\TheMagicParents.Core\\Models\\Admin.cs",
+              "RelativeDocumentMoniker": "TheMagicParents.Core\\Models\\Admin.cs",
+              "ToolTip": "D:\\Master Graduation Project\\my project\\Grad-The-Magic-Parents\\TheMagicParents.Core\\Models\\Admin.cs",
+              "RelativeToolTip": "TheMagicParents.Core\\Models\\Admin.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-14T11:58:55.299Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "D:\\Master Graduation Project\\my project\\Grad-The-Magic-Parents\\TheMagicParents.API\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "TheMagicParents.API\\Controllers\\AdminController.cs",
+              "ToolTip": "D:\\Master Graduation Project\\my project\\Grad-The-Magic-Parents\\TheMagicParents.API\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "TheMagicParents.API\\Controllers\\AdminController.cs",
+              "ViewState": "AQIAAFQAAAAAAAAAAAAuwHEAAABBAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-14T11:58:36.431Z",
               "EditorCaption": ""
             }
           ]

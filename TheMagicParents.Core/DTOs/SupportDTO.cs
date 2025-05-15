@@ -10,7 +10,7 @@ namespace TheMagicParents.Core.DTOs
     public class SupportDTO
     {
         [Required]
-        public string UserNameId { get; set; }
+        public string UserName { get; set; }
 
         [Required]
         [MinLength(10, ErrorMessage = "Report reason must be at least 10 characters")]

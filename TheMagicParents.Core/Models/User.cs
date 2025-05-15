@@ -15,7 +15,7 @@ namespace TheMagicParents.Models
         public int? NumberOfSuccessfulServices { get; set; } = 0;
         public int? NumberOfCanceledServices { get; set; } = 0;
         public int? NumberOfSupports { get; set; } = 0;
-        public string? UserNameId { get; set; } //الاسم اللي هستخرجه من الايميل
+        public string? UserNameId { get; set; } 
         public DateTime? CreatedAt { get; set; } = DateTime.Now;
 
         public int? CityId { get; set; }

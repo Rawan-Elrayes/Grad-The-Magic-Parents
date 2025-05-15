@@ -126,7 +126,7 @@ namespace TheMagicParents.Infrastructure.Repositories
             public async Task<bool> SubmitReportAsync(string reporterUserId, string reportedUserNameId, string comment)
             {
                 var reportedUser = await _userManager.Users
-                    .FirstOrDefaultAsync(u => u.UserNameId == reportedUserNameId);
+                    .FirstOrDefaultAsync(u => u.UserName == reportedUserNameId);
 
                 if (reportedUser == null || reporterUserId == reportedUser.Id)
                     return false;

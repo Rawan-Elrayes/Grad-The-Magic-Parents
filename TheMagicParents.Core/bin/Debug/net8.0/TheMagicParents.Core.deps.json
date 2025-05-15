@@ -14,7 +14,8 @@
           "Microsoft.IdentityModel.Tokens": "8.2.0",
           "MimeKit": "4.11.0",
           "Swashbuckle.AspNetCore": "7.3.1",
-          "System.IdentityModel.Tokens.Jwt": "7.1.2"
+          "System.IdentityModel.Tokens.Jwt": "7.1.2",
+          "System.Linq.Dynamic.Core": "1.6.3"
         },
         "runtime": {
           "TheMagicParents.Core.dll": {}
@@ -342,6 +343,14 @@
           }
         }
       },
+      "System.Linq.Dynamic.Core/1.6.3": {
+        "runtime": {
+          "lib/net8.0/System.Linq.Dynamic.Core.dll": {
+            "assemblyVersion": "1.6.3.0",
+            "fileVersion": "1.6.3.0"
+          }
+        }
+      },
       "System.Security.Cryptography.Pkcs/8.0.1": {
         "runtime": {
           "lib/net8.0/System.Security.Cryptography.Pkcs.dll": {
@@ -603,6 +612,13 @@
       "sha512": "sha512-Thhbe1peAmtSBFaV/ohtykXiZSOkx59Da44hvtWfIMFofDA3M3LaVyjstACf2rKGn4dEDR2cUpRAZ0Xs/zB+7Q==",
       "path": "system.identitymodel.tokens.jwt/7.1.2",
       "hashPath": "system.identitymodel.tokens.jwt.7.1.2.nupkg.sha512"
+    },
+    "System.Linq.Dynamic.Core/1.6.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-y21D6o5aEwZkDetF8PopQJVn/p0sRU/pPc3RVH0KPUjskRzgep4nINtPHppFktrSjgde4+F6ZuajXU7aZW4k4Q==",
+      "path": "system.linq.dynamic.core/1.6.3",
+      "hashPath": "system.linq.dynamic.core.1.6.3.nupkg.sha512"
     },
     "System.Security.Cryptography.Pkcs/8.0.1": {
       "type": "package",

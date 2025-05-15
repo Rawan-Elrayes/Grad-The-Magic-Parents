@@ -64,13 +64,16 @@ public class AdminController : ControllerBase
 
             var Admin = new User
             {
-                UserName = model.UserName,
+                UserNameId = model.UserNameId,
                 PhoneNumber = model.PhoneNumber,
                 Email = model.Email,
                 AccountState = StateType.Active, 
                 PasswordHash = model.Password,
                 EmailConfirmed = true
             };
+
+            Admin.UserName = await _userRepository.GenerateUserNameIdFromEmailAsync(Admin.Email);
+
 
             // ÅäÔÇÁ ÇáãÓÊÎÏã
             var result = await _userManager.CreateAsync(Admin, model.Password);
@@ -94,7 +97,7 @@ public class AdminController : ControllerBase
             {
                 Email = Admin.Email,
                 PhoneNumber = Admin.PhoneNumber,
-                UserName = Admin.UserName,
+                UserNameId = Admin.UserNameId,
                 Password = Admin.PasswordHash
                 
             };
@@ -189,7 +192,7 @@ public class AdminController : ControllerBase
             .Select(u => new
             {
                 u.Id,
-                u.UserName,
+                u.UserNameId,
                 UserType = _userManager.GetRolesAsync(u).Result.FirstOrDefault(),
                 ActiveBookings = _context.Bookings
                     .Where(b => (b.ClientId == u.Id || b.ServiceProviderID == u.Id) &&
@@ -246,8 +249,8 @@ public class AdminController : ControllerBase
         var reportData = reports.Select(r => new
         {
             ReportId = r.SupportID,
-            ReportedUser = r.user.UserName,
-            ReportedUserNameId = r.user.UserNameId,
+            ReportedUser = r.user.UserNameId,
+            ReportedUserNameId = r.user.UserName,
             ComplainerName = _userManager.FindByIdAsync(r.ComplainerId.ToString()).Result?.UserNameId,
             Comment = r.Comment,
             CurrentSupportCount = r.user.NumberOfSupports

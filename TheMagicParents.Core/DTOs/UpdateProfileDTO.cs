@@ -10,7 +10,7 @@ namespace TheMagicParents.Core.DTOs
     public class UpdateProfileDTO
     {
         
-            public string UserName { get; set; }
+            public string UserNameId { get; set; }
             public string PhoneNumber { get; set; }
             public int GovernmentId { get; set; }
             public int CityId { get; set; }

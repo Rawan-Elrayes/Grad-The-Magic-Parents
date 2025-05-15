@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "oE1Xr5GCtKg=",
+  "dgSpecHash": "5M2uhkFNUVU=",
   "success": true,
   "projectFilePath": "D:\\Master Graduation Project\\my project\\Grad-The-Magic-Parents\\TheMagicParents.Core\\TheMagicParents.Core.csproj",
   "expectedPackageFiles": [
@@ -38,6 +38,7 @@
     "C:\\Users\\LEGION 5\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\7.3.1\\swashbuckle.aspnetcore.swaggerui.7.3.1.nupkg.sha512",
     "C:\\Users\\LEGION 5\\.nuget\\packages\\system.formats.asn1\\8.0.1\\system.formats.asn1.8.0.1.nupkg.sha512",
     "C:\\Users\\LEGION 5\\.nuget\\packages\\system.identitymodel.tokens.jwt\\7.1.2\\system.identitymodel.tokens.jwt.7.1.2.nupkg.sha512",
+    "C:\\Users\\LEGION 5\\.nuget\\packages\\system.linq.dynamic.core\\1.6.3\\system.linq.dynamic.core.1.6.3.nupkg.sha512",
     "C:\\Users\\LEGION 5\\.nuget\\packages\\system.security.cryptography.pkcs\\8.0.1\\system.security.cryptography.pkcs.8.0.1.nupkg.sha512"
   ],
   "logs": []
