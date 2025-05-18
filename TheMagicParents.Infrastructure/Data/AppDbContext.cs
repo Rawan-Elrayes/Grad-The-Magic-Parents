@@ -35,12 +35,6 @@ namespace TheMagicParents.Infrastructure.Data
            .OnDelete(DeleteBehavior.Restrict);
 
             builder.Entity<Booking>()
-                .HasOne(b => b.City)
-                .WithMany()
-                .HasForeignKey(b => b.CityID)
-                .OnDelete(DeleteBehavior.NoAction);
-
-            builder.Entity<Booking>()
                 .HasOne(b => b.Payment)
                 .WithOne(p => p.Booking)
                 .HasForeignKey<Payment>(p => p.BookingID)

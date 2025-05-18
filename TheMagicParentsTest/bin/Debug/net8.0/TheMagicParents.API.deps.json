@@ -944,14 +944,7 @@
           }
         }
       },
-      "System.Formats.Asn1/8.0.2": {
-        "runtime": {
-          "lib/net8.0/System.Formats.Asn1.dll": {
-            "assemblyVersion": "8.0.0.0",
-            "fileVersion": "8.0.1325.6609"
-          }
-        }
-      },
+      "System.Formats.Asn1/8.0.2": {},
       "System.IdentityModel.Tokens.Jwt/7.1.2": {
         "dependencies": {
           "Microsoft.IdentityModel.JsonWebTokens": "7.1.2",
@@ -965,6 +958,14 @@
         }
       },
       "System.IO.Pipelines/6.0.3": {},
+      "System.Linq.Dynamic.Core/1.6.3": {
+        "runtime": {
+          "lib/net8.0/System.Linq.Dynamic.Core.dll": {
+            "assemblyVersion": "1.6.3.0",
+            "fileVersion": "1.6.3.0"
+          }
+        }
+      },
       "System.Memory/4.5.4": {},
       "System.Memory.Data/1.0.2": {
         "dependencies": {
@@ -1095,10 +1096,14 @@
           "Microsoft.IdentityModel.Tokens": "8.2.0",
           "MimeKit": "4.11.0",
           "Swashbuckle.AspNetCore": "7.3.1",
-          "System.IdentityModel.Tokens.Jwt": "7.1.2"
+          "System.IdentityModel.Tokens.Jwt": "7.1.2",
+          "System.Linq.Dynamic.Core": "1.6.3"
         },
         "runtime": {
-          "TheMagicParents.Core.dll": {}
+          "TheMagicParents.Core.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "TheMagicParents.Infrastructure/1.0.0": {
@@ -1110,7 +1115,10 @@
           "TheMagicParents.Core": "1.0.0"
         },
         "runtime": {
-          "TheMagicParents.Infrastructure.dll": {}
+          "TheMagicParents.Infrastructure.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }
@@ -1631,6 +1639,13 @@
       "sha512": "sha512-ryTgF+iFkpGZY1vRQhfCzX0xTdlV3pyaTTqRu2ETbEv+HlV7O6y7hyQURnghNIXvctl5DuZ//Dpks6HdL/Txgw==",
       "path": "system.io.pipelines/6.0.3",
       "hashPath": "system.io.pipelines.6.0.3.nupkg.sha512"
+    },
+    "System.Linq.Dynamic.Core/1.6.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-y21D6o5aEwZkDetF8PopQJVn/p0sRU/pPc3RVH0KPUjskRzgep4nINtPHppFktrSjgde4+F6ZuajXU7aZW4k4Q==",
+      "path": "system.linq.dynamic.core/1.6.3",
+      "hashPath": "system.linq.dynamic.core.1.6.3.nupkg.sha512"
     },
     "System.Memory/4.5.4": {
       "type": "package",

@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.WebUtilities;
 using System.Text;
 using TheMagicParents.Core.Responses;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace TheMagicParents.API.Controllers
 {
@@ -37,17 +38,51 @@ namespace TheMagicParents.API.Controllers
         }
 
         [HttpGet("governments")]
-        public async Task<IActionResult> GetGovernments()
+        public async Task<IActionResult> GetGovernorate()
         {
-            var governments = await userRepository.GetGovernmentsAsync();
-            return Ok(governments);
+            try
+            {
+                var governments = await userRepository.GetGovernorateAsync();
+                return Ok(new Response<IEnumerable<Governorate>>
+                {
+                    Data = governments,
+                    Status = true,
+                    Message = "Governorates fetched successfully."
+                });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new Response<IEnumerable<Governorate>>
+                {
+                    Message = ex.Message,
+                    Status = false,
+                    Errors = new List<string> { ex.Message }
+                });
+            }
         }
 
-        [HttpGet("cities/{governmentId}")]
-        public async Task<IActionResult> GetCitiesByGovernment(int governmentId)
+        [HttpGet("cities/{GovernorateId}")]
+        public async Task<IActionResult> GetCitiesByGovernorate(int GovernorateId)
         {
-            var cities = await userRepository.GetCitiesByGovernmentAsync(governmentId);
-            return Ok(cities);
+            try
+            {
+                var cities = await userRepository.GetCitiesByGovernorateAsync(GovernorateId);
+                return Ok(new Response<IEnumerable<City>>
+                {
+                    Data = cities,
+                    Status = true,
+                    Message = "cities fetched successfully."
+                });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new Response<IEnumerable<City>>
+                {
+                    Message = ex.Message,
+                    Status = false,
+                    Errors = new List<string> { ex.Message }
+                });
+            }
         }
 
         [HttpPost("register/client")]

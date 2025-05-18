@@ -2,11 +2,11 @@
 {
 	public enum BookingStatus
 	{
-		none,
 		pending,
 		provider_confirmed,
 		paid,
 		cancelled,
-		completed
+		completed,
+		rejected
 	}
 }

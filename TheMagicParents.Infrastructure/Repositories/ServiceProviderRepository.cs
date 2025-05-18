@@ -9,6 +9,7 @@ using System.Data;
 using Microsoft.AspNetCore.Http;
 using TheMagicParents.Core.Responses;
 using Microsoft.EntityFrameworkCore;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 //using System.Linq.Dynamic.Core;
 
 
@@ -234,9 +235,9 @@ namespace TheMagicParents.Infrastructure.Repositories
         public async Task<ProviderGetDataResponse> UpdateProfileAsync(string userId, ServiceProviderUpdateProfileDTO model)
         {
             var provider = await _userManager.Users.OfType<ServiceProvider>()
-       .Include(p => p.City)
-           .ThenInclude(city => city.Governorate)
-       .FirstOrDefaultAsync(p => p.Id == userId);
+            .Include(p => p.City)
+            .ThenInclude(city => city.Governorate)
+            .FirstOrDefaultAsync(p => p.Id == userId);
 
             if (provider == null)
                 throw new InvalidOperationException("Service provider not found");
@@ -314,6 +315,22 @@ namespace TheMagicParents.Infrastructure.Repositories
                 PageNumber = page,
                 PageSize = pageSize
             };
+        }
+
+        public async Task<List<DateTime>> GetAvailableDays(string userId)
+        {
+            try
+            {
+                var availabilities = await _context.Availabilities
+                .Where(a => a.ServiceProciderID == userId).Select(a => a.Date.Date)
+                .ToListAsync();
+
+                return availabilities;
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException("An error occurred while getting available days.");
+            }
         }
 
     }

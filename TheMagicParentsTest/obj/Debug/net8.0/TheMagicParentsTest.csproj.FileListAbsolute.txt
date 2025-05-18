@@ -553,3 +553,4 @@ D:\Master Graduation Project\my project\Grad-The-Magic-Parents\TheMagicParentsTe
 D:\Master Graduation Project\my project\Grad-The-Magic-Parents\TheMagicParentsTest\obj\Debug\net8.0\TheMagicParentsTest.pdb
 D:\Master Graduation Project\my project\Grad-The-Magic-Parents\TheMagicParentsTest\obj\Debug\net8.0\TheMagicParentsTest.genruntimeconfig.cache
 D:\Master Graduation Project\my project\Grad-The-Magic-Parents\TheMagicParentsTest\obj\Debug\net8.0\ref\TheMagicParentsTest.dll
+C:\Users\Menna\Desktop\The Magic Parents\Grad-The-Magic-Parents\TheMagicParentsTest\bin\Debug\net8.0\System.Linq.Dynamic.Core.dll

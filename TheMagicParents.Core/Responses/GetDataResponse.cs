@@ -29,5 +29,9 @@ namespace TheMagicParents.Core.Responses
 
     }
 
-
+    public class GetSelectedProvider: ProviderGetDataResponse
+    {
+        public double Rate { get; set; }
+        public List<DateTime> AvailableDays { get; set; }
+    }
 }

@@ -31,15 +31,15 @@ namespace TheMagicParents.Infrastructure.Repositories
             _configuration = configuration;
         }
 
-        public async Task<IEnumerable<Governorate>> GetGovernmentsAsync()
+        public async Task<IEnumerable<Governorate>> GetGovernorateAsync()
         {
             return await _context.Governorates.ToListAsync();
         }
 
-        public async Task<IEnumerable<City>> GetCitiesByGovernmentAsync(int governmentId)
+        public async Task<IEnumerable<City>> GetCitiesByGovernorateAsync(int GovernorateId)
         {
             return await _context.Cities
-                .Where(c => c.GovernorateId == governmentId)
+                .Where(c => c.GovernorateId == GovernorateId)
                 .ToListAsync();
         }
 

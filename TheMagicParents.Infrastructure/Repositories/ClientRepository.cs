@@ -20,6 +20,10 @@ using Microsoft.Extensions.Logging;
 using TheMagicParents.Core.EmailService;
 using Microsoft.AspNetCore.Http;
 using TheMagicParents.Core.Responses;
+using Microsoft.Extensions.DependencyInjection;
+using System.Net.Mail;
+using System.Net;
+using System.Globalization;
 
 namespace TheMagicParents.Infrastructure.Repositories
 {
@@ -29,14 +33,18 @@ namespace TheMagicParents.Infrastructure.Repositories
         private readonly UserManager<User> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly IUserRepository _userRepository;
+        private readonly IServiceProviderRepository _serviceProviderRepository;
+        private readonly IEmailSender _emailSender;
 
 
-        public ClientRepository(AppDbContext context, UserManager<User> userManager, RoleManager<IdentityRole> roleManager, IUserRepository userRepository)
+        public ClientRepository(AppDbContext context, UserManager<User> userManager, RoleManager<IdentityRole> roleManager, IUserRepository userRepository, IServiceProviderRepository serviceProviderRepository, IEmailSender emailSender)
         {
             _context = context;
             _userManager = userManager;
             _roleManager = roleManager;
             _userRepository = userRepository;
+            _serviceProviderRepository = serviceProviderRepository;
+            _emailSender = emailSender;
         }
 
         public async Task<ClientRegisterResponse> RegisterClientAsync(ClientRegisterDTO model)
@@ -72,7 +80,6 @@ namespace TheMagicParents.Infrastructure.Repositories
                 throw new Exception(string.Join(", ", result.Errors.Select(e => e.Description)));
             }
 
-            // التحقق من وجود دور Customer وإنشائه إذا لم يكن موجودًا
             if (!await _roleManager.RoleExistsAsync(UserRoles.Client.ToString()))
             {
                 await _roleManager.CreateAsync(new IdentityRole(UserRoles.Client.ToString()));
@@ -179,5 +186,124 @@ namespace TheMagicParents.Infrastructure.Repositories
                 Location = updatedClient.Location
             };
         }
+
+        public async Task<GetSelectedProvider> GetSelctedProviderProfile(string ServiceProviderId)
+        {
+            var serviceProvider = await _context.ServiceProviders.Include(sp => sp.City).ThenInclude(c=>c.Governorate).FirstOrDefaultAsync(sp => sp.Id == ServiceProviderId);
+
+            if (serviceProvider == null)
+                throw new InvalidOperationException("Service provider not found");
+
+            return new GetSelectedProvider
+            {
+                AvailableDays = await _serviceProviderRepository.GetAvailableDays(ServiceProviderId),
+                UserNameId = serviceProvider.UserNameId,
+                PhoneNumber = serviceProvider.PhoneNumber,
+                PersonalPhoto = serviceProvider.PersonalPhoto,
+                GovernmentId = serviceProvider.City.GovernorateId,
+                Government = serviceProvider.City.Governorate.Name,
+                CityId = serviceProvider.CityId,
+                City = serviceProvider.City.Name,
+                HourPrice = serviceProvider.HourPrice,
+                Rate = serviceProvider.Rate
+            };
+        }
+
+        public async Task<List<AvailabilityResponse>> GetSelectedProviderAvailableDaysOfWeek(string userId)
+        {
+            try
+            {
+                var days = await _serviceProviderRepository.GetAvailableDays(userId);
+
+                // إنشاء قائمة للنتيجة النهائية
+                var availabilities = new List<AvailabilityResponse>();
+
+                // لكل يوم، الحصول على الساعات المتاحة
+                foreach (var day in days)
+                {
+                    var availability = await _serviceProviderRepository.GetAvailabilitiesHoures(day, userId);
+                    availabilities.Add(availability);
+                }
+
+                return availabilities;
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException($"An error occurred while getting available days: {ex.Message}");
+            }
+        }
+
+        public async Task<BookResponse> CreateBookingAsync(BookingDTO request, string clientId, string ServiceProviderId)
+        {
+            try
+            {
+                var client = await _context.Clients.FirstOrDefaultAsync(c=>c.Id==clientId);
+                var serviceProvider = await _context.ServiceProviders.FirstOrDefaultAsync(s=>s.Id==ServiceProviderId);
+
+                if (serviceProvider == null || client==null)
+                    throw new InvalidOperationException("Service provider or client not found.");
+
+                var booking = new Booking
+                {
+                    ClientId = clientId,
+                    ServiceProviderID = ServiceProviderId,
+                    Day = request.Day.Date,
+                    Houre = request.Houre,
+                    TotalPrice = serviceProvider.HourPrice,
+                    Status = BookingStatus.paid,
+                    Location = client.Location,
+                };
+
+                await SendBookingNotificationToProviderAsync(serviceProvider.Email, booking);
+
+                _context.Bookings.Add(booking);
+                await _context.SaveChangesAsync();
+
+                return new BookResponse
+                {
+                    BookingID = booking.BookingID,
+                    ClientId = clientId,
+                    ServiceProviderID = ServiceProviderId,
+                    Day=booking.Day,
+                    Houre = booking.Houre,
+                    Location=booking.Location,
+                    Status = booking.Status,
+                    TotalPrice=booking.TotalPrice
+                };
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException($"An error occurred while submitting book: {ex.Message}");
+            }
+        }
+
+        private async Task SendBookingNotificationToProviderAsync(string providerEmail, Booking booking)
+        {
+            try
+            {
+                var mailMessage = new Message(
+                    new string[] { providerEmail },
+                    "New Booking Requist",
+                     $@"
+                        <h2 style='font-family: Arial, sans-serif;'>New Booking Received</h2>
+                        <p style='font-family: Arial, sans-serif;'>You have a new booking with the following details:</p>
+                        <ul style='font-family: Arial, sans-serif;'>
+                            <li><strong>Date:</strong> {booking.Day.ToString("dddd, dd/MM/yyyy")}</li>
+                               <li><strong>Time:</strong> {booking.Houre.ToString(@"hh\:mm")}</li>
+                            <li><strong>Location:</strong> {booking.Location}</li>
+                        </ul>
+                        <p style='font-family: Arial, sans-serif;'>Please open your account to more details.</p>"
+                );
+                await _emailSender.SendEmailAsync(mailMessage);
+
+            }
+            catch (Exception ex)
+            {
+                // Log email sending error
+                throw new InvalidOperationException($"{ex.Message}");
+            }
+        }
     }
 }
+
+    

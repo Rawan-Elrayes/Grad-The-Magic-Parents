@@ -497,3 +497,4 @@ D:\Master Graduation Project\my project\Grad-The-Magic-Parents\TheMagicParents.A
 D:\Master Graduation Project\my project\Grad-The-Magic-Parents\TheMagicParents.API\obj\Debug\net8.0\TheMagicParents.API.genruntimeconfig.cache
 D:\Master Graduation Project\my project\Grad-The-Magic-Parents\TheMagicParents.API\obj\Debug\net8.0\ref\TheMagicParents.API.dll
 D:\Master Graduation Project\my project\Grad-The-Magic-Parents\TheMagicParents.API\bin\Debug\net8.0\System.Linq.Dynamic.Core.dll
+C:\Users\Menna\Desktop\The Magic Parents\Grad-The-Magic-Parents\TheMagicParents.API\bin\Debug\net8.0\System.Linq.Dynamic.Core.dll

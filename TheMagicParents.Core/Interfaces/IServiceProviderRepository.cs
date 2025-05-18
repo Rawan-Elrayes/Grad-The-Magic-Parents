@@ -19,6 +19,7 @@ namespace TheMagicParents.Core.Interfaces
         Task<AvailabilityResponse> GetAvailabilitiesHoures(DateTime date, string Id);
         Task<ProviderGetDataResponse> GetProfileAsync(string userId);
         Task<ProviderGetDataResponse> UpdateProfileAsync(string userId, ServiceProviderUpdateProfileDTO model);
+        Task<List<DateTime>> GetAvailableDays(string userId);
 
         //search for providers 
         Task<PagedResult<FilteredProviderDTO>> GetFilteredProvidersAsync(ProviderFilterDTO filter, int page = 1, int pageSize = 8 );

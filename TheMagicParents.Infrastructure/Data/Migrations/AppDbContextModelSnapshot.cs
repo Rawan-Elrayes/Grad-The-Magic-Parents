@@ -191,18 +191,18 @@ namespace TheMagicParents.Infrastructure.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BookingID"));
 
-                    b.Property<DateTime>("BookingTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("CityID")
-                        .HasColumnType("int");
-
                     b.Property<string>("ClientId")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ClientId1")
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("Day")
+                        .HasColumnType("datetime2");
+
+                    b.Property<TimeSpan>("Houre")
+                        .HasColumnType("time");
 
                     b.Property<string>("Location")
                         .IsRequired()
@@ -215,12 +215,10 @@ namespace TheMagicParents.Infrastructure.Data.Migrations
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
-                    b.Property<decimal>("TotalPrice")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<double>("TotalPrice")
+                        .HasColumnType("float");
 
                     b.HasKey("BookingID");
-
-                    b.HasIndex("CityID");
 
                     b.HasIndex("ClientId");
 
@@ -511,9 +509,6 @@ namespace TheMagicParents.Infrastructure.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Points")
-                        .HasColumnType("int");
-
                     b.HasDiscriminator().HasValue("Client");
                 });
 
@@ -600,12 +595,6 @@ namespace TheMagicParents.Infrastructure.Data.Migrations
 
             modelBuilder.Entity("TheMagicParents.Models.Booking", b =>
                 {
-                    b.HasOne("TheMagicParents.Models.City", "City")
-                        .WithMany()
-                        .HasForeignKey("CityID")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
                     b.HasOne("TheMagicParents.Models.Client", "Client")
                         .WithMany()
                         .HasForeignKey("ClientId")
@@ -621,8 +610,6 @@ namespace TheMagicParents.Infrastructure.Data.Migrations
                         .HasForeignKey("ServiceProviderID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("City");
 
                     b.Navigation("Client");
 

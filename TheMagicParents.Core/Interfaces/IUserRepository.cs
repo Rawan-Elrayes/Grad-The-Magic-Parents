@@ -12,8 +12,8 @@ namespace TheMagicParents.Core.Interfaces
 {
     public interface IUserRepository
     {
-        Task<IEnumerable<Governorate>> GetGovernmentsAsync();
-        Task<IEnumerable<City>> GetCitiesByGovernmentAsync(int governmentId);
+        Task<IEnumerable<Governorate>> GetGovernorateAsync();
+        Task<IEnumerable<City>> GetCitiesByGovernorateAsync(int GovernorateId);
         Task<string> GenerateUserNameIdFromEmailAsync(string email);
         Task<string> SaveImage(IFormFile image);
         Task<(JwtSecurityToken Token, DateTime Expires)> GenerateJwtToken<TUser>(TUser user) where TUser : User;

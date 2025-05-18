@@ -201,7 +201,7 @@ public class AdminController : ControllerBase
                     {
                         b.BookingID,
                         b.Status,
-                        b.BookingTime
+                        b.Day
                         //b.ServiceProvider.Type
                     }).ToList(),
                 HasActiveBookings = _context.Bookings
