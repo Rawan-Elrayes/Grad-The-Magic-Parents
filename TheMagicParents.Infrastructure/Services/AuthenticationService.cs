@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Configuration;
+using System.IdentityModel.Tokens.Jwt;
 using System.Net;
 using System.Security.Claims;
 using System.Text;
@@ -20,47 +21,53 @@ namespace TheMagicParents.Infrastructure.Services
         private readonly SignInManager<User> _signInManager;
         private readonly IEmailSender _emailSender;
         private readonly IConfiguration _configuration;
+        private readonly IUserRepository _userRepository;
 
         public AuthenticationService(
             UserManager<User> userManager, 
             SignInManager<User> signInManager, 
             IEmailSender emailSender,
-            IConfiguration configuration)
+            IConfiguration configuration,
+            IUserRepository userRepository)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _emailSender = emailSender;
             _configuration = configuration;
+            _userRepository = userRepository;
         }
 
-        public async Task<Response<string>> LoginAsync(LoginDTO model)
+        public async Task<Response<LoginResponse>> LoginAsync(LoginDTO model)
         {
             var user = await _userManager.FindByEmailAsync(model.Email);
             if (user == null)
-                return new Response<string> { Status = false, Message = "Invalid email or password" };
+                return new Response<LoginResponse> { Status = 1, Message = "Invalid email or password" };
 
             
 
             // Check if email is confirmed
             if (!await _userManager.IsEmailConfirmedAsync(user))
             {
-                return new Response<string> { Status = false, Message = "Please confirm your email before logging in" };
+                return new Response<LoginResponse> { Status = 1, Message = "Please confirm your email before logging in" };
             }
             user.AccountState = Enums.StateType.Active;
 
             
             var result = await _signInManager.PasswordSignInAsync(user, model.Password, false, true);
             if (!result.Succeeded)
-                return new Response<string> { Status = false, Message = "Invalid email or password" };
+                return new Response<LoginResponse> { Status = 1, Message = "Invalid email or password" };
 
-            return new Response<string> { Status = true, Message = "Login successful", Data = user.Id };
+            var (token, expires) = await _userRepository.GenerateJwtToken(user);
+            var jwtToken = new JwtSecurityTokenHandler().WriteToken(token);
+
+            return new Response<LoginResponse> { Status = 0, Message = "Login successful", Data = new LoginResponse { userId = user.Id, Token = jwtToken, TokenExpire = expires } };
         }
 
         public async Task<Response<string>> ForgotPasswordAsync(ForgotPasswordDTO model)
         {
             var user = await _userManager.FindByEmailAsync(model.Email);
             if (user == null)
-                return new Response<string> { Status = false, Message = "Email not found" };
+                return new Response<string> { Status = 1, Message = "Email not found" };
 
             // Generate token and encode it
             var token = await _userManager.GeneratePasswordResetTokenAsync(user);
@@ -81,39 +88,39 @@ namespace TheMagicParents.Infrastructure.Services
 
             await _emailSender.SendEmailAsync(message);
 
-            return new Response<string> { Status = true, Message = "Password reset link has been sent to your email" };
+            return new Response<string> { Status = 0, Message = "Password reset link has been sent to your email" };
         }
 
         public async Task<Response<string>> ResetPasswordAsync(ResetPasswordDTO model)
         {
             var user = await _userManager.FindByEmailAsync(model.Email);
             if (user == null)
-                return new Response<string> { Status = false, Message = "User not found" };
+                return new Response<string> { Status = 1, Message = "User not found" };
 
             // Decode token
             var decodedToken = Encoding.UTF8.GetString(WebEncoders.Base64UrlDecode(model.Token));
             
             var result = await _userManager.ResetPasswordAsync(user, decodedToken, model.NewPassword);
             if (!result.Succeeded)
-                return new Response<string> { Status = false, Message = "Failed to reset password" };
+                return new Response<string> { Status = 1, Message = "Failed to reset password" };
 
-            return new Response<string> { Status = true, Message = "Password has been reset successfully" };
+            return new Response<string> { Status = 0, Message = "Password has been reset successfully" };
         }
 
         public async Task<Response<string>> LogoutAsync()
         {
             await _signInManager.SignOutAsync();
-            return new Response<string> { Status = true, Message = "Logged out successfully" };
+            return new Response<string> { Status = 0, Message = "Logged out successfully" };
         }
 
         public async Task<Response<string>> SendEmailConfirmationAsync(string email)
         {
             var user = await _userManager.FindByEmailAsync(email);
             if (user == null)
-                return new Response<string> { Status = false, Message = "User not found" };
+                return new Response<string> { Status = 1, Message = "User not found" };
 
             if (await _userManager.IsEmailConfirmedAsync(user))
-                return new Response<string> { Status = false, Message = "Email is already confirmed" };
+                return new Response<string> { Status = 1, Message = "Email is already confirmed" };
 
             // Generate token and encode it
             var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
@@ -134,23 +141,23 @@ namespace TheMagicParents.Infrastructure.Services
 
             await _emailSender.SendEmailAsync(message);
 
-            return new Response<string> { Status = true, Message = "Confirmation email sent successfully" };
+            return new Response<string> { Status = 0, Message = "Confirmation email sent successfully" };
         }
 
         public async Task<Response<string>> ConfirmEmailAsync(string email, string token)
         {
             var user = await _userManager.FindByEmailAsync(email);
             if (user == null)
-                return new Response<string> { Status = false, Message = "User not found" };
+                return new Response<string> { Status = 1, Message = "User not found" };
 
             // Decode token
             var decodedToken = Encoding.UTF8.GetString(WebEncoders.Base64UrlDecode(token));
             
             var result = await _userManager.ConfirmEmailAsync(user, decodedToken);
             if (!result.Succeeded)
-                return new Response<string> { Status = false, Message = "Failed to confirm email" };
+                return new Response<string> { Status = 1, Message = "Failed to confirm email" };
 
-            return new Response<string> { Status = true, Message = "Email confirmed successfully" };
+            return new Response<string> { Status = 0, Message = "Email confirmed successfully" };
         }
 
         public async Task<User?> GetUserByIdAsync(string userId)

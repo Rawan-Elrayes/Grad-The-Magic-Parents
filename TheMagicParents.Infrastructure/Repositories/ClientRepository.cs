@@ -89,23 +89,24 @@ namespace TheMagicParents.Infrastructure.Repositories
 
             await _context.SaveChangesAsync();
 
-            var (token, expires) = await _userRepository.GenerateJwtToken(client);
-            var jwtToken = new JwtSecurityTokenHandler().WriteToken(token);
+            var city = _context.Cities
+     .Include(c => c.Governorate)
+     .FirstOrDefault(c => c.Id == client.CityId);
 
             return new ClientRegisterResponse
             {
-                Id=client.Id,
-                City = _context.Cities.Find(client.CityId).Name,
+                Id = client.Id,
+                City = city?.Name,
+                Government = city?.Governorate?.Name,
                 Email = client.Email,
-                Expires = expires,
                 IdCardBackPhoto = client.IdCardBackPhoto,
                 IdCardFrontPhoto = client.IdCardFrontPhoto,
                 Location = client.Location,
                 PersonalPhoto = client.PersonalPhoto,
                 PhoneNumber = client.PhoneNumber,
-                Token = jwtToken,
                 UserNameId = client.UserNameId
             };
+
         }
 
         public async Task<ClientGetDataResponse> GetProfileAsync(string userId)

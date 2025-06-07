@@ -162,6 +162,24 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\11_156f3673-28d7-4c1b-a67e-06eb32d163a7.png'))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\11_16d74ab2-dbbb-466d-8c34-80eb6bbc52e4.png'))">
+      <SourceType>Package</SourceType>
+      <SourceId>TheMagicParents.API</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/TheMagicParents.API</BasePath>
+      <RelativePath>images/11_16d74ab2-dbbb-466d-8c34-80eb6bbc52e4.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>489gkdexk6</Fingerprint>
+      <Integrity>tJrrP71/7X1BLzRXUCX7z8K7ImHwaud/pWAgGg2T0b4=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\11_16d74ab2-dbbb-466d-8c34-80eb6bbc52e4.png'))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\11_176a332e-719f-4687-9db0-25ca0c0d8351.png'))">
       <SourceType>Package</SourceType>
       <SourceId>TheMagicParents.API</SourceId>
@@ -305,6 +323,42 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\11_2f07631e-f75a-4ab6-b89e-2517a8ce8d93.png'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\11_2f659eec-ebf2-4163-9c0a-25e798fde6b4.png'))">
+      <SourceType>Package</SourceType>
+      <SourceId>TheMagicParents.API</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/TheMagicParents.API</BasePath>
+      <RelativePath>images/11_2f659eec-ebf2-4163-9c0a-25e798fde6b4.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>489gkdexk6</Fingerprint>
+      <Integrity>tJrrP71/7X1BLzRXUCX7z8K7ImHwaud/pWAgGg2T0b4=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\11_2f659eec-ebf2-4163-9c0a-25e798fde6b4.png'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\11_2f960d9b-ac11-4a2f-826c-1bad595cddd1.png'))">
+      <SourceType>Package</SourceType>
+      <SourceId>TheMagicParents.API</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/TheMagicParents.API</BasePath>
+      <RelativePath>images/11_2f960d9b-ac11-4a2f-826c-1bad595cddd1.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>489gkdexk6</Fingerprint>
+      <Integrity>tJrrP71/7X1BLzRXUCX7z8K7ImHwaud/pWAgGg2T0b4=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\11_2f960d9b-ac11-4a2f-826c-1bad595cddd1.png'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\11_333982bf-d1ad-41ea-9830-5a2655b41438.png'))">
       <SourceType>Package</SourceType>
@@ -611,6 +665,24 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\11_54788038-9c20-4e6c-ae50-9164dea0e64d.png'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\11_57235a8b-792e-461d-8857-e9c806b9faec.png'))">
+      <SourceType>Package</SourceType>
+      <SourceId>TheMagicParents.API</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/TheMagicParents.API</BasePath>
+      <RelativePath>images/11_57235a8b-792e-461d-8857-e9c806b9faec.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>489gkdexk6</Fingerprint>
+      <Integrity>tJrrP71/7X1BLzRXUCX7z8K7ImHwaud/pWAgGg2T0b4=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\11_57235a8b-792e-461d-8857-e9c806b9faec.png'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\11_59461a20-cb2b-4fe0-ae2d-1dc541d87cca.png'))">
       <SourceType>Package</SourceType>

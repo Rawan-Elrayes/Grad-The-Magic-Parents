@@ -9,8 +9,6 @@ namespace TheMagicParents.Core.Responses
     public class UserRegisterResponse
     {
         public string Id { get; set; }
-        public string Token { get; set; }
-        public DateTime Expires { get; set; }
         public string UserNameId { get; set; }
         public string PhoneNumber { get; set; }
         public string Email { get; set; }

@@ -76,21 +76,22 @@ namespace TheMagicParents.Infrastructure.Repositories
 
             await _context.SaveChangesAsync();
 
-            var (token, expires) = await _userRepository.GenerateJwtToken(ServiceProvider);
-            var jwtToken = new JwtSecurityTokenHandler().WriteToken(token);
+            var city = _context.Cities
+    .Include(c => c.Governorate)
+    .FirstOrDefault(c => c.Id == ServiceProvider.CityId);
+
 
             return new ServiceProviderRegisterResponse
             {
                 Id = ServiceProvider.Id,
-                City = _context.Cities.Find(ServiceProvider.CityId).Name,
+                City = city?.Name,
+                Government = city?.Governorate?.Name,
                 Email = ServiceProvider.Email,
-                Expires = expires,
                 IdCardBackPhoto = ServiceProvider.IdCardBackPhoto,
                 IdCardFrontPhoto = ServiceProvider.IdCardFrontPhoto,
                 Certification = ServiceProvider.Certification,
                 PersonalPhoto = ServiceProvider.PersonalPhoto,
                 PhoneNumber = ServiceProvider.PhoneNumber,
-                Token = jwtToken,
                 UserNameId = ServiceProvider.UserNameId
             };
         }

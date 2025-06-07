@@ -11,7 +11,7 @@ namespace TheMagicParents.Core.Interfaces
 {
     public interface IAuthentication
     {
-        Task<Response<string>> LoginAsync(LoginDTO model);
+        Task<Response<LoginResponse>> LoginAsync(LoginDTO model);
         Task<Response<string>> ForgotPasswordAsync(ForgotPasswordDTO model);
         Task<Response<string>> ResetPasswordAsync(ResetPasswordDTO model);
         Task<Response<string>> LogoutAsync();
