@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TheMagicParents.Core.DTOs;
 using TheMagicParents.Core.Responses;
+using TheMagicParents.Enums;
 using TheMagicParents.Models;
 
 namespace TheMagicParents.Core.Interfaces
@@ -17,6 +18,7 @@ namespace TheMagicParents.Core.Interfaces
         Task<ClientGetDataResponse> UpdateProfileAsync(string userId, ClientUpdateProfileDTO model);
         Task<GetSelectedProvider> GetSelctedProviderProfile (string ServiceProviderId);
         Task<List<AvailabilityResponse>> GetSelectedProviderAvailableDaysOfWeek(string userId);
-        Task<BookResponse> CreateBookingAsync(BookingDTO bookingDTO, string clientId, string ServiceProviderId);
+        Task<BookingResponse> CreateBookingAsync(BookingDTO bookingDTO, string clientId, string ServiceProviderId);
+        Task<ReviewSubmissionResponse> SubmitReviewAsync(ReviewDTO review, string userId);
     }
 }

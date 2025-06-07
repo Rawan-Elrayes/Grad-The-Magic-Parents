@@ -26,14 +26,13 @@ namespace TheMagicParents.API.Controllers
             var userId = HttpContext.Session.GetString("UserId");
             try
             {
-                // Add new ones
                 var newAvailabilities = await serviceProviderRepository.SaveAvailability(request, userId);
 
                 return Ok(new Response<AvailabilityResponse>
                 {
                     Message = "Availability added successfully>",
                     Data = newAvailabilities,
-                    Status = true
+                    Status = 0
                 });
             }
             catch (Exception ex)
@@ -41,7 +40,7 @@ namespace TheMagicParents.API.Controllers
                 return StatusCode(500, new Response<AvailabilityResponse>
                 {
                     Message = "An error occurred.",
-                    Status = false,
+                    Status = 1,
                     Errors = new List<string> { ex.Message }
                 });
             }
@@ -54,12 +53,12 @@ namespace TheMagicParents.API.Controllers
             var userId = HttpContext.Session.GetString("UserId");
             try
             {
-                var availabilities = await serviceProviderRepository.GetAvailabilitiesHoures(date,userId);
+                var availabilities = await serviceProviderRepository.GetAvailabilitiesHoures(date, userId);
 
                 return Ok(new Response<AvailabilityResponse>
                 {
                     Data = availabilities,
-                    Status = true
+                    Status = 0
                 });
             }
             catch (Exception ex)
@@ -76,7 +75,7 @@ namespace TheMagicParents.API.Controllers
                 return Unauthorized(new Response<string>
                 {
                     Message = "User not authenticated",
-                    Status = false
+                    Status = 1
                 });
 
             try
@@ -85,7 +84,7 @@ namespace TheMagicParents.API.Controllers
                 return Ok(new Response<ProviderGetDataResponse>
                 {
                     Data = profile,
-                    Status = true,
+                    Status = 0,
                     Message = "Profile retrieved successfully"
                 });
             }
@@ -94,12 +93,11 @@ namespace TheMagicParents.API.Controllers
                 return BadRequest(new Response<ProviderGetDataResponse>
                 {
                     Message = ex.Message,
-                    Status = false,
+                    Status = 1,
                     Errors = new List<string> { ex.Message }
                 });
             }
         }
-
 
         [HttpPut("update-profile")]
         public async Task<IActionResult> UpdateServiceProviderProfile([FromForm] ServiceProviderUpdateProfileDTO model)
@@ -116,7 +114,7 @@ namespace TheMagicParents.API.Controllers
                 {
                     Message = "Profile updated successfully",
                     Data = result,
-                    Status = true
+                    Status = 0
                 });
             }
             catch (InvalidOperationException ex)
@@ -124,7 +122,7 @@ namespace TheMagicParents.API.Controllers
                 return BadRequest(new Response<ProviderGetDataResponse>
                 {
                     Message = ex.Message,
-                    Status = false,
+                    Status = 1,
                     Errors = new List<string> { ex.Message }
                 });
             }
@@ -133,7 +131,7 @@ namespace TheMagicParents.API.Controllers
                 return StatusCode(500, new Response<ProviderGetDataResponse>
                 {
                     Message = "An error occurred while updating the profile.",
-                    Status = false,
+                    Status = 1,
                     Errors = new List<string> { ex.Message }
                 });
             }
@@ -148,7 +146,7 @@ namespace TheMagicParents.API.Controllers
                 return Ok(new Response<PagedResult<FilteredProviderDTO>>
                 {
                     Data = result,
-                    Status = true,
+                    Status = 0,
                     Message = "Providers retrieved successfully"
                 });
             }
@@ -157,11 +155,10 @@ namespace TheMagicParents.API.Controllers
                 return BadRequest(new Response<PagedResult<FilteredProviderDTO>>
                 {
                     Message = "Failed to retrieve providers",
-                    Status = false,
+                    Status = 1,
                     Errors = new List<string> { ex.Message }
                 });
             }
         }
-
     }
 }

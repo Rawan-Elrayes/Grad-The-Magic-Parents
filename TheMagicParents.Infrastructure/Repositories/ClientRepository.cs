@@ -35,9 +35,9 @@ namespace TheMagicParents.Infrastructure.Repositories
         private readonly IUserRepository _userRepository;
         private readonly IServiceProviderRepository _serviceProviderRepository;
         private readonly IEmailSender _emailSender;
+        private readonly ILogger<UserRepository> _logger;
 
-
-        public ClientRepository(AppDbContext context, UserManager<User> userManager, RoleManager<IdentityRole> roleManager, IUserRepository userRepository, IServiceProviderRepository serviceProviderRepository, IEmailSender emailSender)
+        public ClientRepository(AppDbContext context, UserManager<User> userManager, RoleManager<IdentityRole> roleManager, IUserRepository userRepository, IServiceProviderRepository serviceProviderRepository, IEmailSender emailSender, ILogger<UserRepository> logger)
         {
             _context = context;
             _userManager = userManager;
@@ -45,6 +45,7 @@ namespace TheMagicParents.Infrastructure.Repositories
             _userRepository = userRepository;
             _serviceProviderRepository = serviceProviderRepository;
             _emailSender = emailSender;
+            _logger = logger;
         }
 
         public async Task<ClientRegisterResponse> RegisterClientAsync(ClientRegisterDTO model)
@@ -233,7 +234,7 @@ namespace TheMagicParents.Infrastructure.Repositories
             }
         }
 
-        public async Task<BookResponse> CreateBookingAsync(BookingDTO request, string clientId, string ServiceProviderId)
+        public async Task<BookingResponse> CreateBookingAsync(BookingDTO request, string clientId, string ServiceProviderId)
         {
             try
             {
@@ -250,7 +251,7 @@ namespace TheMagicParents.Infrastructure.Repositories
                     Day = request.Day.Date,
                     Houre = request.Houre,
                     TotalPrice = serviceProvider.HourPrice,
-                    Status = BookingStatus.paid,
+                    Status = BookingStatus.pending,
                     Location = client.Location,
                 };
 
@@ -259,7 +260,7 @@ namespace TheMagicParents.Infrastructure.Repositories
                 _context.Bookings.Add(booking);
                 await _context.SaveChangesAsync();
 
-                return new BookResponse
+                return new BookingResponse
                 {
                     BookingID = booking.BookingID,
                     ClientId = clientId,
@@ -301,6 +302,87 @@ namespace TheMagicParents.Infrastructure.Repositories
             {
                 // Log email sending error
                 throw new InvalidOperationException($"{ex.Message}");
+            }
+        }
+
+        public async Task<ReviewSubmissionResponse> SubmitReviewAsync(ReviewDTO reviewDTO, string userId)
+        {
+            using var transaction = await _context.Database.BeginTransactionAsync();
+
+            try
+            {
+                // 1. Validate the booking exists and belongs to this client
+                var booking = await _context.Bookings
+                    .Include(b => b.Client)
+                    .Include(b => b.ServiceProvider)
+                    .FirstOrDefaultAsync(b => b.BookingID == reviewDTO.BookingID && b.ClientId==userId);
+
+                if (booking == null)
+                {
+                    throw new InvalidOperationException("Book not found.");
+                }
+
+                // 2. Check if booking is completed (only completed bookings can be reviewed)
+                if (booking.Status != BookingStatus.completed)
+                {
+                    throw new InvalidOperationException("Only completed bookings can be reviewed");
+                }
+
+                // 3. Check if review already exists
+                var existingReview = await _context.Reviews
+                    .FirstOrDefaultAsync(r => r.BookingID == reviewDTO.BookingID);
+
+                if (existingReview != null)
+                {
+                    throw new InvalidOperationException("You've already submitted a review for this booking");
+                }
+
+                // 4. Create and save the review
+                var review = new Review
+                {
+                    Rating = reviewDTO.Rating,
+                    ReviewDate = DateTime.UtcNow,
+                    BookingID = reviewDTO.BookingID
+                };
+
+                _context.Reviews.Add(review);
+                await _context.SaveChangesAsync();
+
+                // 5. Update service provider's average rating (optional)
+                await UpdateProviderRating(booking.ServiceProviderID);
+
+                await transaction.CommitAsync();
+
+                return new ReviewSubmissionResponse
+                {
+                    BookingID=review.BookingID,
+                    ClientId=booking.ClientId,
+                    Rating=review.Rating,
+                    ReviewDate=review.ReviewDate,
+                    ServiceProviderId=booking.ServiceProviderID
+                };
+            }
+            catch (Exception ex)
+            {
+                await transaction.RollbackAsync();
+                _logger.LogError(ex, "Error submitting review for booking {BookingId}", reviewDTO.BookingID);
+                throw;
+            }
+        }
+
+        private async Task UpdateProviderRating(string providerId)
+        {
+            var averageRating = await _context.Reviews
+                .Where(r => r.Booking.ServiceProviderID == providerId)
+                .AverageAsync(r => (double?)r.Rating) ?? 0;
+
+            var provider = await _context.ServiceProviders
+                .FirstOrDefaultAsync(p => p.Id == providerId);
+
+            if (provider != null)
+            {
+                provider.Rate = averageRating;
+                await _context.SaveChangesAsync();
             }
         }
     }

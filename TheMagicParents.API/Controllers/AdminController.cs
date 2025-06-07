@@ -18,7 +18,6 @@ using System.IdentityModel.Tokens.Jwt;
 using TheMagicParents.Infrastructure.Data;
 using TheMagicParents.Core.Responses;
 
-//[Authorize(Roles = "Admin")]
 [ApiController]
 [Route("api/[controller]")]
 public class AdminController : ControllerBase
@@ -48,7 +47,7 @@ public class AdminController : ControllerBase
             return BadRequest(new Response<AdminRegisterResponse>
             {
                 Message = "Invalid model state",
-                Status = false,
+                Status = 1,
                 Errors = ModelState.Values.SelectMany(v => v.Errors)
                                     .Select(e => e.ErrorMessage).ToList()
             });
@@ -67,15 +66,13 @@ public class AdminController : ControllerBase
                 UserNameId = model.UserNameId,
                 PhoneNumber = model.PhoneNumber,
                 Email = model.Email,
-                AccountState = StateType.Active, 
+                AccountState = StateType.Active,
                 PasswordHash = model.Password,
                 EmailConfirmed = true
             };
 
             Admin.UserName = await _userRepository.GenerateUserNameIdFromEmailAsync(Admin.Email);
 
-
-            // ≈‰‘«¡ «·„” Œœ„
             var result = await _userManager.CreateAsync(Admin, model.Password);
             if (!result.Succeeded)
             {
@@ -90,23 +87,19 @@ public class AdminController : ControllerBase
 
             await _context.SaveChangesAsync();
 
-            //var (token, expires) = await _userRepository.GenerateJwtToken(Admin);
-            //var jwtToken = new JwtSecurityTokenHandler().WriteToken(token);
-
             var res = new AdminRegisterResponse
             {
                 Email = Admin.Email,
                 PhoneNumber = Admin.PhoneNumber,
                 UserNameId = Admin.UserNameId,
                 Password = Admin.PasswordHash
-                
             };
 
             return Ok(new Response<AdminRegisterResponse>
             {
                 Message = "Admin registered successfully",
                 Data = res,
-                Status = true
+                Status = 0
             });
         }
         catch (InvalidOperationException ex)
@@ -114,7 +107,7 @@ public class AdminController : ControllerBase
             return BadRequest(new Response<AdminRegisterResponse>
             {
                 Message = ex.Message,
-                Status = false,
+                Status = 1,
                 Errors = new List<string> { ex.Message }
             });
         }
@@ -123,14 +116,14 @@ public class AdminController : ControllerBase
             return StatusCode(500, new Response<AdminRegisterResponse>
             {
                 Message = "An error occurred while registering the admin.",
-                Status = false,
+                Status = 1,
                 Errors = new List<string> { ex.Message }
             });
         }
     }
 
     [HttpGet("pending-users")]
-    [Authorize(Roles = "Admin" )]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> GetPendingUsers()
     {
         var pendingUsers = await _userManager.Users
@@ -176,10 +169,6 @@ public class AdminController : ControllerBase
         {
             await _userManager.DeleteAsync(user);
             return Ok("User rejected and account deleted");
-
-            //user.AccountState = StateType.Blocked;
-            //await _userManager.UpdateAsync(user);
-            //return Ok("User verification rejected");
         }
     }
 
@@ -202,7 +191,6 @@ public class AdminController : ControllerBase
                         b.BookingID,
                         b.Status,
                         b.Day
-                        //b.ServiceProvider.Type
                     }).ToList(),
                 HasActiveBookings = _context.Bookings
                 .Any(b => (b.ClientId == u.Id || b.ServiceProviderID == u.Id) &&
@@ -259,7 +247,7 @@ public class AdminController : ControllerBase
         return Ok(new Response<object>
         {
             Data = reportData,
-            Status = true,
+            Status = 0,
             Message = "Pending reports retrieved successfully"
         });
     }
@@ -274,15 +262,13 @@ public class AdminController : ControllerBase
             return NotFound(new Response<string>
             {
                 Message = "Report not found",
-                Status = false
+                Status = 1
             });
 
         return Ok(new Response<string>
         {
             Message = $"Report {(isImportant ? "approved" : "rejected")} successfully",
-            Status = true
+            Status = 0
         });
     }
-
-
 }

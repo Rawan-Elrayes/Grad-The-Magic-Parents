@@ -28,7 +28,7 @@ namespace TheMagicParents.API.Controllers
                 return Unauthorized(new Response<string>
                 {
                     Message = "User not authenticated",
-                    Status = false
+                    Status = 1
                 });
 
             try
@@ -37,7 +37,7 @@ namespace TheMagicParents.API.Controllers
                 return Ok(new Response<ClientGetDataResponse>
                 {
                     Data = profile,
-                    Status = true,
+                    Status = 0,
                     Message = "Profile retrieved successfully"
                 });
             }
@@ -46,7 +46,7 @@ namespace TheMagicParents.API.Controllers
                 return BadRequest(new Response<ClientGetDataResponse>
                 {
                     Message = ex.Message,
-                    Status = false,
+                    Status = 1,
                     Errors = new List<string> { ex.Message }
                 });
             }
@@ -62,13 +62,20 @@ namespace TheMagicParents.API.Controllers
             try
             {
                 var userId = HttpContext.Session.GetString("UserId");
+                if (string.IsNullOrEmpty(userId))
+                    return Unauthorized(new Response<string>
+                    {
+                        Message = "User not authenticated",
+                        Status = 1
+                    });
+
                 var result = await _clientRepository.UpdateProfileAsync(userId, model);
 
                 return Ok(new Response<ClientGetDataResponse>
                 {
                     Message = "Profile updated successfully",
                     Data = result,
-                    Status = true
+                    Status = 0
                 });
             }
             catch (InvalidOperationException ex)
@@ -76,7 +83,7 @@ namespace TheMagicParents.API.Controllers
                 return BadRequest(new Response<ClientGetDataResponse>
                 {
                     Message = ex.Message,
-                    Status = false,
+                    Status = 1,
                     Errors = new List<string> { ex.Message }
                 });
             }
@@ -85,7 +92,7 @@ namespace TheMagicParents.API.Controllers
                 return StatusCode(500, new Response<ClientGetDataResponse>
                 {
                     Message = "An error occurred while updating the profile.",
-                    Status = false,
+                    Status = 1,
                     Errors = new List<string> { ex.Message }
                 });
             }
@@ -101,7 +108,7 @@ namespace TheMagicParents.API.Controllers
                 return Ok(new Response<GetSelectedProvider>
                 {
                     Data = profile,
-                    Status = true,
+                    Status = 0,
                     Message = "Profile geted successfully"
                 });
             }
@@ -110,7 +117,7 @@ namespace TheMagicParents.API.Controllers
                 return BadRequest(new Response<GetSelectedProvider>
                 {
                     Message = ex.Message,
-                    Status = false,
+                    Status = 1,
                     Errors = new List<string> { ex.Message }
                 });
             }
@@ -126,7 +133,7 @@ namespace TheMagicParents.API.Controllers
                 return Ok(new Response<List<AvailabilityResponse>>
                 {
                     Data = availabilities,
-                    Status = true,
+                    Status = 0,
                     Message = "Availabilities geted successfully"
                 });
             }
@@ -135,7 +142,7 @@ namespace TheMagicParents.API.Controllers
                 return BadRequest(new Response<List<AvailabilityResponse>>
                 {
                     Message = ex.Message,
-                    Status = false,
+                    Status = 1,
                     Errors = new List<string> { ex.Message }
                 });
             }
@@ -145,24 +152,63 @@ namespace TheMagicParents.API.Controllers
         [Authorize(Roles = "Client")]
         public async Task<IActionResult> SubmitBooking(string serviceProviderId, [FromForm] BookingDTO bookingDTO)
         {
-            
             try
             {
                 var userId = HttpContext.Session.GetString("UserId");
+                if (string.IsNullOrEmpty(userId))
+                    return Unauthorized(new Response<string>
+                    {
+                        Message = "User not authenticated",
+                        Status = 1
+                    });
+
                 var Book = await _clientRepository.CreateBookingAsync(bookingDTO, userId, serviceProviderId);
-                return Ok(new Response<BookResponse>
+                return Ok(new Response<BookingResponse>
                 {
                     Data = Book,
-                    Status = true,
+                    Status = 0,
                     Message = "Booking submitted succefully and service rovider will confirm your book soon."
                 });
             }
             catch (Exception ex)
             {
-                return BadRequest(new Response<BookResponse>
+                return BadRequest(new Response<BookingResponse>
                 {
                     Message = ex.Message,
-                    Status = false,
+                    Status = 1,
+                    Errors = new List<string> { ex.Message }
+                });
+            }
+        }
+
+        [HttpPost("SubmitReviewBooking")]
+        [Authorize(Roles = "Client")]
+        public async Task<IActionResult> SubmitReviewBooking([FromForm] ReviewDTO reviewDTO)
+        {
+            try
+            {
+                var userId = HttpContext.Session.GetString("UserId");
+                if (string.IsNullOrEmpty(userId))
+                    return Unauthorized(new Response<string>
+                    {
+                        Message = "User not authenticated",
+                        Status = 1
+                    });
+
+                var review = await _clientRepository.SubmitReviewAsync(reviewDTO, userId);
+                return Ok(new Response<ReviewSubmissionResponse>
+                {
+                    Data = review,
+                    Status = 0,
+                    Message = "Review submitted succefully."
+                });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new Response<ReviewSubmissionResponse>
+                {
+                    Message = ex.Message,
+                    Status = 1,
                     Errors = new List<string> { ex.Message }
                 });
             }

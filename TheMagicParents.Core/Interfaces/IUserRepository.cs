@@ -7,6 +7,9 @@ using System.Text;
 using System.Threading.Tasks;
 using TheMagicParents.Models;
 using System.IdentityModel.Tokens.Jwt;
+using TheMagicParents.Core.Responses;
+using TheMagicParents.Enums;
+using TheMagicParents.Core.DTOs;
 
 namespace TheMagicParents.Core.Interfaces
 {
@@ -21,5 +24,12 @@ namespace TheMagicParents.Core.Interfaces
         Task<bool> SubmitReportAsync(string reporterUserId, string reportedUserNameId, string comment);
         Task<IEnumerable<Support>> GetPendingReportsAsync();
         Task<bool> HandleReportAsync(int reportId, bool isImportant);
+        Task<List<BookingResponse>> GetPendingBookingsAsync(string userId);
+        Task<List<BookingResponse>> GetProviderConfirmedBookingsAsync(string userId);
+        Task<List<BookingResponse>> GetPaidBookingsAsync(string userId);
+        Task<List<BookingResponse>> GetCancelledBookingsAsync(string userId);
+        Task<List<BookingResponse>> GetCompletedBookingsAsync(string userId);
+        Task<List<BookingResponse>> GetRejectedBookingsAsync(string userId);
+        Task<CancelBookingResponse> CancelBookingAsync(int bookingId, string userId);
     }
 }

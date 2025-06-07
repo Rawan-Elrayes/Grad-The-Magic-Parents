@@ -46,7 +46,7 @@ namespace TheMagicParents.API.Controllers
                 return Ok(new Response<IEnumerable<Governorate>>
                 {
                     Data = governments,
-                    Status = true,
+                    Status = 0,
                     Message = "Governorates fetched successfully."
                 });
             }
@@ -55,7 +55,7 @@ namespace TheMagicParents.API.Controllers
                 return BadRequest(new Response<IEnumerable<Governorate>>
                 {
                     Message = ex.Message,
-                    Status = false,
+                    Status = 1,
                     Errors = new List<string> { ex.Message }
                 });
             }
@@ -70,7 +70,7 @@ namespace TheMagicParents.API.Controllers
                 return Ok(new Response<IEnumerable<City>>
                 {
                     Data = cities,
-                    Status = true,
+                    Status = 0,
                     Message = "cities fetched successfully."
                 });
             }
@@ -79,7 +79,7 @@ namespace TheMagicParents.API.Controllers
                 return BadRequest(new Response<IEnumerable<City>>
                 {
                     Message = ex.Message,
-                    Status = false,
+                    Status = 1,
                     Errors = new List<string> { ex.Message }
                 });
             }
@@ -93,7 +93,7 @@ namespace TheMagicParents.API.Controllers
                 return BadRequest(new Response<ClientRegisterResponse>
                 {
                     Message = "Invalid model state",
-                    Status = false,
+                    Status = 1,
                     Errors = ModelState.Values.SelectMany(v => v.Errors)
                                         .Select(e => e.ErrorMessage).ToList()
                 });
@@ -107,7 +107,7 @@ namespace TheMagicParents.API.Controllers
                 {
                     Message = "Client registered successfully",
                     Data = client,
-                    Status = true
+                    Status = 0
                 });
             }
             catch (InvalidOperationException ex)
@@ -115,7 +115,7 @@ namespace TheMagicParents.API.Controllers
                 return BadRequest(new Response<ClientRegisterResponse>
                 {
                     Message = ex.Message,
-                    Status = false,
+                    Status = 1,
                     Errors = new List<string> { ex.Message }
                 });
             }
@@ -124,7 +124,7 @@ namespace TheMagicParents.API.Controllers
                 return StatusCode(500, new Response<ClientRegisterResponse>
                 {
                     Message = "An error occurred while registering the client.",
-                    Status = false,
+                    Status = 1,
                     Errors = new List<string> { ex.Message }
                 });
             }
@@ -138,7 +138,7 @@ namespace TheMagicParents.API.Controllers
                 return BadRequest(new Response<ServiceProviderRegisterResponse>
                 {
                     Message = "Invalid model state",
-                    Status = false,
+                    Status = 1,
                     Errors = ModelState.Values.SelectMany(v => v.Errors)
                                         .Select(e => e.ErrorMessage).ToList()
                 });
@@ -153,7 +153,7 @@ namespace TheMagicParents.API.Controllers
                 {
                     Message = "service provider registered successfully",
                     Data = ServiceProvider,
-                    Status = true
+                    Status = 0
                 });
             }
             catch (InvalidOperationException ex)
@@ -161,7 +161,7 @@ namespace TheMagicParents.API.Controllers
                 return BadRequest(new Response<ServiceProviderRegisterResponse>
                 {
                     Message = ex.Message,
-                    Status = false,
+                    Status = 1,
                     Errors = new List<string> { ex.Message }
                 });
             }
@@ -170,7 +170,7 @@ namespace TheMagicParents.API.Controllers
                 return StatusCode(500, new Response<ServiceProviderRegisterResponse>
                 {
                     Message = "An error occurred while registering the service provider.",
-                    Status = false,
+                    Status = 1,
                     Errors = new List<string> { ex.Message }
                 });
             }
@@ -187,7 +187,7 @@ namespace TheMagicParents.API.Controllers
             {
                 HttpContext.Session.SetString("UserId", result.Data.ToString());
             }
-            if (!result.Status)
+            if (result.Status!=0)
                 return BadRequest(result);
 
             return Ok(result);
@@ -200,7 +200,7 @@ namespace TheMagicParents.API.Controllers
                 return BadRequest(ModelState);
 
             var result = await _authService.ForgotPasswordAsync(model);
-            if (!result.Status)
+            if (result.Status != 0)
                 return BadRequest(result);
 
             return Ok(result);
@@ -213,7 +213,7 @@ namespace TheMagicParents.API.Controllers
                 return BadRequest(ModelState);
 
             var result = await _authService.ResetPasswordAsync(model);
-            if (!result.Status)
+            if (result.Status != 0)
                 return BadRequest(result);
 
             return Ok(result);
@@ -241,7 +241,7 @@ namespace TheMagicParents.API.Controllers
                 return BadRequest(new Response<string>
                 {
                     Message = "User not found",
-                    Status = false
+                    Status = 1
                 });
 
             var result = await _userManager.ChangePasswordAsync(user, model.OldPassword, model.NewPassword);
@@ -250,76 +250,14 @@ namespace TheMagicParents.API.Controllers
                 return BadRequest(new Response<string>
                 {
                     Message = "Failed to change password",
-                    Status = false,
+                    Status = 1,
                     Errors = result.Errors.Select(e => e.Description).ToList()
                 });
 
             return Ok(new Response<string>
             {
                 Message = "Password changed successfully",
-                Status = true
-            });
-        }
-
-
-        [HttpPost("request-account-deletion")]
-        public async Task<IActionResult> RequestAccountDeletion()
-        {
-            var userId = HttpContext.Session.GetString("UserId");
-            var user = await _userManager.FindByIdAsync(userId);
-
-            if (user == null)
-                return BadRequest(new Response<string>
-                {
-                    Message = "User not found",
-                    Status = false
-                });
-
-            user.AccountState = StateType.PendingDeletion;
-            var result = await _userManager.UpdateAsync(user);
-
-            if (!result.Succeeded)
-                return BadRequest(new Response<string>
-                {
-                    Message = "Failed to request account deletion",
-                    Status = false,
-                    Errors = result.Errors.Select(e => e.Description).ToList()
-                });
-
-            return Ok(new Response<string>
-            {
-                Message = "Account deletion request submitted successfully",
-                Status = true
-            });
-        }
-
-        [HttpPost("report-user")]
-        public async Task<IActionResult> ReportUser([FromBody] SupportDTO model)
-        {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
-
-            var reporterId = HttpContext.Session.GetString("UserId");
-            if (string.IsNullOrEmpty(reporterId))
-                return Unauthorized(new Response<string>
-                {
-                    Message = "User not authenticated",
-                    Status = false
-                });
-
-            var result = await userRepository.SubmitReportAsync(reporterId, model.UserName, model.Comment);
-
-            if (!result)
-                return BadRequest(new Response<string>
-                {
-                    Message = "Failed to submit report. User not found or invalid report.",
-                    Status = false
-                });
-
-            return Ok(new Response<string>
-            {
-                Message = "Report submitted successfully",
-                Status = true
+                Status = 0
             });
         }
     }

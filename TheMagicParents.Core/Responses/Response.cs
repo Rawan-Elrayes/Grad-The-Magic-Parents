@@ -9,16 +9,14 @@ namespace TheMagicParents.Core.Responses
 {
     public class Response<T>
     {
-        private IQueryable<User> data;
-
-        public Response(string message, IQueryable<User> data, bool status)
+        public Response(string message, T data, int status)
         {
             Message = message;
-            this.data = data;
+            Data = data;
             Status = status;
         }
 
-        public Response(string message = "", T data = default, bool status = false, List<string> errors = null)
+        public Response(string message = "", T data = default, int status = 1, List<string> errors = null)
         {
             Message = message;
             Status = status;
@@ -29,11 +27,11 @@ namespace TheMagicParents.Core.Responses
         public Response(string errorMessage)
         {
             Message = errorMessage;
-            Status = false;
+            Status = 1; // 1 معناها في خطأ
             Errors = new List<string> { errorMessage };
         }
 
-        public bool Status { get; set; }
+        public int Status { get; set; } // تم تغييره من bool إلى int
         public T Data { get; set; }
         public string Message { get; set; }
         public List<string> Errors { get; set; }

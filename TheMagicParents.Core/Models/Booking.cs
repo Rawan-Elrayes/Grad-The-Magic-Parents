@@ -18,6 +18,7 @@ namespace TheMagicParents.Models
 		public double TotalPrice { get; set; }
 		public BookingStatus Status { get; set; } = BookingStatus.pending;
 		public string Location { get; set; }
+		public string? cancelledBy { get; set; }
 
 		// Navigation properties
 		[ForeignKey(nameof(ClientId))]

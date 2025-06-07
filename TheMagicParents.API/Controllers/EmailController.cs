@@ -53,14 +53,14 @@ public class EmailController : ControllerBase
 
                     return Ok(new
                     {
-                        Success = true,
+                        Status = 0,
                         Message = "Email confirmed successfully and account activated"
                     });
             }
 
             return BadRequest(new
             {
-                Success = false,
+                Status = 1,
                 Message = "Email confirmation failed",
                 Errors = result.Errors.Select(e => e.Description)
             });
@@ -69,7 +69,7 @@ public class EmailController : ControllerBase
         {
             return StatusCode(500, new
             {
-                Success = false,
+                Status = 1,
                 Message = "An error occurred while confirming email",
                 Error = ex.Message
             });

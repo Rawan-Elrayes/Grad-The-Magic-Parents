@@ -15,6 +15,9 @@ using System.Security.Claims;
 using System.Text;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using System;
+using TheMagicParents.Core.Responses;
+using TheMagicParents.Enums;
+using TheMagicParents.Core.EmailService;
 
 namespace TheMagicParents.Infrastructure.Repositories
 {
@@ -23,12 +26,15 @@ namespace TheMagicParents.Infrastructure.Repositories
         private readonly AppDbContext _context;
         private readonly UserManager<User> _userManager;
         private readonly IConfiguration _configuration;
-        
-        public UserRepository(AppDbContext context, UserManager<User> userManager, IConfiguration configuration)
+        private readonly ILogger<UserRepository> _logger;
+        private readonly Core.Interfaces.IEmailSender _emailSender;
+
+        public UserRepository(AppDbContext context, UserManager<User> userManager, IConfiguration configuration, ILogger<UserRepository> logger)
         {
             _context = context;
             _userManager = userManager;
             _configuration = configuration;
+            _logger = logger;
         }
 
         public async Task<IEnumerable<Governorate>> GetGovernorateAsync()
@@ -123,7 +129,7 @@ namespace TheMagicParents.Infrastructure.Repositories
             return (token, expires);
         }
 
-            public async Task<bool> SubmitReportAsync(string reporterUserId, string reportedUserNameId, string comment)
+        public async Task<bool> SubmitReportAsync(string reporterUserId, string reportedUserNameId, string comment)
             {
                 var reportedUser = await _userManager.Users
                     .FirstOrDefaultAsync(u => u.UserName == reportedUserNameId);
@@ -144,7 +150,7 @@ namespace TheMagicParents.Infrastructure.Repositories
                 return true;
             }
 
-            public async Task<IEnumerable<Support>> GetPendingReportsAsync()
+        public async Task<IEnumerable<Support>> GetPendingReportsAsync()
             {
                 return await _context.Supports
                     .Include(s => s.user)
@@ -152,7 +158,7 @@ namespace TheMagicParents.Infrastructure.Repositories
                     .ToListAsync();
             }
 
-            public async Task<bool> HandleReportAsync(int reportId, bool isImportant)
+        public async Task<bool> HandleReportAsync(int reportId, bool isImportant)
             {
                 var report = await _context.Supports
                     .Include(s => s.user)
@@ -175,7 +181,196 @@ namespace TheMagicParents.Infrastructure.Repositories
             return true;
 
             }
-        
+
+        public async Task<List<BookingResponse>> GetPendingBookingsAsync(string userId)
+        {
+            return await GetBookingsByStatusAsync(userId, BookingStatus.pending);
+        }
+
+        public async Task<List<BookingResponse>> GetProviderConfirmedBookingsAsync(string userId)
+        {
+            return await GetBookingsByStatusAsync(userId, BookingStatus.provider_confirmed);
+        }
+
+        public async Task<List<BookingResponse>> GetPaidBookingsAsync(string userId)
+        {
+            return await GetBookingsByStatusAsync(userId, BookingStatus.paid);
+        }
+
+        public async Task<List<BookingResponse>> GetCancelledBookingsAsync(string userId)
+        {
+            return await GetBookingsByStatusAsync(userId, BookingStatus.cancelled);
+        }
+
+        public async Task<List<BookingResponse>> GetCompletedBookingsAsync(string userId)
+        {
+            return await GetBookingsByStatusAsync(userId, BookingStatus.completed);
+        }
+
+        public async Task<List<BookingResponse>> GetRejectedBookingsAsync(string userId)
+        {
+            return await GetBookingsByStatusAsync(userId, BookingStatus.rejected);
+        }
+
+        private async Task<List<BookingResponse>> GetBookingsByStatusAsync(string userId, BookingStatus status)
+        {
+            try
+            {
+                var serviceProviderRole = await _context.Roles
+                .FirstOrDefaultAsync(r => r.Name == "ServiceProvider");
+
+                bool isProvider = await _context.UserRoles
+                    .AnyAsync(ur => ur.UserId == userId && ur.RoleId == serviceProviderRole.Id);
+
+                IQueryable<Booking> query = _context.Bookings
+                    .Include(b => b.Client)
+                    .Include(b => b.ServiceProvider)
+                    .Where(b => b.Status == status);
+
+                query = isProvider
+                    ? query.Where(b => b.ServiceProviderID == userId)
+                    : query.Where(b => b.ClientId == userId);
+
+                return await query
+                    .OrderByDescending(b => b.Day)
+                    .ThenByDescending(b => b.Houre)
+                    .Select(b => new BookingResponse
+                    {
+                        BookingID = b.BookingID,
+                        ClientId = b.ClientId,
+                        ServiceProviderID = b.ServiceProviderID,
+                        Day = b.Day,
+                        Houre = b.Houre,
+                        Location = b.Location,
+                        Status = b.Status,
+                        TotalPrice = b.TotalPrice,
+                        ClientName=b.Client.UserNameId,
+                        ServiceProviderName=b.ServiceProvider.UserNameId,
+                        ServiceType=b.ServiceProvider.Type
+                    })
+                    .ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error getting {status} bookings for user {userId}");
+                throw;
+            }
+        }
+
+        public async Task<CancelBookingResponse> CancelBookingAsync(int bookingId, string userId)
+        {
+            using var transaction = await _context.Database.BeginTransactionAsync();
+
+            try
+            {
+                var user = _context.Users.FirstOrDefault(u=>u.Id==userId);
+                // 1. Get the booking with all related data
+                var booking = await _context.Bookings
+                    .Include(b => b.Client)
+                    .Include(b => b.ServiceProvider)
+                    .FirstOrDefaultAsync(b => b.BookingID == bookingId);
+
+                if (booking == null || user==null)
+                {
+                    throw new InvalidOperationException("Booking or user not found.");
+                }
+
+                var bookingDateTime = booking.Day.Add(booking.Houre);
+                var timeUntilBooking = bookingDateTime - DateTime.Now;
+
+                if (timeUntilBooking <= TimeSpan.FromHours(1))
+                {
+                    throw new InvalidOperationException("Bookings can only be cancelled at least 1 hour before the scheduled time.");
+                }
+
+                // 3. Validate booking can be cancelled (only in pending or provider_confirmed states)
+                if (booking.Status != BookingStatus.pending && booking.Status != BookingStatus.provider_confirmed)
+                {
+                    throw new InvalidOperationException($"Booking cannot be cancelled in its current state ({booking.Status})");
+                }
+
+                // 4. Update booking status
+                booking.Status = BookingStatus.cancelled;
+                booking.cancelledBy = userId;
+                _context.Bookings.Update(booking);
+
+                await _context.SaveChangesAsync();
+
+                bool isClient = booking.ClientId == userId;
+                bool isProvider = booking.ServiceProviderID == userId;
+
+                // 6. Send appropriate notification
+                try
+                {
+                    if (isClient)
+                    {
+                        await SendCancellationNotificationAsync(
+                            recipientEmail: booking.ServiceProvider.Email,
+                            cancelledByName: $"{booking.Client.UserNameId}",
+                            booking: booking
+                        );
+                    }
+                    else
+                    {
+                        await SendCancellationNotificationAsync(
+                            recipientEmail: booking.Client.Email,
+                            cancelledByName: $"{booking.ServiceProvider.UserNameId}",
+                            booking: booking
+                        );
+                    }
+                }
+                catch (Exception emailEx)
+                {
+                    _logger.LogError(emailEx, "Failed to send cancellation email");
+                    // Don't fail the operation if email fails
+                }
+
+                await transaction.CommitAsync();
+
+                return new CancelBookingResponse
+                {
+                    BookingId = booking.BookingID,
+                    CancelledBy=booking.cancelledBy,
+                    NewStatus=booking.Status
+                };
+            }
+            catch (Exception ex)
+            {
+                await transaction.RollbackAsync();
+                _logger.LogError(ex, "Error cancelling booking");
+                throw;
+            }
+        }
+
+        private async Task SendCancellationNotificationAsync(string recipientEmail, string cancelledByName, Booking booking)
+        {
+            string formattedDate = booking.Day.ToString("dddd, MMMM dd, yyyy");
+            string formattedTime = booking.Houre.ToString(@"h\:mm tt");
+
+            var subject = "Your booking has been cancelled!";
+
+            var body = $@"
+        <h2 style='font-family: Arial, sans-serif;'>Booking Cancellation Notification</h2>
+        <p style='font-family: Arial, sans-serif;'>
+            The following booking has been cancelled by {cancelledByName}:
+        </p>
+        <ul style='font-family: Arial, sans-serif;'>
+            <li><strong>Original Date:</strong> {formattedDate}</li>
+            <li><strong>Time:</strong> {formattedTime}</li>
+            <li><strong>Location:</strong> {booking.Location}</li>
+        </ul>
+        <p style='font-family: Arial, sans-serif;'>
+            Please log in to your account for more details.
+        </p>";
+
+            var mailMessage = new Message(
+                new string[] { recipientEmail },
+                subject,
+                body
+            );
+
+            await _emailSender.SendEmailAsync(mailMessage);
+        }
 
     }
 }
