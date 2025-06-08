@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "JVazXzf8GIAVF0xbvTqqeN19cDDCUnD2meT7HdE1Q7E=",
+  "Hash": "GppTdeuVh1+OdrnY1VGRVhROyrsZJV76mQqVloCL79k=",
   "Source": "TheMagicParents.API",
   "BasePath": "_content/TheMagicParents.API",
   "Mode": "Default",
@@ -437,6 +437,27 @@
       "OriginalItemSpec": "wwwroot\\images\\11_2f960d9b-ac11-4a2f-826c-1bad595cddd1.png"
     },
     {
+      "Identity": "C:\\Users\\Menna\\Desktop\\The Magic Parents\\Grad-The-Magic-Parents\\TheMagicParents.API\\wwwroot\\images\\11_3009a431-586a-405d-8e7b-3cb5fe0c8bc9.png",
+      "SourceId": "TheMagicParents.API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Menna\\Desktop\\The Magic Parents\\Grad-The-Magic-Parents\\TheMagicParents.API\\wwwroot\\",
+      "BasePath": "_content/TheMagicParents.API",
+      "RelativePath": "images/11_3009a431-586a-405d-8e7b-3cb5fe0c8bc9#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "489gkdexk6",
+      "Integrity": "tJrrP71/7X1BLzRXUCX7z8K7ImHwaud/pWAgGg2T0b4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\11_3009a431-586a-405d-8e7b-3cb5fe0c8bc9.png"
+    },
+    {
       "Identity": "C:\\Users\\Menna\\Desktop\\The Magic Parents\\Grad-The-Magic-Parents\\TheMagicParents.API\\wwwroot\\images\\11_333982bf-d1ad-41ea-9830-5a2655b41438.png",
       "SourceId": "TheMagicParents.API",
       "SourceType": "Discovered",
@@ -582,6 +603,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\11_3e263806-a05a-445e-8b95-51f4c6e6c966.png"
+    },
+    {
+      "Identity": "C:\\Users\\Menna\\Desktop\\The Magic Parents\\Grad-The-Magic-Parents\\TheMagicParents.API\\wwwroot\\images\\11_3f72fa9e-73a5-49f4-bff8-257f9d009c31.png",
+      "SourceId": "TheMagicParents.API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Menna\\Desktop\\The Magic Parents\\Grad-The-Magic-Parents\\TheMagicParents.API\\wwwroot\\",
+      "BasePath": "_content/TheMagicParents.API",
+      "RelativePath": "images/11_3f72fa9e-73a5-49f4-bff8-257f9d009c31#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "489gkdexk6",
+      "Integrity": "tJrrP71/7X1BLzRXUCX7z8K7ImHwaud/pWAgGg2T0b4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\11_3f72fa9e-73a5-49f4-bff8-257f9d009c31.png"
     },
     {
       "Identity": "C:\\Users\\Menna\\Desktop\\The Magic Parents\\Grad-The-Magic-Parents\\TheMagicParents.API\\wwwroot\\images\\11_4044b4af-4930-4260-8ef3-58c379237ef3.png",
@@ -2075,6 +2117,27 @@
       "OriginalItemSpec": "wwwroot\\images\\11_f9ea97cf-53e3-4e51-a3aa-fb69a2872009.png"
     },
     {
+      "Identity": "C:\\Users\\Menna\\Desktop\\The Magic Parents\\Grad-The-Magic-Parents\\TheMagicParents.API\\wwwroot\\images\\11_fad02f18-48f3-4f1d-994a-7f7d279ab0e7.png",
+      "SourceId": "TheMagicParents.API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Menna\\Desktop\\The Magic Parents\\Grad-The-Magic-Parents\\TheMagicParents.API\\wwwroot\\",
+      "BasePath": "_content/TheMagicParents.API",
+      "RelativePath": "images/11_fad02f18-48f3-4f1d-994a-7f7d279ab0e7#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "489gkdexk6",
+      "Integrity": "tJrrP71/7X1BLzRXUCX7z8K7ImHwaud/pWAgGg2T0b4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\11_fad02f18-48f3-4f1d-994a-7f7d279ab0e7.png"
+    },
+    {
       "Identity": "C:\\Users\\Menna\\Desktop\\The Magic Parents\\Grad-The-Magic-Parents\\TheMagicParents.API\\wwwroot\\images\\11_fe49ad3e-d405-4a2b-8665-7b867db37d72.png",
       "SourceId": "TheMagicParents.API",
       "SourceType": "Discovered",
@@ -2094,6 +2157,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\11_fe49ad3e-d405-4a2b-8665-7b867db37d72.png"
+    },
+    {
+      "Identity": "C:\\Users\\Menna\\Desktop\\The Magic Parents\\Grad-The-Magic-Parents\\TheMagicParents.API\\wwwroot\\images\\11_feda1870-a304-45da-af20-74d9c6da3557.png",
+      "SourceId": "TheMagicParents.API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Menna\\Desktop\\The Magic Parents\\Grad-The-Magic-Parents\\TheMagicParents.API\\wwwroot\\",
+      "BasePath": "_content/TheMagicParents.API",
+      "RelativePath": "images/11_feda1870-a304-45da-af20-74d9c6da3557#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "489gkdexk6",
+      "Integrity": "tJrrP71/7X1BLzRXUCX7z8K7ImHwaud/pWAgGg2T0b4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\11_feda1870-a304-45da-af20-74d9c6da3557.png"
     },
     {
       "Identity": "C:\\Users\\Menna\\Desktop\\The Magic Parents\\Grad-The-Magic-Parents\\TheMagicParents.API\\wwwroot\\images\\11_ffe06a1c-94ce-416e-9640-484279a854c3.png",
@@ -5460,6 +5544,88 @@
       ]
     },
     {
+      "Route": "images/11_3009a431-586a-405d-8e7b-3cb5fe0c8bc9.489gkdexk6.png",
+      "AssetFile": "C:\\Users\\Menna\\Desktop\\The Magic Parents\\Grad-The-Magic-Parents\\TheMagicParents.API\\wwwroot\\images\\11_3009a431-586a-405d-8e7b-3cb5fe0c8bc9.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "18332"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"tJrrP71/7X1BLzRXUCX7z8K7ImHwaud/pWAgGg2T0b4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 07 Jun 2025 17:24:42 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "489gkdexk6"
+        },
+        {
+          "Name": "label",
+          "Value": "images/11_3009a431-586a-405d-8e7b-3cb5fe0c8bc9.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-tJrrP71/7X1BLzRXUCX7z8K7ImHwaud/pWAgGg2T0b4="
+        }
+      ]
+    },
+    {
+      "Route": "images/11_3009a431-586a-405d-8e7b-3cb5fe0c8bc9.png",
+      "AssetFile": "C:\\Users\\Menna\\Desktop\\The Magic Parents\\Grad-The-Magic-Parents\\TheMagicParents.API\\wwwroot\\images\\11_3009a431-586a-405d-8e7b-3cb5fe0c8bc9.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "18332"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"tJrrP71/7X1BLzRXUCX7z8K7ImHwaud/pWAgGg2T0b4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 07 Jun 2025 17:24:42 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-tJrrP71/7X1BLzRXUCX7z8K7ImHwaud/pWAgGg2T0b4="
+        }
+      ]
+    },
+    {
       "Route": "images/11_333982bf-d1ad-41ea-9830-5a2655b41438.489gkdexk6.png",
       "AssetFile": "C:\\Users\\Menna\\Desktop\\The Magic Parents\\Grad-The-Magic-Parents\\TheMagicParents.API\\wwwroot\\images\\11_333982bf-d1ad-41ea-9830-5a2655b41438.png",
       "Selectors": [],
@@ -6020,6 +6186,88 @@
         {
           "Name": "Last-Modified",
           "Value": "Fri, 25 Apr 2025 16:05:26 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-tJrrP71/7X1BLzRXUCX7z8K7ImHwaud/pWAgGg2T0b4="
+        }
+      ]
+    },
+    {
+      "Route": "images/11_3f72fa9e-73a5-49f4-bff8-257f9d009c31.489gkdexk6.png",
+      "AssetFile": "C:\\Users\\Menna\\Desktop\\The Magic Parents\\Grad-The-Magic-Parents\\TheMagicParents.API\\wwwroot\\images\\11_3f72fa9e-73a5-49f4-bff8-257f9d009c31.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "18332"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"tJrrP71/7X1BLzRXUCX7z8K7ImHwaud/pWAgGg2T0b4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 07 Jun 2025 17:24:42 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "489gkdexk6"
+        },
+        {
+          "Name": "label",
+          "Value": "images/11_3f72fa9e-73a5-49f4-bff8-257f9d009c31.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-tJrrP71/7X1BLzRXUCX7z8K7ImHwaud/pWAgGg2T0b4="
+        }
+      ]
+    },
+    {
+      "Route": "images/11_3f72fa9e-73a5-49f4-bff8-257f9d009c31.png",
+      "AssetFile": "C:\\Users\\Menna\\Desktop\\The Magic Parents\\Grad-The-Magic-Parents\\TheMagicParents.API\\wwwroot\\images\\11_3f72fa9e-73a5-49f4-bff8-257f9d009c31.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "18332"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"tJrrP71/7X1BLzRXUCX7z8K7ImHwaud/pWAgGg2T0b4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 07 Jun 2025 17:24:42 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -11856,6 +12104,88 @@
       ]
     },
     {
+      "Route": "images/11_fad02f18-48f3-4f1d-994a-7f7d279ab0e7.489gkdexk6.png",
+      "AssetFile": "C:\\Users\\Menna\\Desktop\\The Magic Parents\\Grad-The-Magic-Parents\\TheMagicParents.API\\wwwroot\\images\\11_fad02f18-48f3-4f1d-994a-7f7d279ab0e7.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "18332"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"tJrrP71/7X1BLzRXUCX7z8K7ImHwaud/pWAgGg2T0b4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 07 Jun 2025 17:24:42 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "489gkdexk6"
+        },
+        {
+          "Name": "label",
+          "Value": "images/11_fad02f18-48f3-4f1d-994a-7f7d279ab0e7.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-tJrrP71/7X1BLzRXUCX7z8K7ImHwaud/pWAgGg2T0b4="
+        }
+      ]
+    },
+    {
+      "Route": "images/11_fad02f18-48f3-4f1d-994a-7f7d279ab0e7.png",
+      "AssetFile": "C:\\Users\\Menna\\Desktop\\The Magic Parents\\Grad-The-Magic-Parents\\TheMagicParents.API\\wwwroot\\images\\11_fad02f18-48f3-4f1d-994a-7f7d279ab0e7.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "18332"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"tJrrP71/7X1BLzRXUCX7z8K7ImHwaud/pWAgGg2T0b4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 07 Jun 2025 17:24:42 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-tJrrP71/7X1BLzRXUCX7z8K7ImHwaud/pWAgGg2T0b4="
+        }
+      ]
+    },
+    {
       "Route": "images/11_fe49ad3e-d405-4a2b-8665-7b867db37d72.489gkdexk6.png",
       "AssetFile": "C:\\Users\\Menna\\Desktop\\The Magic Parents\\Grad-The-Magic-Parents\\TheMagicParents.API\\wwwroot\\images\\11_fe49ad3e-d405-4a2b-8665-7b867db37d72.png",
       "Selectors": [],
@@ -11924,6 +12254,88 @@
         {
           "Name": "Last-Modified",
           "Value": "Fri, 16 May 2025 20:42:53 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-tJrrP71/7X1BLzRXUCX7z8K7ImHwaud/pWAgGg2T0b4="
+        }
+      ]
+    },
+    {
+      "Route": "images/11_feda1870-a304-45da-af20-74d9c6da3557.489gkdexk6.png",
+      "AssetFile": "C:\\Users\\Menna\\Desktop\\The Magic Parents\\Grad-The-Magic-Parents\\TheMagicParents.API\\wwwroot\\images\\11_feda1870-a304-45da-af20-74d9c6da3557.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "18332"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"tJrrP71/7X1BLzRXUCX7z8K7ImHwaud/pWAgGg2T0b4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 07 Jun 2025 17:24:42 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "489gkdexk6"
+        },
+        {
+          "Name": "label",
+          "Value": "images/11_feda1870-a304-45da-af20-74d9c6da3557.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-tJrrP71/7X1BLzRXUCX7z8K7ImHwaud/pWAgGg2T0b4="
+        }
+      ]
+    },
+    {
+      "Route": "images/11_feda1870-a304-45da-af20-74d9c6da3557.png",
+      "AssetFile": "C:\\Users\\Menna\\Desktop\\The Magic Parents\\Grad-The-Magic-Parents\\TheMagicParents.API\\wwwroot\\images\\11_feda1870-a304-45da-af20-74d9c6da3557.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "18332"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"tJrrP71/7X1BLzRXUCX7z8K7ImHwaud/pWAgGg2T0b4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 07 Jun 2025 17:24:42 GMT"
         },
         {
           "Name": "Cache-Control",

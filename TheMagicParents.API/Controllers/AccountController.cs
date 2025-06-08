@@ -185,7 +185,7 @@ namespace TheMagicParents.API.Controllers
             var result = await _authService.LoginAsync(model);
             if (result.Data != null)  // Adding null check before accessing Data
             {
-                HttpContext.Session.SetString("UserId", result.Data.ToString());
+                HttpContext.Session.SetString("UserId", result.Data.userId.ToString());
             }
             if (result.Status!=0)
                 return BadRequest(result);

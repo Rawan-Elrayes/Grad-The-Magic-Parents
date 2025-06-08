@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Http;
 using TheMagicParents.Core.Responses;
 using Microsoft.EntityFrameworkCore;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using Microsoft.Extensions.Logging;
 //using System.Linq.Dynamic.Core;
 
 
@@ -21,14 +22,15 @@ namespace TheMagicParents.Infrastructure.Repositories
         private readonly UserManager<User> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly IUserRepository _userRepository;
+        private readonly ILogger<ServiceProviderRepository> _logger;
 
-
-        public ServiceProviderRepository(AppDbContext context, UserManager<User> userManager, RoleManager<IdentityRole> roleManager, IUserRepository userRepository)
+        public ServiceProviderRepository(AppDbContext context, UserManager<User> userManager, RoleManager<IdentityRole> roleManager, IUserRepository userRepository, ILogger<ServiceProviderRepository> logger)
         {
             _context = context;
             _userManager = userManager;
             _roleManager = roleManager;
             _userRepository = userRepository;
+            _logger = logger;
         }
 
         public async Task<ServiceProviderRegisterResponse> RegisterServiceProviderAsync(ServiceProviderRegisterDTO model)
@@ -331,6 +333,67 @@ namespace TheMagicParents.Infrastructure.Repositories
             catch (Exception ex)
             {
                 throw new InvalidOperationException("An error occurred while getting available days.");
+            }
+        }
+
+        public async Task<BookingConfirmationResponse> ConfirmBookingAsync(int bookingId, string providerId)
+        {
+            return await UpdateBookingStatusAsync(
+                bookingId,
+                providerId,
+                BookingStatus.provider_confirmed,
+                "confirming");
+        }
+
+        public async Task<BookingConfirmationResponse> RejectBookingAsync(int bookingId, string providerId)
+        {
+            return await UpdateBookingStatusAsync(
+                bookingId,
+                providerId,
+                BookingStatus.rejected,
+                "rejecting");
+        }
+
+        private async Task<BookingConfirmationResponse> UpdateBookingStatusAsync(int bookingId, string providerId, BookingStatus newStatus, string successActionName)
+        {
+            using var transaction = await _context.Database.BeginTransactionAsync();
+
+            try
+            {
+                // التحقق من وجود الحجز والإذن
+                var booking = await _context.Bookings
+                    .Include(b => b.Client)
+                    .Include(b => b.ServiceProvider)
+                    .FirstOrDefaultAsync(b => b.BookingID == bookingId && b.ServiceProviderID == providerId);
+
+                if (booking == null)
+                {
+                    throw new ArgumentException("Booking not found or you don't have permission.");
+                }
+
+                if (booking.Status != BookingStatus.pending)
+                {
+                    throw new ArgumentException($"Booking cannot be {successActionName} in current state ({booking.Status})");
+                }
+
+                // تحديث الحالة
+                booking.Status = newStatus;
+                _context.Bookings.Update(booking);
+                await _context.SaveChangesAsync();
+
+                await transaction.CommitAsync();
+
+                return new BookingConfirmationResponse
+                {
+                    BookingId = bookingId,
+                    NewStatus = newStatus
+                };
+            }
+            catch (Exception ex)
+            {
+                await transaction.RollbackAsync();
+                _logger.LogError(ex, $"Error {successActionName} booking");
+                throw;
             }
         }
 
