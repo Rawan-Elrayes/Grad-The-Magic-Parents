@@ -57,10 +57,11 @@ namespace TheMagicParents.Infrastructure.Services
             if (!result.Succeeded)
                 return new Response<LoginResponse> { Status = 1, Message = "Invalid email or password" };
 
+            var roles = await _userManager.GetRolesAsync(user);
             var (token, expires) = await _userRepository.GenerateJwtToken(user);
             var jwtToken = new JwtSecurityTokenHandler().WriteToken(token);
 
-            return new Response<LoginResponse> { Status = 0, Message = "Login successful", Data = new LoginResponse { userId = user.Id, Token = jwtToken, TokenExpire = expires } };
+            return new Response<LoginResponse> { Status = 0, Message = "Login successful", Data = new LoginResponse { userId = user.Id, Token = jwtToken, TokenExpire = expires, UserName=user.UserName, UserType=roles.ToList() } };
         }
 
         public async Task<Response<string>> ForgotPasswordAsync(ForgotPasswordDTO model)

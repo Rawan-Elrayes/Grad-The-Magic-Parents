@@ -11,5 +11,7 @@ namespace TheMagicParents.Core.Responses
         public string userId { get; set; }
         public string Token { get; set; }
         public DateTime TokenExpire { get; set; }
+        public List<string> UserType { get; set; }
+        public string UserName { get; set; }
     }
 }
