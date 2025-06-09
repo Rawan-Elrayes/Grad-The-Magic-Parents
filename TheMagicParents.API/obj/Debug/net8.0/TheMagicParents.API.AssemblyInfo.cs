@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TheMagicParents.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+854438770f513976167b0fa6d6f5c4d3ff01efe5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+160a550c7f227dc33a995d5db769c425889d15ae")]
 [assembly: System.Reflection.AssemblyProductAttribute("TheMagicParents.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TheMagicParents.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
