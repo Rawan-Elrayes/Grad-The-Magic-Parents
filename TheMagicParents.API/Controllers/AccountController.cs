@@ -201,7 +201,10 @@ namespace TheMagicParents.API.Controllers
 
             var result = await _authService.ForgotPasswordAsync(model);
             if (result.Status != 0)
-                return BadRequest(result);
+                return BadRequest(new Response<string>
+                {
+                    Message = "This email hasn't been registered before",  
+                });
 
             return Ok(result);
         }

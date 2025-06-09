@@ -104,7 +104,8 @@ namespace TheMagicParents.Infrastructure.Repositories
                 Location = client.Location,
                 PersonalPhoto = client.PersonalPhoto,
                 PhoneNumber = client.PhoneNumber,
-                UserNameId = client.UserNameId
+                UserNameId = client.UserNameId,
+                UserName = client.UserName
             };
 
         }

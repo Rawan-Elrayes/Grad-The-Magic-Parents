@@ -92,7 +92,8 @@ namespace TheMagicParents.Infrastructure.Repositories
                 Certification = ServiceProvider.Certification,
                 PersonalPhoto = ServiceProvider.PersonalPhoto,
                 PhoneNumber = ServiceProvider.PhoneNumber,
-                UserNameId = ServiceProvider.UserNameId
+                UserNameId = ServiceProvider.UserNameId,
+                UserName = ServiceProvider.UserName
             };
         }
 

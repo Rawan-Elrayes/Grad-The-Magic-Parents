@@ -30,10 +30,18 @@ namespace TheMagicParents.Core.Responses
             Status = 1; // 1 معناها في خطأ
             Errors = new List<string> { errorMessage };
         }
+        public Response(string Message , string TokenForgetPassword)
+        {
+            Message = Message;
+            Status = 0; // 1 معناها ما في خطأ
+            Token = TokenForgetPassword;  
+        }
 
         public int Status { get; set; } // تم تغييره من bool إلى int
         public T Data { get; set; }
         public string Message { get; set; }
         public List<string> Errors { get; set; }
+
+        public string Token { get; set; }
     }
 }

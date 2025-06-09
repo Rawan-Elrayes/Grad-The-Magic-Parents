@@ -88,7 +88,7 @@ namespace TheMagicParents.Infrastructure.Services
 
             await _emailSender.SendEmailAsync(message);
 
-            return new Response<string> { Status = 0, Message = "Password reset link has been sent to your email" };
+            return new Response<string> { Status = 0, Message = "Password reset link has been sent to your email" , Token = encodedToken };
         }
 
         public async Task<Response<string>> ResetPasswordAsync(ResetPasswordDTO model)
