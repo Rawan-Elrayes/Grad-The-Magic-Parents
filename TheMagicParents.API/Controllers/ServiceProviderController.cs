@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 using TheMagicParents.Core.DTOs;
 using TheMagicParents.Core.Interfaces;
 using TheMagicParents.Core.Responses;
@@ -93,8 +94,7 @@ namespace TheMagicParents.API.Controllers
                 return BadRequest(new Response<ProviderGetDataResponse>
                 {
                     Message = ex.Message,
-                    Status = 1,
-                    Errors = new List<string> { ex.Message }
+                    Status = 1
                 });
             }
         }
@@ -122,8 +122,7 @@ namespace TheMagicParents.API.Controllers
                 return BadRequest(new Response<ProviderGetDataResponse>
                 {
                     Message = ex.Message,
-                    Status = 1,
-                    Errors = new List<string> { ex.Message }
+                    Status = 1
                 });
             }
             catch (Exception ex)
@@ -155,6 +154,78 @@ namespace TheMagicParents.API.Controllers
                 return BadRequest(new Response<PagedResult<FilteredProviderDTO>>
                 {
                     Message = "Failed to retrieve providers",
+                    Status = 1,
+                    Errors = new List<string> { ex.Message }
+                });
+            }
+        }
+
+        [HttpPost("{bookingId}/confirm")]
+        public async Task<IActionResult> ConfirmBooking(int bookingId)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+            try
+            {
+                var providerId = HttpContext.Session.GetString("UserId");
+                var result = await serviceProviderRepository.ConfirmBookingAsync(bookingId, providerId);
+
+                return Ok(new Response<BookingConfirmationResponse>
+                {
+                    Message = "Booking confirmed successfully.",
+                    Data = result,
+                    Status = 0
+                });
+            }
+            catch (InvalidOperationException ex)
+            {
+                return BadRequest(new Response<BookingConfirmationResponse>
+                {
+                    Message = ex.Message,
+                    Status = 1
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new Response<BookingConfirmationResponse>
+                {
+                    Message = "An error occurred while updating the profile.",
+                    Status = 1,
+                    Errors = new List<string> { ex.Message }
+                });
+            }
+        }
+
+        [HttpPost("{bookingId}/reject")]
+        public async Task<IActionResult> RejectBooking(int bookingId)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+            try
+            {
+                var providerId = HttpContext.Session.GetString("UserId");
+                var result = await serviceProviderRepository.RejectBookingAsync(bookingId, providerId);
+
+                return Ok(new Response<BookingConfirmationResponse>
+                {
+                    Message = "Booking confirmed successfully.",
+                    Data = result,
+                    Status = 0
+                });
+            }
+            catch (InvalidOperationException ex)
+            {
+                return BadRequest(new Response<BookingConfirmationResponse>
+                {
+                    Message = ex.Message,
+                    Status = 1
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new Response<BookingConfirmationResponse>
+                {
+                    Message = "An error occurred while updating the profile.",
                     Status = 1,
                     Errors = new List<string> { ex.Message }
                 });

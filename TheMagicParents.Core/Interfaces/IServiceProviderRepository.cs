@@ -23,5 +23,7 @@ namespace TheMagicParents.Core.Interfaces
 
         //search for providers 
         Task<PagedResult<FilteredProviderDTO>> GetFilteredProvidersAsync(ProviderFilterDTO filter, int page = 1, int pageSize = 8 );
+        Task<BookingConfirmationResponse> ConfirmBookingAsync(int bookingId, string providerId);
+        Task<BookingConfirmationResponse> RejectBookingAsync(int bookingId, string providerId);
     }
 }

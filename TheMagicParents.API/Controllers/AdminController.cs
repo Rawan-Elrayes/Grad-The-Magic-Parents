@@ -28,8 +28,9 @@ public class AdminController : ControllerBase
     private readonly RoleManager<IdentityRole> _roleManager;
     private readonly AppDbContext _context;
     private readonly IUserRepository _userRepository;
+    private readonly IConfiguration _configuration;
 
-    public AdminController(UserManager<User> userManager, IEmailSender emailSender, IHttpContextAccessor httpContextAccessor, RoleManager<IdentityRole> roleManager, AppDbContext context, IUserRepository userRepository)
+    public AdminController(UserManager<User> userManager, IEmailSender emailSender, IHttpContextAccessor httpContextAccessor, RoleManager<IdentityRole> roleManager, AppDbContext context, IUserRepository userRepository, IConfiguration configuration)
     {
         _userManager = userManager;
         _emailSender = emailSender;
@@ -37,6 +38,7 @@ public class AdminController : ControllerBase
         _roleManager = roleManager;
         _context = context;
         _userRepository = userRepository;
+        _configuration = configuration;
     }
 
     [HttpPost("register/admin")]
@@ -154,7 +156,10 @@ public class AdminController : ControllerBase
             var emailConfirmationToken = await _userManager.GenerateEmailConfirmationTokenAsync(user);
             var encodedToken = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(emailConfirmationToken));
 
-            var callbackUrl = $"{_httpContextAccessor.HttpContext?.Request.Scheme}://{_httpContextAccessor.HttpContext?.Request.Host}/api/email/confirm-email?userId={user.Id}&token={encodedToken}";
+            var baseUrl = _configuration["AppSettings:BaseUrl"];
+            var callbackUrl = $"{baseUrl}/api/email/confirm-email?userId={user.Id}&token={encodedToken}";
+
+            //var callbackUrl = $"{_httpContextAccessor.HttpContext?.Request.Scheme}://{_httpContextAccessor.HttpContext?.Request.Host}/api/email/confirm-email?userId={user.Id}&token={encodedToken}";
 
             var message = new Message(new string[] { user.Email! }, "Welcome To The Magic Parents",
                 $"<h3>Welcome {user.UserNameId}!</h3>" +
