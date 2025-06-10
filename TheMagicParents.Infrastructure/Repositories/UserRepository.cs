@@ -29,12 +29,13 @@ namespace TheMagicParents.Infrastructure.Repositories
         private readonly ILogger<UserRepository> _logger;
         private readonly Core.Interfaces.IEmailSender _emailSender;
 
-        public UserRepository(AppDbContext context, UserManager<User> userManager, IConfiguration configuration, ILogger<UserRepository> logger)
+        public UserRepository(AppDbContext context, UserManager<User> userManager, IConfiguration configuration, ILogger<UserRepository> logger, Core.Interfaces.IEmailSender emailSender)
         {
             _context = context;
             _userManager = userManager;
             _configuration = configuration;
             _logger = logger;
+            _emailSender = emailSender;
         }
 
         public async Task<IEnumerable<Governorate>> GetGovernorateAsync()
@@ -182,37 +183,37 @@ namespace TheMagicParents.Infrastructure.Repositories
 
             }
 
-        public async Task<List<BookingResponse>> GetPendingBookingsAsync(string userId)
+        public async Task<List<BookingStatusRsponse>> GetPendingBookingsAsync(string userId)
         {
             return await GetBookingsByStatusAsync(userId, BookingStatus.pending);
         }
 
-        public async Task<List<BookingResponse>> GetProviderConfirmedBookingsAsync(string userId)
+        public async Task<List<BookingStatusRsponse>> GetProviderConfirmedBookingsAsync(string userId)
         {
             return await GetBookingsByStatusAsync(userId, BookingStatus.provider_confirmed);
         }
 
-        public async Task<List<BookingResponse>> GetPaidBookingsAsync(string userId)
+        public async Task<List<BookingStatusRsponse>> GetPaidBookingsAsync(string userId)
         {
             return await GetBookingsByStatusAsync(userId, BookingStatus.paid);
         }
 
-        public async Task<List<BookingResponse>> GetCancelledBookingsAsync(string userId)
+        public async Task<List<BookingStatusRsponse>> GetCancelledBookingsAsync(string userId)
         {
             return await GetBookingsByStatusAsync(userId, BookingStatus.cancelled);
         }
 
-        public async Task<List<BookingResponse>> GetCompletedBookingsAsync(string userId)
+        public async Task<List<BookingStatusRsponse>> GetCompletedBookingsAsync(string userId)
         {
             return await GetBookingsByStatusAsync(userId, BookingStatus.completed);
         }
 
-        public async Task<List<BookingResponse>> GetRejectedBookingsAsync(string userId)
+        public async Task<List<BookingStatusRsponse>> GetRejectedBookingsAsync(string userId)
         {
             return await GetBookingsByStatusAsync(userId, BookingStatus.rejected);
         }
 
-        private async Task<List<BookingResponse>> GetBookingsByStatusAsync(string userId, BookingStatus status)
+        private async Task<List<BookingStatusRsponse>> GetBookingsByStatusAsync(string userId, BookingStatus status)
         {
             try
             {
@@ -234,13 +235,13 @@ namespace TheMagicParents.Infrastructure.Repositories
                 return await query
                     .OrderByDescending(b => b.Day)
                     .ThenByDescending(b => b.Houre)
-                    .Select(b => new BookingResponse
+                    .Select(b => new BookingStatusRsponse
                     {
                         BookingID = b.BookingID,
                         ClientId = b.ClientId,
                         ServiceProviderID = b.ServiceProviderID,
                         Day = b.Day,
-                        Houre = b.Houre,
+                        Hours = b.Houre,
                         Location = b.Location,
                         Status = b.Status,
                         TotalPrice = b.TotalPrice,
@@ -278,9 +279,9 @@ namespace TheMagicParents.Infrastructure.Repositories
                 var bookingDateTime = booking.Day.Add(booking.Houre);
                 var timeUntilBooking = bookingDateTime - DateTime.Now;
 
-                if (timeUntilBooking <= TimeSpan.FromHours(1))
+                if (timeUntilBooking <= TimeSpan.FromHours(1) && booking.Status==BookingStatus.provider_confirmed)
                 {
-                    throw new InvalidOperationException("Bookings can only be cancelled at least 1 hour before the scheduled time.");
+                    throw new InvalidOperationException("Confirmed bookings can only be cancelled at least 1 hour before the scheduled time.");
                 }
 
                 // 3. Validate booking can be cancelled (only in pending or provider_confirmed states)
@@ -344,32 +345,43 @@ namespace TheMagicParents.Infrastructure.Repositories
 
         private async Task SendCancellationNotificationAsync(string recipientEmail, string cancelledByName, Booking booking)
         {
-            string formattedDate = booking.Day.ToString("dddd, MMMM dd, yyyy");
-            string formattedTime = booking.Houre.ToString(@"h\:mm tt");
+            try
+            {
+                string formattedDate = booking.Day.ToString("dddd, MMMM dd, yyyy");
 
-            var subject = "Your booking has been cancelled!";
+                // تحويل TimeSpan إلى DateTime عشان نقدر نستخدم AM/PM
+                DateTime timeAsDateTime = DateTime.Today.Add(booking.Houre);
+                string formattedTime = timeAsDateTime.ToString("h:mm tt");
 
-            var body = $@"
-        <h2 style='font-family: Arial, sans-serif;'>Booking Cancellation Notification</h2>
-        <p style='font-family: Arial, sans-serif;'>
-            The following booking has been cancelled by {cancelledByName}:
-        </p>
-        <ul style='font-family: Arial, sans-serif;'>
-            <li><strong>Original Date:</strong> {formattedDate}</li>
-            <li><strong>Time:</strong> {formattedTime}</li>
-            <li><strong>Location:</strong> {booking.Location}</li>
-        </ul>
-        <p style='font-family: Arial, sans-serif;'>
-            Please log in to your account for more details.
-        </p>";
+                var subject = "Your booking has been cancelled!";
+                var body = $@"
+<h2 style='font-family: Arial, sans-serif;'>Booking Cancellation Notification</h2>
+<p style='font-family: Arial, sans-serif;'>
+    The following booking has been cancelled by {cancelledByName}:
+</p>
+<ul style='font-family: Arial, sans-serif;'>
+    <li><strong>Original Date:</strong> {formattedDate}</li>
+    <li><strong>Time:</strong> {formattedTime}</li>
+    <li><strong>Location:</strong> {booking.Location}</li>
+</ul>
+<p style='font-family: Arial, sans-serif;'>
+    Please log in to your account for more details.
+</p>";
 
-            var mailMessage = new Message(
-                new string[] { recipientEmail },
-                subject,
-                body
-            );
+                var mailMessage = new Message(
+                    new [] { recipientEmail },
+                    subject,
+                    body
+                );
 
-            await _emailSender.SendEmailAsync(mailMessage);
+
+                await _emailSender.SendEmailAsync(mailMessage);
+            }
+            catch (Exception ex)
+            {
+                // Log the email sending error
+                throw new InvalidOperationException($"Failed to send cancellation email: {ex.Message}");
+            }
         }
 
     }

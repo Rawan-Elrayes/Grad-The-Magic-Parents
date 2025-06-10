@@ -99,11 +99,16 @@ builder.Services.AddHttpContextAccessor();
 var emailConfig = builder.Configuration.GetSection("EmailConfiguration").Get<EmailConfiguration>();
 builder.Services.AddSingleton(emailConfig);
 builder.Services.AddScoped<IEmailSender, EmailSender>();
+
 //Delete Unconfirmed users
 builder.Services.AddHostedService<UserCleanupService>();
 
 // Delete expired availabilities
 builder.Services.AddHostedService<AvailabilityUpdateService>();
+
+//Update booking state
+builder.Services.AddHostedService<BookingStatusUpdaterService>();
+builder.Services.AddHostedService<BookingCompletionService>();
 
 //  ”ÃÌ· «·‹ Repositories
 builder.Services.AddScoped<IClientRepository, ClientRepository>();

@@ -216,19 +216,59 @@ namespace TheMagicParents.Infrastructure.Repositories
         {
             try
             {
-                var days = await _serviceProviderRepository.GetAvailableDays(userId);
-
-                // إنشاء قائمة للنتيجة النهائية
+                var currentDateTime = DateTime.Now;
                 var availabilities = new List<AvailabilityResponse>();
 
-                // لكل يوم، الحصول على الساعات المتاحة
-                foreach (var day in days)
+                // الحصول على جميع المواعيد المتاحة للبروفايدر
+                var allAvailabilities = await _context.Availabilities
+                    .Where(a => a.ServiceProciderID == userId)
+                    .ToListAsync();
+
+                // تجميع المواعيد حسب التاريخ
+                var availabilitiesByDate = allAvailabilities.GroupBy(a => a.Date);
+
+                foreach (var dateGroup in availabilitiesByDate)
                 {
-                    var availability = await _serviceProviderRepository.GetAvailabilitiesHoures(day, userId);
-                    availabilities.Add(availability);
+                    var date = dateGroup.Key;
+                    var availableHours = new List<TimeSpan>();
+
+                    // فحص كل ساعة في هذا التاريخ
+                    foreach (var availability in dateGroup)
+                    {
+                        var requestedDateTime = date.Add(availability.StartTime);
+
+                        // التحقق من أن الوقت في المستقبل
+                        if (requestedDateTime > currentDateTime)
+                        {
+                            // التحقق من عدم وجود حجز مؤكد
+                            var isBooked = await _context.Bookings
+                                .AnyAsync(b => b.ServiceProviderID == userId &&
+                                              b.Day == date &&
+                                              b.Houre == availability.StartTime &&
+                                              (b.Status == BookingStatus.provider_confirmed ||
+                                               b.Status == BookingStatus.paid));
+
+                            // إذا لم يكن محجوز، أضف الساعة
+                            if (!isBooked)
+                            {
+                                availableHours.Add(availability.StartTime);
+                            }
+                        }
+                    }
+
+                    // إضافة اليوم فقط إذا كان يحتوي على ساعات متاحة
+                    if (availableHours.Any())
+                    {
+                        availabilities.Add(new AvailabilityResponse
+                        {
+                            Date = date,
+                            Hours = availableHours.OrderBy(h => h).ToList()
+                        });
+                    }
                 }
 
-                return availabilities;
+                // ترتيب النتائج حسب التاريخ
+                return availabilities.OrderBy(a => a.Date).ToList();
             }
             catch (Exception ex)
             {
@@ -240,38 +280,68 @@ namespace TheMagicParents.Infrastructure.Repositories
         {
             try
             {
-                var client = await _context.Clients.FirstOrDefaultAsync(c=>c.Id==clientId);
-                var serviceProvider = await _context.ServiceProviders.FirstOrDefaultAsync(s=>s.Id==ServiceProviderId);
-
-                if (serviceProvider == null || client==null)
+                var client = await _context.Clients.FirstOrDefaultAsync(c => c.Id == clientId);
+                var serviceProvider = await _context.ServiceProviders.FirstOrDefaultAsync(s => s.Id == ServiceProviderId);
+                if (serviceProvider == null || client == null)
                     throw new InvalidOperationException("Service provider or client not found.");
 
-                var booking = new Booking
+                // التحقق من توفر جميع المواعيد المطلوبة
+                var unavailableHours = new List<TimeSpan>();
+                foreach (var hour in request.Hours)
                 {
-                    ClientId = clientId,
-                    ServiceProviderID = ServiceProviderId,
-                    Day = request.Day.Date,
-                    Houre = request.Houre,
-                    TotalPrice = serviceProvider.HourPrice,
-                    Status = BookingStatus.pending,
-                    Location = client.Location,
-                };
+                    var isSlotAvailable = await IsTimeSlotAvailableAsync(ServiceProviderId, request.Day, hour);
+                    if (!isSlotAvailable)
+                    {
+                        unavailableHours.Add(hour);
+                    }
+                }
 
-                await SendBookingNotificationToProviderAsync(serviceProvider.Email, booking);
+                if (unavailableHours.Any())
+                {
+                    var unavailableHoursString = string.Join(", ", unavailableHours.Select(h => h.ToString(@"hh\:mm")));
+                    throw new InvalidOperationException($"The following time slots are not available: {unavailableHoursString}");
+                }
 
-                _context.Bookings.Add(booking);
+                // إنشاء حجز لكل ساعة
+                var bookings = new List<Booking>();
+                var bookingIds = new List<int>();
+
+                foreach (var hour in request.Hours)
+                {
+                    var booking = new Booking
+                    {
+                        ClientId = clientId,
+                        ServiceProviderID = ServiceProviderId,
+                        Day = request.Day.Date,
+                        Houre = hour,
+                        TotalPrice = serviceProvider.HourPrice,
+                        Status = BookingStatus.pending,
+                        Location = client.Location,
+                    };
+
+                    bookings.Add(booking);
+                }
+
+                // إضافة جميع الحجوزات
+                _context.Bookings.AddRange(bookings);
                 await _context.SaveChangesAsync();
+
+                // الحصول على IDs الحجوزات بعد الحفظ
+                bookingIds = bookings.Select(b => b.BookingID).ToList();
+
+                // إرسال إشعار واحد يحتوي على جميع الساعات
+                await SendBookingNotificationToProviderAsync(serviceProvider.Email, bookings, request.Day);
 
                 return new BookingResponse
                 {
-                    BookingID = booking.BookingID,
+                    BookingIDs = bookingIds,
                     ClientId = clientId,
                     ServiceProviderID = ServiceProviderId,
-                    Day=booking.Day,
-                    Houre = booking.Houre,
-                    Location=booking.Location,
-                    Status = booking.Status,
-                    TotalPrice=booking.TotalPrice
+                    Day = request.Day.Date,
+                    Hours = request.Hours.OrderBy(h => h).ToList(),
+                    Location = client.Location,
+                    Status = BookingStatus.pending,
+                    TotalPrice = serviceProvider.HourPrice * request.Hours.Count
                 };
             }
             catch (Exception ex)
@@ -280,31 +350,58 @@ namespace TheMagicParents.Infrastructure.Repositories
             }
         }
 
-        private async Task SendBookingNotificationToProviderAsync(string providerEmail, Booking booking)
+        private async Task SendBookingNotificationToProviderAsync(string providerEmail, List<Booking> bookings, DateTime day)
         {
             try
             {
+                var hoursString = string.Join(", ", bookings.Select(b => b.Houre.ToString(@"hh\:mm")).OrderBy(h => h));
+                var totalHours = bookings.Count;
+                var totalPrice = bookings.Sum(b => b.TotalPrice);
+
                 var mailMessage = new Message(
                     new string[] { providerEmail },
-                    "New Booking Requist",
+                    "New Booking Request",
                      $@"
-                        <h2 style='font-family: Arial, sans-serif;'>New Booking Received</h2>
-                        <p style='font-family: Arial, sans-serif;'>You have a new booking with the following details:</p>
-                        <ul style='font-family: Arial, sans-serif;'>
-                            <li><strong>Date:</strong> {booking.Day.ToString("dddd, dd/MM/yyyy")}</li>
-                               <li><strong>Time:</strong> {booking.Houre.ToString(@"hh\:mm")}</li>
-                            <li><strong>Location:</strong> {booking.Location}</li>
-                        </ul>
-                        <p style='font-family: Arial, sans-serif;'>Please open your account to more details.</p>"
+                <h2 style='font-family: Arial, sans-serif;'>New Booking Received</h2>
+                <p style='font-family: Arial, sans-serif;'>You have a new booking with the following details:</p>
+                <ul style='font-family: Arial, sans-serif;'>
+                    <li><strong>Date:</strong> {day.ToString("dddd, dd/MM/yyyy")}</li>
+                    <li><strong>Hours:</strong> {hoursString}</li>
+                    <li><strong>Total Hours:</strong> {totalHours} hour(s)</li>
+                    <li><strong>Total Price:</strong> {totalPrice:C}</li>
+                    <li><strong>Location:</strong> {bookings.First().Location}</li>
+                </ul>
+                <p style='font-family: Arial, sans-serif;'>Please open your account for more details.</p>"
                 );
                 await _emailSender.SendEmailAsync(mailMessage);
-
             }
             catch (Exception ex)
             {
                 // Log email sending error
                 throw new InvalidOperationException($"{ex.Message}");
             }
+        }
+
+        private async Task<bool> IsTimeSlotAvailableAsync(string providerId, DateTime day, TimeSpan hour)
+        {
+            var workingHours = _context.Availabilities.FirstOrDefault(wh => wh.ServiceProciderID==providerId&& wh.Date == day&&wh.StartTime==hour);
+            var requestedDateTime = day.Date.Add(hour);
+            if (workingHours == null || requestedDateTime <= DateTime.Now)
+            {
+                return false;
+            }
+
+            // 2. التحقق من عدم وجود حجز آخر في نفس الموعد
+            var existingBooking = await _context.Bookings
+                .Where(b => b.ServiceProviderID == providerId &&
+                           b.Day == day.Date &&
+                           b.Houre == hour &&
+                           (
+                            b.Status == BookingStatus.provider_confirmed ||
+                            b.Status == BookingStatus.paid))
+                .FirstOrDefaultAsync();
+
+            return existingBooking == null;
         }
 
         public async Task<ReviewSubmissionResponse> SubmitReviewAsync(ReviewDTO reviewDTO, string userId)

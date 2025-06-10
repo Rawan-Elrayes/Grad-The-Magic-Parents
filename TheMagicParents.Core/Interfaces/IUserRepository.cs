@@ -24,12 +24,12 @@ namespace TheMagicParents.Core.Interfaces
         Task<bool> SubmitReportAsync(string reporterUserId, string reportedUserNameId, string comment);
         Task<IEnumerable<Support>> GetPendingReportsAsync();
         Task<bool> HandleReportAsync(int reportId, bool isImportant);
-        Task<List<BookingResponse>> GetPendingBookingsAsync(string userId);
-        Task<List<BookingResponse>> GetProviderConfirmedBookingsAsync(string userId);
-        Task<List<BookingResponse>> GetPaidBookingsAsync(string userId);
-        Task<List<BookingResponse>> GetCancelledBookingsAsync(string userId);
-        Task<List<BookingResponse>> GetCompletedBookingsAsync(string userId);
-        Task<List<BookingResponse>> GetRejectedBookingsAsync(string userId);
+        Task<List<BookingStatusRsponse>> GetPendingBookingsAsync(string userId);
+        Task<List<BookingStatusRsponse>> GetProviderConfirmedBookingsAsync(string userId);
+        Task<List<BookingStatusRsponse>> GetPaidBookingsAsync(string userId);
+        Task<List<BookingStatusRsponse>> GetCancelledBookingsAsync(string userId);
+        Task<List<BookingStatusRsponse>> GetCompletedBookingsAsync(string userId);
+        Task<List<BookingStatusRsponse>> GetRejectedBookingsAsync(string userId);
         Task<CancelBookingResponse> CancelBookingAsync(int bookingId, string userId);
     }
 }

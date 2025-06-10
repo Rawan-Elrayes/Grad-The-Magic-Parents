@@ -16,6 +16,6 @@ namespace TheMagicParents.Core.DTOs
         public DateTime Day { get; set; }
 
         [Required]
-        public TimeSpan Houre { get; set; }
+        public List<TimeSpan> Hours { get; set; }
     }
 }

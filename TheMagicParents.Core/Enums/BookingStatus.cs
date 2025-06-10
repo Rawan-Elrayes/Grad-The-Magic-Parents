@@ -7,6 +7,7 @@
 		paid,
 		cancelled,
 		completed,
-		rejected
+		rejected,
+		ongoing
 	}
 }

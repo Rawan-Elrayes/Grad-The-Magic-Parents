@@ -100,7 +100,7 @@ namespace TheMagicParents.API.Controllers
             try
             {
                 var Bookings = await userRepository.GetPendingBookingsAsync(userId);
-                return Ok(new Response<List<BookingResponse>>
+                return Ok(new Response<List<BookingStatusRsponse>>
                 {
                     Data = Bookings,
                     Status = 0,
@@ -109,7 +109,7 @@ namespace TheMagicParents.API.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(new Response<BookingResponse>
+                return BadRequest(new Response<BookingStatusRsponse>
                 {
                     Message = ex.Message,
                     Status = 1,
@@ -132,7 +132,7 @@ namespace TheMagicParents.API.Controllers
             try
             {
                 var Bookings = await userRepository.GetProviderConfirmedBookingsAsync(userId);
-                return Ok(new Response<List<BookingResponse>>
+                return Ok(new Response<List<BookingStatusRsponse>>
                 {
                     Data = Bookings,
                     Status = 0,
@@ -141,7 +141,7 @@ namespace TheMagicParents.API.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(new Response<BookingResponse>
+                return BadRequest(new Response<BookingStatusRsponse>
                 {
                     Message = ex.Message,
                     Status = 1,
@@ -164,7 +164,7 @@ namespace TheMagicParents.API.Controllers
             try
             {
                 var Bookings = await userRepository.GetPaidBookingsAsync(userId);
-                return Ok(new Response<List<BookingResponse>>
+                return Ok(new Response<List<BookingStatusRsponse>>
                 {
                     Data = Bookings,
                     Status = 0,
@@ -173,7 +173,7 @@ namespace TheMagicParents.API.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(new Response<BookingResponse>
+                return BadRequest(new Response<BookingStatusRsponse>
                 {
                     Message = ex.Message,
                     Status = 1,
@@ -196,7 +196,7 @@ namespace TheMagicParents.API.Controllers
             try
             {
                 var Bookings = await userRepository.GetCancelledBookingsAsync(userId);
-                return Ok(new Response<List<BookingResponse>>
+                return Ok(new Response<List<BookingStatusRsponse>>
                 {
                     Data = Bookings,
                     Status = 0,
@@ -205,7 +205,7 @@ namespace TheMagicParents.API.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(new Response<BookingResponse>
+                return BadRequest(new Response<BookingStatusRsponse>
                 {
                     Message = ex.Message,
                     Status = 1,
@@ -228,7 +228,7 @@ namespace TheMagicParents.API.Controllers
             try
             {
                 var Bookings = await userRepository.GetCompletedBookingsAsync(userId);
-                return Ok(new Response<List<BookingResponse>>
+                return Ok(new Response<List<BookingStatusRsponse>>
                 {
                     Data = Bookings,
                     Status = 0,
@@ -237,7 +237,7 @@ namespace TheMagicParents.API.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(new Response<BookingResponse>
+                return BadRequest(new Response<BookingStatusRsponse>
                 {
                     Message = ex.Message,
                     Status = 1,
@@ -260,7 +260,7 @@ namespace TheMagicParents.API.Controllers
             try
             {
                 var Bookings = await userRepository.GetRejectedBookingsAsync(userId);
-                return Ok(new Response<List<BookingResponse>>
+                return Ok(new Response<List<BookingStatusRsponse>>
                 {
                     Data = Bookings,
                     Status = 0,
@@ -269,7 +269,7 @@ namespace TheMagicParents.API.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(new Response<BookingResponse>
+                return BadRequest(new Response<BookingStatusRsponse>
                 {
                     Message = ex.Message,
                     Status = 1,

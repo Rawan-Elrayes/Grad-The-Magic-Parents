@@ -189,7 +189,7 @@ namespace TheMagicParents.API.Controllers
             {
                 return StatusCode(500, new Response<BookingConfirmationResponse>
                 {
-                    Message = "An error occurred while updating the profile.",
+                    Message = "An error occurred while conferming the booking.",
                     Status = 1,
                     Errors = new List<string> { ex.Message }
                 });
@@ -208,7 +208,7 @@ namespace TheMagicParents.API.Controllers
 
                 return Ok(new Response<BookingConfirmationResponse>
                 {
-                    Message = "Booking confirmed successfully.",
+                    Message = "Booking rejected successfully.",
                     Data = result,
                     Status = 0
                 });
@@ -225,7 +225,7 @@ namespace TheMagicParents.API.Controllers
             {
                 return StatusCode(500, new Response<BookingConfirmationResponse>
                 {
-                    Message = "An error occurred while updating the profile.",
+                    Message = "An error occurred while rejecting the booking.",
                     Status = 1,
                     Errors = new List<string> { ex.Message }
                 });

@@ -10,6 +10,6 @@ namespace TheMagicParents.Core.Responses
     public class AvailabilityResponse
     {
         public DateTime Date { get; set; }
-        public List<TimeSpan> Houres { get; set; }
+        public List<TimeSpan>? Hours { get; set; }
     }
 }

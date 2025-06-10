@@ -11,6 +11,8 @@ using TheMagicParents.Core.Responses;
 using Microsoft.EntityFrameworkCore;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using Microsoft.Extensions.Logging;
+using TheMagicParents.Core.EmailService;
+using System.Globalization;
 //using System.Linq.Dynamic.Core;
 
 
@@ -23,14 +25,16 @@ namespace TheMagicParents.Infrastructure.Repositories
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly IUserRepository _userRepository;
         private readonly ILogger<ServiceProviderRepository> _logger;
+        private readonly Core.Interfaces.IEmailSender _emailSender;
 
-        public ServiceProviderRepository(AppDbContext context, UserManager<User> userManager, RoleManager<IdentityRole> roleManager, IUserRepository userRepository, ILogger<ServiceProviderRepository> logger)
+        public ServiceProviderRepository(AppDbContext context, UserManager<User> userManager, RoleManager<IdentityRole> roleManager, IUserRepository userRepository, ILogger<ServiceProviderRepository> logger, IEmailSender emailSender)
         {
             _context = context;
             _userManager = userManager;
             _roleManager = roleManager;
             _userRepository = userRepository;
             _logger = logger;
+            _emailSender = emailSender;
         }
 
         public async Task<ServiceProviderRegisterResponse> RegisterServiceProviderAsync(ServiceProviderRegisterDTO model)
@@ -145,7 +149,29 @@ namespace TheMagicParents.Infrastructure.Repositories
         {
             try
             {
-                // Create new availabilities
+                // حذف جميع المواعيد الموجودة لهذا اليوم والبروفايدر
+                var existingAvailabilities = await _context.Availabilities
+                    .Where(a => a.ServiceProciderID == Id && a.Date == request.Date.Date)
+                    .ToListAsync();
+                
+                if (existingAvailabilities.Any())
+                {
+                    _context.Availabilities.RemoveRange(existingAvailabilities);
+                    await _context.SaveChangesAsync();
+                }
+        
+                // إذا كانت الساعات null أو فارغة، احذف اليوم كله واحفظ التغييرات
+                if (request.Hours == null || !request.Hours.Any())
+                {
+                    await _context.SaveChangesAsync();
+                    return new AvailabilityResponse
+                    {
+                        Date = request.Date.Date,
+                        Hours = new List<TimeSpan>()
+                    };
+                }
+                
+                // إنشاء المواعيد الجديدة
                 var newAvailabilities = new List<Availability>();
                 foreach (var hour in request.Hours)
                 {
@@ -157,23 +183,21 @@ namespace TheMagicParents.Infrastructure.Repositories
                         EndTime = hour.Add(TimeSpan.FromHours(1))
                     });
                 }
-
-                // Add new ones
+                
+                // إضافة المواعيد الجديدة
                 await _context.Availabilities.AddRangeAsync(newAvailabilities);
                 await _context.SaveChangesAsync();
-
+                
                 return new AvailabilityResponse
                 {
-                    Date=request.Date.Date,
-                    Houres=newAvailabilities.Select(a=>a.StartTime).ToList()
+                    Date = request.Date.Date,
+                    Hours = newAvailabilities.Select(a => a.StartTime).OrderBy(h => h).ToList()
                 };
-
             }
             catch (Exception ex)
             {
                 // Log error here
-                throw new InvalidOperationException("An error occurred while saving availability");
-                
+                throw new InvalidOperationException($"An error occurred while saving availability: {ex.Message}");
             }
         }
 
@@ -186,7 +210,7 @@ namespace TheMagicParents.Infrastructure.Repositories
                 return new AvailabilityResponse
                 {
                     Date = date,
-                    Houres = availabilities
+                    Hours = availabilities
                 };
             }
             catch (Exception ex)
@@ -326,7 +350,7 @@ namespace TheMagicParents.Infrastructure.Repositories
             try
             {
                 var availabilities = await _context.Availabilities
-                .Where(a => a.ServiceProciderID == userId).Select(a => a.Date.Date)
+                .Where(a => a.ServiceProciderID == userId).Select(a => a.Date.Date).Distinct()
                 .ToListAsync();
 
                 return availabilities;
@@ -339,20 +363,110 @@ namespace TheMagicParents.Infrastructure.Repositories
 
         public async Task<BookingConfirmationResponse> ConfirmBookingAsync(int bookingId, string providerId)
         {
-            return await UpdateBookingStatusAsync(
-                bookingId,
-                providerId,
-                BookingStatus.provider_confirmed,
-                "confirming");
+            try
+            {
+                var result = await UpdateBookingStatusAsync(bookingId, providerId, BookingStatus.provider_confirmed, "confirming");
+                var booking = await _context.Bookings
+                    .Include(b => b.Client)
+                    .Include(b => b.ServiceProvider)
+                    .FirstAsync(b => b.BookingID == bookingId);
+
+                await SendConfirmationEmail(booking, isConfirmed: true);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Failed to send confirmation email");
+                throw new InvalidOperationException(ex.Message);
+            }
         }
 
         public async Task<BookingConfirmationResponse> RejectBookingAsync(int bookingId, string providerId)
         {
-            return await UpdateBookingStatusAsync(
+            try
+            {
+                var result = await UpdateBookingStatusAsync(
                 bookingId,
                 providerId,
                 BookingStatus.rejected,
                 "rejecting");
+
+                var booking = await _context.Bookings
+                    .Include(b => b.Client)
+                    .Include(b => b.ServiceProvider)
+                    .FirstAsync(b => b.BookingID == bookingId);
+
+                await SendConfirmationEmail(booking, isConfirmed: false);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Failed to send rejection email");
+                throw new InvalidOperationException(ex.Message);
+            }
+        }
+
+        private async Task SendConfirmationEmail(Booking booking, bool isConfirmed)
+        {
+            try
+            {
+                if (booking == null || booking.Client == null || booking.ServiceProvider == null)
+                {
+                    _logger.LogError("Booking or related data is null");
+                    return;
+                }
+
+                // تنسيق الوقت بشكل آمن
+                string formattedTime;
+                try
+                {
+                    formattedTime = booking.Houre.ToString(@"hh\:mm tt", CultureInfo.InvariantCulture);
+                }
+                catch (Exception timeEx)
+                {
+                    _logger.LogError(timeEx, "Error formatting time");
+                    formattedTime = booking.Houre.ToString(); // استخدام التنسيق الافتراضي إذا فشل التنسيق المخصص
+                }
+
+                var emailSubject = isConfirmed ? "Your Booking is Confirmed" : "Your Booking is Rejected";
+
+                var emailBody = $@"
+<div style='font-family: Arial; text-align: center;'>
+    <h2>{(isConfirmed ? "Your Booking is Confirmed" : "Your Booking is Rejected")}</h2>
+    <p>Dear {booking.Client.UserName ?? "Customer"},</p>
+    
+    <p>{(isConfirmed ?
+                "We are pleased to inform you that your booking has been successfully confirmed with the service provider." :
+                "We regret to inform you that your booking has been rejected by the service provider.")}</p>
+    
+    <div style='border: 1px solid #ddd; padding: 15px; margin: 15px 0;'>
+        <h3>Booking Details</h3>
+        <p><strong>Service Provider:</strong> {booking.ServiceProvider.UserName ?? "Service Provider"}</p>
+        <p><strong>Date:</strong> {booking.Day:yyyy-MM-dd}</p>
+        <p><strong>Time:</strong> {formattedTime}</p>
+        <p><strong>Status:</strong> {(isConfirmed ? "Confirmed" : "Rejected")}</p>
+    </div>
+
+    <p>{(isConfirmed ?
+                "You can contact the service provider for any further details." :
+                "You can search for other available dates or service providers.")}</p>
+    
+    <p>Thank you for using our platform,</p>
+    <p>The Magic Parents Team</p>
+</div>";
+
+                var message = new Message(
+                    new[] { booking.Client.Email },
+                    emailSubject,
+                    emailBody
+                );
+
+                await _emailSender.SendEmailAsync(message);
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException(ex.Message);
+            }
         }
 
         private async Task<BookingConfirmationResponse> UpdateBookingStatusAsync(int bookingId, string providerId, BookingStatus newStatus, string successActionName)
@@ -397,6 +511,5 @@ namespace TheMagicParents.Infrastructure.Repositories
                 throw;
             }
         }
-
     }
 }
