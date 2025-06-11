@@ -39,10 +39,22 @@ namespace TheMagicParents.Infrastructure.Services
                     var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
 
                     var now = DateTime.Now;
+
+                    // الحل: حساب وقت الانتهاء مسبقاً
+                    var endTime = now.TimeOfDay.Subtract(TimeSpan.FromHours(1));
+
+                    var lowerBound = now.TimeOfDay.Subtract(TimeSpan.FromMinutes(30));
+
                     var bookingsToComplete = await dbContext.Bookings
-                    .Where(b => b.Status == BookingStatus.ongoing &&
-                               b.Day.Date <= now.Date &&
-                               b.Houre.Add(TimeSpan.FromHours(1)) <= now.TimeOfDay).ToListAsync();
+                        .Where(b => b.Status == BookingStatus.ongoing
+                                 || b.Status==BookingStatus.provider_confirmed
+                                 && b.Day.Date <= now.Date
+                                 || b.Day.Date == now.Date
+                                 && b.Houre <= lowerBound
+                                 && b.Houre >= endTime)
+                        .ToListAsync();
+
+
 
                     if (bookingsToComplete.Any())
                     {

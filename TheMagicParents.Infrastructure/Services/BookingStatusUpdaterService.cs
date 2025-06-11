@@ -36,13 +36,15 @@ namespace TheMagicParents.Infrastructure.Services
                     var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
 
                     var now = DateTime.Now;
+                    var currentTime = now.TimeOfDay;
+                    var windowStart = currentTime.Subtract(TimeSpan.FromMinutes(30));
+                    var today = now.Date;
 
-                    // الحجوزات التي يجب أن تصبح ongoing
                     var bookingsToUpdate = await dbContext.Bookings
-                        .Where(b => b.Status == BookingStatus.provider_confirmed &&
-                                   b.Day.Date == now.Date &&
-                                   b.Houre <= now.TimeOfDay &&
-                                   b.Houre.Add(TimeSpan.FromMinutes(30)) >= now.TimeOfDay) // نافذة 30 دقيقة
+                        .Where(b => b.Status == BookingStatus.provider_confirmed
+                                 && b.Day.Date == today
+                                 && b.Houre >= windowStart
+                                 && b.Houre <= currentTime)
                         .ToListAsync();
 
                     foreach (var booking in bookingsToUpdate)
@@ -64,5 +66,6 @@ namespace TheMagicParents.Infrastructure.Services
                 await Task.Delay(_checkInterval, stoppingToken);
             }
         }
+
     }
 }
